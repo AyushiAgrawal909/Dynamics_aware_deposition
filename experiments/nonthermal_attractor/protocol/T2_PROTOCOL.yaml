@@ -1,0 +1,67 @@
+# T2 pre-registration. STATUS: DRAFT, NOT FROZEN.
+#
+# Before this file is frozen (committed alone, with frozen_commit filled in),
+# the open items under `open_items` must be closed. The scan must not be
+# submitted before the freeze commit.
+
+protocol_version: 1
+task: T2
+status: DRAFT
+frozen_commit: null
+config: configs/t2_waterbag_dv020.yaml
+
+open_items:
+  - "Read Ewart et al. (arXiv:2409.01742 / PNAS 2025): tail-formation time -> time.t_end and analysis.window (currently 4800 and [500, 4800], from the review's ~3200/omega_p)"
+  - "First coarse production run (128 ppc, 1 seed, full length): check that eps_q (q = 0.01) has >= 100 effective counts at every snapshot in the window, and that eta_min stays >= 10 eta_floor at 128 ppc; otherwise raise the coarsest level or move q"
+  - "Check Vlasov v_max = 4 v_b: mass beyond 0.8 v_max in the finest PIC run < 1e-6"
+  - "Confirm the seed: 1e-3 per mode is 10.5x the measured 128-ppc free-streaming floor (marginal). Option: drop the 128 level (1.8 decades) or accept the marginal ratio"
+  - "Measure the onset scatter sigma from the 4 seeds; if sigma > 0.1 (in units of the S6 effect size), add seeds per the T1 power table"
+
+preparation:
+  name: waterbag_beams
+  v_b: 1.0
+  dv_b: 0.20
+  second_moment: 1.0033333333   # v_b^2 + dv_b^2/12
+  linear_theory: {k_star: 0.61417, gamma_max: 0.35222, lambda_star: 10.2304, k_cut: 1.0045}
+  seed_spectrum: "configs/t2_waterbag_dv020.yaml: modes 1..26 (whole unstable band), 1e-3 each, phases from default_rng(2026)"
+
+numerics:
+  box_wavelengths: 16          # plus one L-doubling check (32) at the 1024-ppc level, seed 0
+  nx: 4096                     # dx = 0.0400 = 0.69 lambda_Db
+  dt: 0.05
+  t_end: 4800.0                # OPEN (see open_items)
+
+regulator_scan:
+  pic_ppc_levels: [16384, 8192, 4096, 2048, 1024, 512, 256, 128]   # nested Halton prefixes, 2.1 decades
+  pic_seeds: [0, 1, 2, 3]
+  vlasov_dv: [0.0015625, 0.003125, 0.00625, 0.0125]                 # dv_b/128 .. dv_b/16, v_max = 4
+  stable_control: {ppc_levels: all, seeds: [0, 1]}
+  optional_pair_plasma: not implemented in this revision
+
+bins: "configs/t2_waterbag_dv020.yaml: bins, reconstruction"
+
+features:
+  - {name: eps_q, q: 0.01, min_counts: 100}
+  - {name: eta_min, detector: half-height on eta*rho plateau, floor_factor: 10.0}
+onset: {signal: "Q_N(eps >= eps_tail)/N0", eps_tail: 1.0, threshold: 0.001}
+
+gate:                          # frozen from T1; do not retune on plasma data
+  analysis_window: [500.0, 4800.0]   # OPEN
+  tau: 0.1
+  shrink_slope: 0.25
+  min_levels: 3
+  min_seeds: 3
+  reference: finest Vlasov dv, max |z| < 3 with tau*motion added in quadrature
+  onset_model: {models: [const, lnN, N], delta_aic: 4.0}
+
+pre_registered_interpretation:
+  t_on_lnN_pic_and_ln_inv_dv_vlasov: "Casimir breaking at the noise/grid scale; the tail itself may still be physical"
+  t_on_N: "discreteness-driven mechanism: the PIC tail is not a Vlasov property; Vlasov should show absence or delay"
+  no_tail_below_some_N: "minimum-ppc threshold, reported as a result"
+
+quality_gate: "|dE_total|/K + stable-control |dK|/K < 0.1 * f_tail at the end of the window, per level and seed; PIC momentum at round-off; Vlasov outflow mass < 1e-6"
+
+outcomes:
+  GO_T3: "at least one feature PASS (or PASS_AFTER_ONSET_ALIGNMENT) and consistent with Vlasov"
+  REGULATOR_RESULT: "all features FAIL_REGULATOR_DEPENDENT"
+  INCONCLUSIVE: "otherwise; report the runs and cost that would resolve it"

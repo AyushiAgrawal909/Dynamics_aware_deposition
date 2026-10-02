@@ -7,7 +7,7 @@ The programme runs as three gated tasks. Their specs are in `specs/`, together w
 | Task | Status | Content |
 |---|---|---|
 | T1 | done (`reports/T1_REPORT.md`) | Analysis library, data contract, synthetic identifiability suite S1–S7. No physics runs. |
-| T2 | code and validations in `attractor_sim/`; scan not yet run | 1D1V spectral PIC and semi-Lagrangian Vlasov, cost estimate, nested ppc / Δv regulator scan on one waterbag preparation. This is the decisive gate. |
+| T2 | code and validations done (`reports/T2_STATUS.md`); production scan prepared for Meluxina, not run | 1D1V spectral PIC and semi-Lagrangian Vlasov, cost estimate, nested ppc / Δv regulator scan on one waterbag preparation. This is the decisive gate. |
 | T3 | not started; runs only if T2 returns `GO_T3` | Scaling fits, frozen forecasts, attraction |
 
 ## Commands (from the repository root)
@@ -21,7 +21,7 @@ python3 -m pytest experiments/nonthermal_attractor/tests -m slow         # reduc
 python3 experiments/nonthermal_attractor/scripts/run_t1_synthetic_suite.py   # full suite (~3 min)
 ```
 
-The T2 commands are listed in `reports/T2_STATUS.md` once present.
+The T2 commands are listed in `reports/T2_STATUS.md`.
 
 ## Layout
 
