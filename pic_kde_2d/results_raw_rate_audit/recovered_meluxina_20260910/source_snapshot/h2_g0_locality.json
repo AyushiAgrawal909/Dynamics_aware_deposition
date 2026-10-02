@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "gate_name": "G0_locality_field_headroom",
+  "field_gain_threshold": 1.5,
+  "minimum_carrier_cycles_in_protected_core": 4.0,
+  "maximum_relative_packet_bandwidth": 0.2,
+  "maximum_protected_field_error": 0.1,
+  "kernel_support_sigmas": 3.0,
+  "sigma_safe_cells": 1.0,
+  "sigma_free_cells": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0,
+    64.0,
+    128.0,
+    256.0,
+    384.0,
+    512.0,
+    1024.0
+  ],
+  "packet": {
+    "k_lambda_D": 0.4,
+    "lambda_D": 1.0,
+    "protected_core_fraction_x": 0.1,
+    "blend_fraction_x": 0.03,
+    "envelope_definition": "Gaussian amplitude with 95.45 percent inside the protected core",
+    "uniform_in_y": true
+  },
+  "geometries": [
+    {
+      "name": "proposed_L64",
+      "intended": false,
+      "carrier_mode_x": 4,
+      "Nx": 256,
+      "Ny": 32,
+      "Ly": 7.853981633974483
+    },
+    {
+      "name": "narrowband_H2_candidate",
+      "intended": true,
+      "carrier_mode_x": 40,
+      "Nx": 2560,
+      "Ny": 32,
+      "Ly": 7.853981633974483
+    }
+  ]
+}

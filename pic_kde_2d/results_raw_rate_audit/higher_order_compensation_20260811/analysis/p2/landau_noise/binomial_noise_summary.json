@@ -1,0 +1,64 @@
+{
+  "compensation_order": 2,
+  "filter_family": "compensated_binomial",
+  "passes": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "rows": [
+    {
+      "compensation_order": 2,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.00043746831502147163,
+      "mise_ci_lo": 0.00043334091017361805,
+      "mise_mean": 0.0004351671625319963,
+      "n_seeds": 10,
+      "noise_reduction": 1.0,
+      "noise_reduction_ci_hi": 1.0,
+      "noise_reduction_ci_lo": 1.0,
+      "passes": 0,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 2,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.0002403065753941508,
+      "mise_ci_lo": 0.0002374073268349943,
+      "mise_mean": 0.0002387126898270208,
+      "n_seeds": 10,
+      "noise_reduction": 1.822974567658439,
+      "noise_reduction_ci_hi": 1.8264211071413168,
+      "noise_reduction_ci_lo": 1.8195125159738952,
+      "passes": 1,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 2,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.00018131072642979344,
+      "mise_ci_lo": 0.000178776140645519,
+      "mise_mean": 0.00017992078447285674,
+      "n_seeds": 10,
+      "noise_reduction": 2.418659766335371,
+      "noise_reduction_ci_hi": 2.42640306681796,
+      "noise_reduction_ci_lo": 2.410665328975211,
+      "passes": 2,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 2,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.00012565633927484404,
+      "mise_ci_lo": 0.00012341761676800084,
+      "mise_mean": 0.00012444608388980245,
+      "n_seeds": 10,
+      "noise_reduction": 3.4968329169549337,
+      "noise_reduction_ci_hi": 3.516405826642424,
+      "noise_reduction_ci_lo": 3.47626107744358,
+      "passes": 4,
+      "sigma_eq_dx": null
+    }
+  ]
+}

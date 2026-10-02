@@ -1,0 +1,47 @@
+{
+  "base_preflight": {
+    "preflight_path_at_launch": "/mnt/tier2/users/u103576/paper1_validation/weak_landau_confirmatory_v1/preflight/preflight.json",
+    "preflight_sha256": "48236b28bf4621a27999a33839b0ad5cfb82354135b907d4974e3894eb1f0ad7",
+    "source_sha256": {
+      "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory.py": "e7fced38279323ead13261954d94d65f509ba5840a005f074eef26dde7d30324",
+      "paper1_source_package/reproducibility/weak_landau_confirmatory_v1.json": "a800d3ae94ec0de9a76537fcd92600c8c47e4ffe02d095f418c5cc561a501508",
+      "pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+      "pic_kde_2d/pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+      "pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+      "pic_kde_2d/pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+      "pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2",
+      "pic_kde_2d/pic_kde_2d/methods/spectral_W_wrappers.py": "fca889c207843de7c448b778e54b32c98cd48293ab1234629e4efcef9a0f16ff",
+      "pic_kde_2d/scripts/run_weak_landau_confirmatory.py": "3cefeb6d3467a6b731bbd0cc3cf8102239a41393f68802b877ab64b5cc30b93f"
+    }
+  },
+  "changed_setting": "velocity quadrature assignment only: per-cell tensor -> global inverse-CDF shuffle",
+  "config_sha256": "a800d3ae94ec0de9a76537fcd92600c8c47e4ffe02d095f418c5cc561a501508",
+  "pilot_arms": [
+    "cic",
+    "c4_sigma1"
+  ],
+  "pilot_seeds": [
+    202609180,
+    202609181,
+    202609182
+  ],
+  "pilot_source_sha256": "c95411c5827059e7558bac85b604598cb155576adb5130035a10a5150044fe6c",
+  "scope": "loading correction and inherited transfer preflight only; no production validation",
+  "spatial_loading": {
+    "exact_requested_ppc": true,
+    "field_cells": 1024,
+    "particles_per_cell_before_density_perturbation": 1024,
+    "unperturbed_construction": "regular marker lattice"
+  },
+  "status": "PASS",
+  "unchanged_settings": "grid, spatial lattice/PPC, perturbation, solver, filters, dt, duration and cadence",
+  "velocity_support": {
+    "distinct_longitudinal_unperturbed_velocity_nodes": 1048576,
+    "longitudinal_velocity_max": 4.900964213447618,
+    "longitudinal_velocity_min": -4.900964213447618,
+    "n_particles": 1048576,
+    "nodes_at_or_above_positive_resonance": 690,
+    "resonance_in_support": true,
+    "resonant_phase_velocity": 3.2126424241344536
+  }
+}

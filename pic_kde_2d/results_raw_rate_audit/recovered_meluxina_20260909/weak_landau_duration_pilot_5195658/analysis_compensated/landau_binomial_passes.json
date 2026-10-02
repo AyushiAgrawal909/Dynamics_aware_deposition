@@ -1,0 +1,54 @@
+{
+  "alpha": 0.02,
+  "analytic_ceiling_sigma_dx": 2.4534,
+  "analytic_n_max": null,
+  "compensation_order": 1,
+  "filter_family": "compensated_binomial",
+  "largest_measured_passing_n": null,
+  "passes": [
+    0,
+    16
+  ],
+  "rows": [
+    {
+      "bounce_time": null,
+      "ci_supported_rate_gate": true,
+      "compensation_order": 1,
+      "filter_family": "compensated_binomial",
+      "fit_r_squared": NaN,
+      "fit_t_start": NaN,
+      "fit_t_stop": NaN,
+      "gamma": NaN,
+      "gamma_cic_common_window": NaN,
+      "gamma_ratio_to_cic": NaN,
+      "gate_status": "FAIL",
+      "model_efoldings": 0.0,
+      "passes": 0,
+      "quality_pass": false,
+      "ratio_ci_hi": 1.0,
+      "ratio_ci_lo": 1.0,
+      "ratio_sem": 0.0,
+      "sigma_eq_dx": null
+    },
+    {
+      "bounce_time": null,
+      "ci_supported_rate_gate": false,
+      "compensation_order": 1,
+      "filter_family": "compensated_binomial",
+      "fit_r_squared": NaN,
+      "fit_t_start": NaN,
+      "fit_t_stop": NaN,
+      "gamma": NaN,
+      "gamma_cic_common_window": NaN,
+      "gamma_ratio_to_cic": NaN,
+      "gate_status": "FAIL",
+      "model_efoldings": 0.0,
+      "passes": 16,
+      "quality_pass": false,
+      "ratio_ci_hi": NaN,
+      "ratio_ci_lo": NaN,
+      "ratio_sem": NaN,
+      "sigma_eq_dx": null
+    }
+  ]
+}

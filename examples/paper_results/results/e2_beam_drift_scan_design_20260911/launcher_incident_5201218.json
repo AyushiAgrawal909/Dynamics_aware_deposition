@@ -1,0 +1,22 @@
+{
+  "affected_job": 5201218,
+  "affected_job_state": "FAILED",
+  "affected_job_exit_code": "1:0",
+  "affected_job_elapsed": "00:00:20",
+  "diagnosis": "The batch launcher created each runner output directory to hold NUMBA_CACHE_DIR and run.log before invocation. The non-overwriting runner therefore rejected every attempted directory with FileExistsError before simulation initialization.",
+  "first_batch_tasks_attempted": 40,
+  "mode_histories_written": 0,
+  "scientific_design_changed": false,
+  "implementation_change": "Place launcher-only Numba caches and run logs under ROOT/numba_cache and ROOT/runner_logs; leave ROOT/runs/.../seedNNN absent for the runner to create.",
+  "patched_launcher_sha256": "440c435f2b6af2ceeb515afd408374888ffe44f9be6435208fd82312db510f15",
+  "failed_remote_tree_file_count": 43,
+  "failed_remote_tree_aggregate_sha256": "ac857b1939ca0cc5f9d2f557c808854757ebabfb51ddf5978f71da49fae10020",
+  "failed_local_archive": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260911/e2_beam_drift_scan_5201218",
+  "replacement_job": 5201231,
+  "replacement_state_when_recorded": "PENDING_RESOURCES",
+  "replacement_final_state": "TIMEOUT",
+  "replacement_complete_histories": 120,
+  "replacement_missing_v_beam": [0.818],
+  "replacement_continuation_submitted": false,
+  "frozen_campaign_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446"
+}

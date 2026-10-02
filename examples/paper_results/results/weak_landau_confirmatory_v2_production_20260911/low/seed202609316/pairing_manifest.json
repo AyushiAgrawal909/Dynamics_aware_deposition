@@ -1,0 +1,11 @@
+{
+  "all_three_arm_hashes_match": true,
+  "arm_initial_hashes": {
+    "c4_sigma1": "a7651c2f24213dca8eaa41877ec7f3264e3f2b65b91a87f6428bb6146ed0d7bb",
+    "cic": "a7651c2f24213dca8eaa41877ec7f3264e3f2b65b91a87f6428bb6146ed0d7bb",
+    "lscv_job5008392": "a7651c2f24213dca8eaa41877ec7f3264e3f2b65b91a87f6428bb6146ed0d7bb"
+  },
+  "initial_particle_sha256": "a7651c2f24213dca8eaa41877ec7f3264e3f2b65b91a87f6428bb6146ed0d7bb",
+  "seed": 202609316,
+  "velocity_assignment_scope": "global"
+}

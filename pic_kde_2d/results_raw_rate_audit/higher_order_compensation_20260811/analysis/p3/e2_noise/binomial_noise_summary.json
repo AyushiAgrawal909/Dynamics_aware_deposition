@@ -1,0 +1,64 @@
+{
+  "compensation_order": 3,
+  "filter_family": "compensated_binomial",
+  "passes": [
+    0,
+    1,
+    2,
+    4
+  ],
+  "rows": [
+    {
+      "compensation_order": 3,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.005299062345364811,
+      "mise_ci_lo": 0.005149333261438946,
+      "mise_mean": 0.005227948947761721,
+      "n_seeds": 10,
+      "noise_reduction": 1.0,
+      "noise_reduction_ci_hi": 1.0,
+      "noise_reduction_ci_lo": 1.0,
+      "passes": 0,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 3,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.002666511560053141,
+      "mise_ci_lo": 0.00252469979049437,
+      "mise_mean": 0.0025971374443597424,
+      "n_seeds": 10,
+      "noise_reduction": 2.0129658363346796,
+      "noise_reduction_ci_hi": 2.041549640657338,
+      "noise_reduction_ci_lo": 1.9846324596298721,
+      "passes": 1,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 3,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.0020479781021856434,
+      "mise_ci_lo": 0.001919523726488768,
+      "mise_mean": 0.001983673060389537,
+      "n_seeds": 10,
+      "noise_reduction": 2.6354892104725667,
+      "noise_reduction_ci_hi": 2.688595272936205,
+      "noise_reduction_ci_lo": 2.584941668668666,
+      "passes": 2,
+      "sigma_eq_dx": null
+    },
+    {
+      "compensation_order": 3,
+      "filter_family": "compensated_binomial",
+      "mise_ci_hi": 0.00148820201100754,
+      "mise_ci_lo": 0.0013768213478999737,
+      "mise_mean": 0.0014330121574520468,
+      "n_seeds": 10,
+      "noise_reduction": 3.6482237227192993,
+      "noise_reduction_ci_hi": 3.7513915931624657,
+      "noise_reduction_ci_lo": 3.552618860815673,
+      "passes": 4,
+      "sigma_eq_dx": null
+    }
+  ]
+}

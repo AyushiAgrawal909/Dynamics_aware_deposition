@@ -1,0 +1,8 @@
+{
+  "benchmark": "landau",
+  "n_seeds": 10,
+  "right_censored": false,
+  "search_max_dx": 60.0,
+  "sigma_mise_dx": 6.0,
+  "sigma_mise_relation": "="
+}

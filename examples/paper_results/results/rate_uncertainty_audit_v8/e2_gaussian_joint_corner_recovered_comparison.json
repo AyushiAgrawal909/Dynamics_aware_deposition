@@ -1,0 +1,14 @@
+{
+  "added_columns_in_rebuilt": [],
+  "archived": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/analysis/joint_corner_sweep.csv",
+  "archived_sha256": "7ce26870f366867325254971ff2e898470efa9207d8c2856c293dc98d6b0defc",
+  "examples": [],
+  "max_abs_numeric_difference": 3.552713678800501e-14,
+  "mismatch_count": 0,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v8/e2_gaussian_joint_corner_recovered/joint_corner_sweep.csv",
+  "rebuilt_sha256": "ab5cf8ea83eef4765966ef2e3aec8dc61ae1f55e270ef7a2db7cab81b26ce3eb",
+  "rows_archived": 7,
+  "rows_rebuilt": 7,
+  "status": "PASS"
+}

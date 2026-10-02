@@ -1,0 +1,13 @@
+case,direction,level,sigma_cells_at_10pct,criterion
+weak_landau_m1,isotropic,continuum,2.451433372324586,1.10 x |gamma0|
+weak_landau_m1,isotropic,principal_cic,2.4534381425710894,1.10 x |gamma0|
+weak_landau_m1,isotropic,grid_time_discrete,2.4547333545993784,1.10 x |gamma0|
+E2_m8,isotropic,continuum,1.0779517386409885,0.90 x gamma0
+E2_m8,isotropic,principal_cic,1.0622934857879298,0.90 x gamma0
+E2_m8,isotropic,grid_time_discrete,1.0622852160590246,0.90 x gamma0
+E2_m12,isotropic,continuum,0.2663919286394646,0.90 x gamma0
+E2_m12,isotropic,principal_cic,0.19872036032415863,0.90 x gamma0
+E2_m12,isotropic,grid_time_discrete,0.19863052738378506,0.90 x gamma0
+E2_m12_n1,y,continuum,0.40160548568840704,0.90 x gamma0
+E2_m12_n1,y,principal_cic,0.24283045835958433,0.90 x gamma0
+E2_m12_n1,y,grid_time_discrete,0.24273459979982182,0.90 x gamma0

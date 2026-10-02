@@ -1,0 +1,18 @@
+{
+  "job_id": 5201231,
+  "job_submit": "2026-09-11T15:26:48+02:00",
+  "job_start": "2026-09-11T15:27:41+02:00",
+  "job_end": "2026-09-11T19:28:19+02:00",
+  "whole_job_state": "TIMEOUT after later batches; the complete vb0800/CIC seed200--209 subset is present",
+  "scheduler_interpreter_path": "/apps/USE/easybuild/release/2024.1/software/Python/3.11.10-GCCcore-13.3.0/bin/python3",
+  "scheduler_exports_python_library_path": true,
+  "production_reconstruction_python": "3.11.10",
+  "production_reconstruction_numpy": "2.3.5",
+  "numpy_import_path": "/home/users/u103576/.local/lib/python3.11/site-packages/numpy/__init__.py",
+  "numpy_file_mtime_observed": "2025-12-08T11:53:25+01:00",
+  "conventions_sha256_observed": "1540f55332353e3c045ef12c4121011cebd2504c5873c34f690d9bacbe6a9eb2",
+  "conventions_file_mtime_observed": "2026-05-18T18:47:53+02:00",
+  "cic_sha256_observed": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+  "cic_file_mtime_observed": "2026-05-18T18:47:51+02:00",
+  "limitation": "The historical input manifest did not hash conventions.py or cic.py. Their observed mtimes predate the job, but mtimes are not cryptographic provenance. conventions.py affects marker-grid factorization; cic.py does not construct the initial particle arrays."
+}

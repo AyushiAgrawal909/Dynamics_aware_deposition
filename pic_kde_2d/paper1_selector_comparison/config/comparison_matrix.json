@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "claim": "C4 is the only eligible selector that passes both benchmark columns.",
+  "gates": {
+    "baseline_theory_relative_tolerance": 0.15,
+    "rate_ratio_tolerance": 0.10,
+    "rate_confidence_level": 0.95,
+    "noise_reduction_minimum": 1.0,
+    "require_noise_ci_lower_above_minimum": true,
+    "require_rate_ci_inside_tolerance": true
+  },
+  "benchmarks": [
+    {
+      "id": "weak_landau",
+      "label": "Weak Landau",
+      "marginality_label": "damped: gamma_theory = -0.0661",
+      "physics": {
+        "Nx": 64,
+        "Ny": 16,
+        "Lx": 15.707963267948966,
+        "Ly": 8.0,
+        "mode": 1,
+        "k_lambda_D": 0.4,
+        "alpha": 0.01,
+        "dt": 0.05
+      },
+      "rate_protocol": {
+        "ppc": 1024,
+        "seeds": 10,
+        "seed_start": 0,
+        "mode": 1,
+        "reference_kind": "kinetic_theory",
+        "reference_gamma": -0.06612795869066261,
+        "fitter": "pic_kde_2d.validation.landau_censored_fit"
+      },
+      "noise_protocol": {
+        "ppc": 1024,
+        "seeds": 10,
+        "seed_start": 0,
+        "reference_ppc": 16384,
+        "metric": "paired time-averaged density MISE"
+      }
+    },
+    {
+      "id": "two_stream_e2",
+      "label": "Near-marginal two-stream",
+      "marginality_label": "protected edge m=12; projected linearized-delta-f rate",
+      "physics": {
+        "Nx": 128,
+        "Ny": 16,
+        "Lx": 64.0,
+        "Ly": 16.0,
+        "v_beam": 0.8,
+        "v_thermal": 0.05,
+        "alpha": 0.001,
+        "dt": 0.05,
+        "trajectory_seed_mode": 12,
+        "rate_mode": 12
+      },
+      "rate_protocol": {
+        "ppc": 512,
+        "seeds": 10,
+        "seed_start": 0,
+        "mode": 12,
+        "reference_kind": "projected_linearized_delta_f_with_warm_dispersion_baseline_check",
+        "reference_gamma": 0.14467083243170237,
+        "fitter": "paired common-window projected-delta-f growing fit"
+      },
+      "noise_protocol": {
+        "ppc": 32,
+        "seeds": 10,
+        "seed_start": 0,
+        "reference_ppc": 1024,
+        "metric": "paired time-averaged density MISE"
+      }
+    }
+  ],
+  "selectors": [
+    {
+      "id": "cic",
+      "label": "CIC",
+      "eligible": true,
+      "selection": "fixed",
+      "sigma_dx": {
+        "weak_landau": 0.0,
+        "two_stream_e2": 0.0
+      }
+    },
+    {
+      "id": "silverman",
+      "label": "Silverman ROT",
+      "eligible": true,
+      "selection": "periodic uniform-background Silverman rule evaluated at the operational noise PPC",
+      "formula": "h_j = (L_j/sqrt(12))*N_particles^(-1/6) for d=2; report h_x/dx and apply the anisotropic pair (h_x,h_y)",
+      "sigma_dx": {
+        "weak_landau": 1.8329728493314705,
+        "two_stream_e2": 5.819326058515848
+      },
+      "sigma_y_dy": {
+        "weak_landau": 0.45824321233286763,
+        "two_stream_e2": 0.727415757314481
+      }
+    },
+    {
+      "id": "mise",
+      "label": "MISE oracle",
+      "eligible": true,
+      "selection": "minimum paired reference-density MISE at the benchmark noise PPC",
+      "sigma_dx": {
+        "weak_landau": null,
+        "two_stream_e2": null
+      }
+    },
+    {
+      "id": "loo_cv",
+      "label": "LOO-CV (unguarded)",
+      "eligible": true,
+      "selection": "unguarded least-squares leave-one-out CV for CIC plus spectral W; retained as the honest density-objective baseline",
+      "search_max_dx": 60.0,
+      "expected_censoring": "right",
+      "sigma_dx": {
+        "weak_landau": 60.0,
+        "two_stream_e2": 60.0
+      },
+      "sigma_relation": {
+        "weak_landau": ">=",
+        "two_stream_e2": ">="
+      }
+    },
+    {
+      "id": "wu_qin_ad_cv",
+      "label": "Wu-Qin AD-gated CV",
+      "eligible": true,
+      "selection": "same LOO-CV loss, re-optimized only when Anderson-Darling rejects uniformity at p <= 0.01 and p has fallen by another factor of two; target relaxation rate 0.05",
+      "initial_sigma_dx": 0.0,
+      "sigma_dx": {
+        "weak_landau": null,
+        "two_stream_e2": null
+      }
+    },
+    {
+      "id": "c4",
+      "label": "C4",
+      "eligible": true,
+      "selection": "largest noise-reducing width satisfying the preregistered dynamics constraints",
+      "sigma_dx": {
+        "weak_landau": 1.0,
+        "two_stream_e2": 0.18445488487247555
+      }
+    },
+    {
+      "id": "delta_f",
+      "label": "delta-f reference",
+      "eligible": false,
+      "selection": "different formulation; variance-reduction reference only",
+      "sigma_dx": {
+        "weak_landau": null,
+        "two_stream_e2": null
+      }
+    }
+  ]
+}

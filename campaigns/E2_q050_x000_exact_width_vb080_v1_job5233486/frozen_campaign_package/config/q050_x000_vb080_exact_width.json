@@ -1,0 +1,195 @@
+{
+  "acceptance": {
+    "delta_f_ratio_max": 0.5,
+    "fit_r_squared_min": 0.98,
+    "individual_fit_r_squared_min": 0.98,
+    "fit_start_snr_min": 5.0,
+    "fitted_efoldings_min": 2.0,
+    "model_operating_ratio_min": 0.95,
+    "no_seed_rejection": true,
+    "positive_growth": "central rate and paired-bootstrap lower confidence limit must both be positive",
+    "rate_preservation_interval": [
+      0.9,
+      1.1
+    ],
+    "rate_preservation_rule": "the entire paired 95% confidence interval must lie in [0.90, 1.10]",
+    "unresolved_policy": "do not add seeds, change the window, or extend the run after inspecting the result"
+  },
+  "analysis": {
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 20260921,
+    "fit_t_start": 24.32,
+    "fit_t_stop": 69.16,
+    "floor_window_duration": 2.0,
+    "primary_estimand": "ratio of arithmetic means of paired individual-seed fitted growth rates",
+    "secondary_estimand": "ratio of slopes of ln(mean_seed(abs(Ex_hat_12_1)))",
+    "uncertainty_unit": "paired seed index; identical resampled indices in CIC and q050_x000; no temporal resampling"
+  },
+  "arms": {
+    "cic": {
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.0
+    },
+    "q050_x000": {
+      "archived_candidate_label": "q050_x000",
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.1716392815470568
+    }
+  },
+  "campaign_id": "E2_q050_x000_exact_width_vb080_v1",
+  "cost": {
+    "empirical_basis": "completed E2 job 5195640 required about 0.45 CPU node-hour for ten concurrent t=60 histories; duration scaling to t=71.16 gives about 0.534 node-hour per concurrently packed ten-history arm",
+    "expected_cpu_node_hours": 0.6,
+    "hard_cap_cpu_node_hours": 1.0,
+    "new_histories": 10,
+    "reused_histories": 10,
+    "packing": "10 one-thread q050_x000 histories concurrently on one CPU node; archived CIC is audited and copied without rerunning",
+    "requested_wall_time": "01:00:00"
+  },
+  "diagnostic_cadence": 0.04,
+  "diagnostic_stride": 2,
+  "dt": 0.02,
+  "equilibrium": {
+    "background": "equal-density symmetric two-stream bi-Maxwellian",
+    "v_beam_minus": -0.8,
+    "v_beam_plus": 0.8,
+    "v_thermal_x": 0.05,
+    "v_thermal_y": 0.05
+  },
+  "existing_cic_reuse": {
+    "campaign_id": "E2_beam_drift_scan_v1_job5201231_vb0800_cic",
+    "historical_saved_particle_array_hash_available": false,
+    "historical_saved_particle_array_hash": null,
+    "frozen_campaign_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+    "git_revision": "ed6dd96d16d0b70a53bf9486fd78a270ab3486d6",
+    "pairing_evidence": "production-runtime deterministic reconstruction from the archived wrapper, frozen configuration, explicitly hashed initializer sources and seeds; the new q050 runner must reproduce each reconstructed aggregate and per-array hash before time integration",
+    "pairing_limitation": "job 5201231 did not save historical particle arrays or their hashes; matching seed numbers alone is not accepted as pairing evidence",
+    "historical_source_provenance": {
+      "explicitly_hashed_initialization_files": [
+        "scripts/run_linearized_delta_f_mode.py",
+        "pic_kde_2d/core/particles2d.py",
+        "pic_kde_2d/methods/delta_f.py",
+        "pic_kde_2d/core/grid2d.py"
+      ],
+      "unhashed_transitive_files": [
+        "pic_kde_2d/conventions.py",
+        "pic_kde_2d/methods/cic.py"
+      ],
+      "git_revision_scope": "context only: the research Python tree was untracked by this repository revision, so the revision is not used as a content hash for those files",
+      "mtime_evidence": "the observed conventions.py and cic.py mtimes predate job 5201231; this is supporting evidence, not cryptographic provenance"
+    },
+    "production_runtime": {
+      "interpreter_path": "/apps/USE/easybuild/release/2024.1/software/Python/3.11.10-GCCcore-13.3.0/bin/python3",
+      "observed_python": "3.11.10",
+      "observed_numpy": "2.3.5",
+      "reconstruction_host": "meluxina",
+      "reconstruction_no_time_integration": true
+    },
+    "production_runtime_reconstructed_initial_state_sha256": {
+      "200": "64b251235859d863690dd45d32eb44ae0aa0b46c9facf1aca6fb30930fe95e67",
+      "201": "d0e5f1f8103cf90a358216cd472292ae088bf19a806079576e1b89c7e9ef4227",
+      "202": "a426026f6a039b843a670b6d00e8d28b5c2a4aa503989d91b06e596cae6ef67e",
+      "203": "9b99d7482e97a48e4d732ff58daf867ff61766558fb75a097d34aa2513466989",
+      "204": "96b8d05100000970dc9894fea90c04e3305eddbd5db48cfeb3065362291b9854",
+      "205": "a4496d8ca6d3720d95cc3abd7a757a710b21fbfc2ca8cf65b6842166f4e97e84",
+      "206": "dd186459cada94107c293e8f5130328e87a6e3dc7fcc8c253ee3dc5ac641849a",
+      "207": "575809d2044088aafdfd7debea53959ac45a1fa1f1c90097660b0de3a00285dc",
+      "208": "8e59df993fff14c91298eae601410df492b7ce307b835a5311c34eb9e2007e06",
+      "209": "0c320a9da6e3485d14f17a3a6b4051eaba9d951cd12aeda9e040c0abf1ccf6eb"
+    },
+    "remote_path": "/mnt/tier2/users/u103576/paper1_validation/e2_beam_drift_scan_5201231/runs/vb0800/cic",
+    "runner_sha256": "9935058260947f6af08cb801a9200508d7e040da6c79864214c5e49452a75279",
+    "time_zero_mode_absolute_tolerance": 1e-22
+  },
+  "filter_chain": {
+    "deposition": "perturbation-weight CIC followed by one Gaussian W",
+    "gather": "one Gaussian W on nodal E followed by CIC interpolation",
+    "q_at_target_mode": 0.004543108902388957,
+    "q050_W_one_application": 0.9977310235762052,
+    "q050_particle_force_W_squared": 0.9954671954064221,
+    "q050_particle_force_power_W_fourth": 0.990954937130328,
+    "transfer_definition": "W=exp[-((kx*sigma_x)^2+(ky*sigma_y)^2)/2]"
+  },
+  "grid": {
+    "Lx": 64.0,
+    "Ly": 16.0,
+    "Nx": 128,
+    "Ny": 16,
+    "dx": 0.5,
+    "dy": 1.0
+  },
+  "initial_perturbation_alpha": 1e-08,
+  "loading": {
+    "marker_grid": [
+      2048,
+      512
+    ],
+    "particles_per_history": 1048576,
+    "ppc": 512,
+    "scheme": "regular marker lattice; global inverse-normal quiet-start thermal velocities; random balanced beam-sign permutation",
+    "within_seed_pairing": "q050_x000 records the actual initialized arrays; before time integration its production-runtime aggregate hash must match existing_cic_reuse.production_runtime_reconstructed_initial_state_sha256, and the reducer must also match every q050 per-array hash to the production-runtime reuse audit"
+  },
+  "mode": [
+    12,
+    1
+  ],
+  "model_prediction": {
+    "cic_gamma": 0.11746393707505787,
+    "name": "audited warm oblique grid/time-discrete response, spatial aliases qmax=8, temporal aliases lmax=1024",
+    "q050_gamma": 0.11174354321424793,
+    "q050_rate_ratio": 0.9513008502587932,
+    "root_residual_tolerance": 2e-11
+  },
+  "poisson_solver": "periodic spectral Poisson solve on the projected conjugate target-mode pair",
+  "scope": "target-mode-projected linearized delta-f dynamics validation of the archived selected width; not a same-configuration full-f error-and-rate demonstration",
+  "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209
+  ],
+  "seed_independence": "dynamics seeds 200--209 are disjoint from bandwidth-selection seeds 100--104 and held-out static-error seeds 105--109, but they were previously analysed in job 5201231 and are not fresh dynamics seeds",
+  "seed_set_change_record": "the original fresh paired-CIC design used seeds 105--114; it changed before any q050 dynamics result was inspected because exact compatible CIC histories were recovered for previously analysed seeds 200--209 and passed the historical-initialization compatibility audit",
+  "selection": {
+    "acceptance_tolerance": 0.1,
+    "candidate": "q050_x000",
+    "evaluation_seeds": [
+      105,
+      106,
+      107,
+      108,
+      109
+    ],
+    "model_operating_tolerance": 0.05,
+    "selection_seeds": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ]
+  },
+  "source_identity": {
+    "expected_git_revision": "ed6dd96d16d0b70a53bf9486fd78a270ab3486d6",
+    "git_revision_is_not_research_python_content_identity": true,
+    "sha256": {
+      "pic_kde_2d/conventions.py": "1540f55332353e3c045ef12c4121011cebd2504c5873c34f690d9bacbe6a9eb2",
+      "pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+      "pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+      "pic_kde_2d/core/pic_loop_delta_f.py": "cc2231527ba0e725d4929bd0b12c3ffb04b52cb6c69d6fc20c925e16d831c814",
+      "pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+      "pic_kde_2d/methods/delta_f.py": "e5c75624ae09cb94381fa3c519a82828528ca511ec3e73f9cf6dce6799f9e074",
+      "pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2",
+      "scripts/run_linearized_delta_f_mode.py": "c0e849a96c4822d07263cb6de137296766f1ef531d182a10c9a3d39236143599"
+    }
+  },
+  "status": "FROZEN_NOT_SUBMITTED",
+  "target_mode_projection": true,
+  "t_end": 71.16
+}

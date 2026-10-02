@@ -1,0 +1,32 @@
+proposed_L64: valid=False, best field gain=1.4262x at sigma_free=32 dx, ideal deletion upper bound=3.2482x
+narrowband_H2_candidate: valid=True, best field gain=1.6223x at sigma_free=384 dx, ideal deletion upper bound=3.6755x
+G0 DECISION: PROCEED_H2
+{
+  "status": "FAIL_UNREPRESENTABLE",
+  "h2_authorized": false,
+  "requested_profile": {
+    "sigma_safe_cells": 2.453,
+    "sigma_free_cells": 384.0,
+    "Nx": 2560,
+    "Ny": 32,
+    "max_abs_dsigma_dcell": 14.394698200118441,
+    "max_abs_dlog_sigma_dcell": 0.10331351082141293
+  },
+  "production_variational_chain": {
+    "kde_max_cells": 20.0,
+    "periodic_images_each_side": 3,
+    "width_representable_without_clamp": false,
+    "wrapped_image_fraction_x_at_d0": 1.0,
+    "wrapped_image_fraction_y_at_d0": 0.22253864038679336,
+    "periodic_image_sum_accurate": false,
+    "field_gain_at_largest_supported_width": 1.0000329989595405
+  },
+  "conservation_metrics": {
+    "grad_h_force_magnitude": null,
+    "integrated_momentum_drift": null,
+    "static_refresh_work_signed": 0.0,
+    "static_refresh_work_absolute": 0.0,
+    "reason_not_measured": "the validated variational chain clamps or misrepresents the requested profile"
+  },
+  "decision": "STOP_H2_VARIATIONAL_PROFILE_NOT_IMPLEMENTED"
+}

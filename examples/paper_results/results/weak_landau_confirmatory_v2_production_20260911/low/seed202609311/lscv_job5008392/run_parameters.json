@@ -1,0 +1,61 @@
+{
+  "Lx": 15.707963267948966,
+  "Ly": 8.0,
+  "Nx": 64,
+  "Ny": 16,
+  "alpha": 0.01,
+  "arm": {
+    "directional_convention": "cell-isotropic: sigma_x=7.244293147028428*dx and sigma_y=7.244293147028428*dy; W is applied once on deposition and once on the return field",
+    "filter": "Gaussian W=exp[-(kx^2 sigma_x^2 + ky^2 sigma_y^2)/2]",
+    "id": "lscv_job5008392",
+    "name": "Previously selected exact LOO-CV comparator",
+    "selection_independence_note": "The width was selected before v2 from disjoint static data under the same global velocity-assignment convention and is never reselected from v2 rates.",
+    "selection_source": "landau_lscv_static_5008392, alpha=0.01, PPC 1024, ten global-layout development seeds, exact particle-phase-averaged CIC LOO self term, t=0 static selection",
+    "sigma_cells": 7.244293147028428
+  },
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "config_path_at_launch": "/mnt/tier2/users/u103576/hexapic-main/paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json",
+  "config_sha256": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+  "dt": 0.05,
+  "dx": 0.2454369260617026,
+  "dy": 0.5,
+  "field_snapshot_stage": "after arm density W and spectral Poisson, before return-path W and particle gather",
+  "initial_particle_sha256": "421fefd199cfae46f4adc56ef024c5e2808a36c3882b74673edc6310d3fc5421",
+  "k_lambda_D": 0.4,
+  "kx_mode": 1,
+  "ky_mode": 0,
+  "n_steps": 1800,
+  "paired_low_ppc_arms": [
+    "cic",
+    "c4_sigma1",
+    "lscv_job5008392"
+  ],
+  "ppc": 1024,
+  "preflight_path_at_launch": "/mnt/tier2/users/u103576/paper1_validation/weak_landau_confirmatory_v2_global_velocity/preflight/preflight.json",
+  "preflight_sha256": "f48de6f8f9dc3ae6c8a06ad5f5851c3d79506b7cf90b4b08af85eb0242a6f5de",
+  "rho_snapshot_stage": "after CIC deposit and arm W, before Poisson",
+  "seed": 202609311,
+  "simulation_t_stop": 90.0,
+  "solver": {
+    "algorithm": "numpy rfft2 periodic spectral Poisson solve",
+    "equations": "phi_hat=rho_hat/k^2 for k!=0; Ex_hat=-i*kx*phi_hat; Ey_hat=-i*ky*phi_hat; k=0 set to zero",
+    "particle_field_chain": "CIC deposit -> W on rho -> spectral Poisson -> same W on Ex,Ey -> CIC gather",
+    "tolerance": "not applicable: direct FFT solve"
+  },
+  "source_sha256": {
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory.py": "e7fced38279323ead13261954d94d65f509ba5840a005f074eef26dde7d30324",
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory_v2.py": "f27c7bb14fdfad9a65c5bbe50f4d9ec05ea06a0ea6c88529bf07faf75e182e31",
+    "paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+    "pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "pic_kde_2d/pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+    "pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+    "pic_kde_2d/pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W_wrappers.py": "fca889c207843de7c448b778e54b32c98cd48293ab1234629e4efcef9a0f16ff",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory.py": "3cefeb6d3467a6b731bbd0cc3cf8102239a41393f68802b877ab64b5cc30b93f",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory_v2.py": "3c85334aa7ba138a2a40d4396b0afb1f6bf558b1109086a1895a7d7d46d05cc1"
+  },
+  "spatial_particles_per_cell_before_perturbation": 1024,
+  "velocity_assignment_scope": "global",
+  "velocity_loading": "global inverse-normal quiet-start template, independently shuffled for vx and vy over all particles with the frozen seed"
+}

@@ -1,0 +1,2 @@
+method,protocol,Nx,Ny,ppc,n_particles,steps,warmup_steps,deposit_ms_per_step,solve_ms_per_step,filter_ms_per_step,gather_ms_per_step,push_ms_per_step,total_ms_per_step,total_ms_step_std,persistent_array_bytes,persistent_bytes_per_particle,process_peak_rss_bytes,unattributed_ms_per_step
+deltaf,linearized_delta_f,64,16,1024,1048576,200,10,176.49912668857723,1.2538336077705026,0.0,194.50293482281268,55.254819919355214,432.34142964705825,16.656164777000097,50351304,48.01874542236328,393842688,4.830714608542621

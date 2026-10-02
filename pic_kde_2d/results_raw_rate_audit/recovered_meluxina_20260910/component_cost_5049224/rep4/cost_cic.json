@@ -1,0 +1,21 @@
+{
+  "Nx": 64,
+  "Ny": 16,
+  "deposit_ms_per_step": 183.3306886581704,
+  "filter_ms_per_step": 0.0,
+  "gather_ms_per_step": 197.94808051548898,
+  "method": "cic",
+  "n_particles": 1048576,
+  "persistent_array_bytes": 41962696,
+  "persistent_bytes_per_particle": 40.01874542236328,
+  "ppc": 1024,
+  "process_peak_rss_bytes": 309981184,
+  "protocol": "full_f",
+  "push_ms_per_step": 23.83900395128876,
+  "solve_ms_per_step": 1.133711994625628,
+  "steps": 200,
+  "total_ms_per_step": 412.37739372532815,
+  "total_ms_step_std": 13.473611239002052,
+  "unattributed_ms_per_step": 6.1259086057543755,
+  "warmup_steps": 10
+}

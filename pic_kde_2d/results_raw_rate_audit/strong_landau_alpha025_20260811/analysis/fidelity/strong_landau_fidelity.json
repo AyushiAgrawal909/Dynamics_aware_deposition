@@ -1,0 +1,62 @@
+{
+  "cv_result": {
+    "bootstrap_quality_fraction": 0.0,
+    "bootstrap_valid_fraction": 1.0,
+    "bounce_detected": true,
+    "bounce_time": 9.5,
+    "central_rate_gate": true,
+    "ci_supported_rate_gate": true,
+    "cic_bounce_time": 9.5,
+    "cic_fit_r_squared": 0.9961833648208294,
+    "fit_duration": 4.0,
+    "fit_r_squared": 0.9960475503808659,
+    "fit_t_start": 3.0,
+    "fit_t_stop": 7.0,
+    "gamma": -0.2325459263606083,
+    "gamma_ci_hi": -0.23137625080311286,
+    "gamma_ci_lo": -0.23371164145884793,
+    "gamma_cic_common_window": -0.22988495472610537,
+    "gamma_ratio_to_cic": 1.0115752317835385,
+    "gate_status": "UNRESOLVED",
+    "model_efoldings": 0.9301837054424332,
+    "n_seeds": 10,
+    "quality_pass": false,
+    "ratio_ci_hi": 1.0117550531610546,
+    "ratio_ci_lo": 1.0113620051242973,
+    "ratio_sem": 0.00010102813944425644,
+    "sigma_dx": 1.3958
+  },
+  "cv_verdict": "UNRESOLVED",
+  "cv_width_dx": 1.3958,
+  "protocol": {
+    "alpha": 0.25,
+    "eps_gamma": 0.1,
+    "fit_rule": "common paired initial-decay interval censored before earlier first bounce",
+    "initialization": "identical density-and-current moment-matched pipeline to weak Landau",
+    "k_lambdaD": 0.4,
+    "minimum_model_efoldings": 3.0,
+    "ppc": 1024,
+    "quiet_start_layout": "global",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sigma_grid_dx": [
+      0.0,
+      1.0,
+      1.25,
+      1.3958,
+      1.5,
+      2.0,
+      2.453
+    ]
+  }
+}

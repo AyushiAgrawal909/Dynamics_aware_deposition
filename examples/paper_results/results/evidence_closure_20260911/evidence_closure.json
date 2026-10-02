@@ -1,0 +1,85 @@
+{
+  "baseline_duration_policy": {
+    "e2_c4_actual_shared_baseline": "The Gaussian C4 comparison uses the same [24.32,59.68] window as CIC; CIC spans 4.483681 fitted e-foldings, so the newer baseline-duration criterion passes.",
+    "new_confirmation_required": "The v2 confirmatory campaign explicitly preregistered separate arm-specific censoring windows and required both CIC and C4 to span two e-foldings; its CIC window spans only 1.721386 and therefore fails.",
+    "older_matrix_NOT_APPLICABLE": "The retrospective matrix originally defined duration for the candidate arm only; NOT_APPLICABLE was a schema marker, not evidence that a baseline check failed.",
+    "scope_warning": "NOT_APPLICABLE on other retrospective rows must not be read as an unmeasured baseline pass; claims there remain limited to the stated candidate-arm test."
+  },
+  "compensated_E2_prediction_conclusion": "All four grid/time-discrete point predictions lie below and outside the direct measured 95% intervals.  The p2/n2 and p3/n4 settings nevertheless pass the separate 10% measured rate-preservation criterion.",
+  "e2_c4_signal_resolvability": {
+    "candidate_fitted_efoldings": 4.113115973142947,
+    "checks": {
+      "all_5000_paired_resamples_valid": true,
+      "candidate_efoldings_at_least_2": true,
+      "delta_f_guard_below_0p5": true,
+      "fit_r_squared_at_least_0p98": true,
+      "fit_start_snr_at_least_5": true,
+      "shared_cic_baseline_efoldings_at_least_2": true
+    },
+    "condition": "E2 Gaussian C4 binding corner (12,1), sigma_x=0, sigma_y=0.2428 dy",
+    "fit_r_squared": 0.9959129522959156,
+    "fit_window": [
+      24.32,
+      59.68
+    ],
+    "floor": {
+      "fit_start_amplitude": 6.571334862887537e-09,
+      "fit_start_snr": 11.213402344678167,
+      "floor_definition": "quietest rolling-median pre-emergence window",
+      "floor_scope": "per-cell",
+      "floor_t_start": 8.16,
+      "floor_t_stop": 10.120000000000001,
+      "noise_floor": 5.860250672273669e-10
+    },
+    "historical_reducer_gap": "the original joint reducer stored no floor; this audit applies the existing quietest two-time-unit rolling-median pre-emergence estimator to the recovered histories",
+    "max_delta_f_ratio_fit_window": 0.00026671833268478986,
+    "paired_bootstrap_valid": 5000,
+    "raw_history_count": 10,
+    "raw_history_sha256": {
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed0/mode_history.npz": "c27cef5f250692ad3cd64f9f01ad892f3dd3a9421b0e0cbbb272d73f07ca19e6",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed1/mode_history.npz": "e25e3de201c3a802023c78a3869faad17a8d5829672bfa430f64e231ccffc7c8",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed2/mode_history.npz": "fb04c1fb2c450243571556252d00f319a547e669f3309543d59c3e755238322d",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed3/mode_history.npz": "05e3689dbb9b846f1371874057b6b010b3053d719b377ae82918074502e8ba25",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed4/mode_history.npz": "d9d40bc5c00e71878d964942623ef4ec8c7f542b83c55a5d326344f914cb5176",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed5/mode_history.npz": "d5f9a7353d9e85b74de8ad949a42811ac45e8a5d06e4dc9dd2725ae64ee503d6",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed6/mode_history.npz": "65b049b74febe8c52e636f4bfdba2c8d6fd580e61aa5346dcb8d0c392fc14bd9",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed7/mode_history.npz": "c3fb9eb4ae0185c50f533bf7aa5ac7e1abe76271f53654353dc6c07a9104be5c",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed8/mode_history.npz": "ac140d5510c625086d6ba4d861a663c1f9a906e049d4a26155731782596c008f",
+      "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed9/mode_history.npz": "0096cac6ef71db5361bac7af47459ce9ef543d4a2bde7e2979811f70212246c6"
+    },
+    "reduction_sha256": "ab5cf8ea83eef4765966ef2e3aec8dc61ae1f55e270ef7a2db7cab81b26ce3eb",
+    "shared_cic_baseline_fitted_efoldings": 4.483681269108223,
+    "signal_resolvability": "PASS"
+  },
+  "historical_loading_claim_narrowing": "The 4867515 powers remain measurements of density error for that constructed ensemble, but they cannot be combined with global-loading rates as a same-campaign physical Landau validation or used to claim resonant-dynamics support.",
+  "historical_loading_conclusion": "Yes: job 4867515, which supplied the Table-4 C4 and Silverman density-error powers, used the same repeated per-cell 32x32 velocity construction.  No recovered Landau rate history is identified as per-cell.  The oldest rate metadata predate the layout field, so their exact historical revision remains unknown.",
+  "input_sha256": {
+    "paper1_source_package/reproducibility/results/dispersion_audit/filter_rate_predictions.csv": "91246fe50afeb1ee4ddbb0082d7bd1cd6289f5a24a92a0e9b5a567691de2bc20",
+    "paper1_source_package/reproducibility/results/noise_metric_audit/noise_metric_audit.json": "f58da9301d441ecfeb41f838ce479e99a258817e44c3055579783fa18f755c50",
+    "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v8/e2_gaussian_joint_corner_recovered/joint_corner_sweep.csv": "ab5cf8ea83eef4765966ef2e3aec8dc61ae1f55e270ef7a2db7cab81b26ce3eb",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_compensated_corner_5195640/analysis/E2_compensated_corner.csv": "1209bb961d28019c39886fcae251f904255b7bdd3514dadf2236056423bcf2d2"
+  },
+  "new_simulations_run": false,
+  "reconstructed_per_cell_support": {
+    "distinct_longitudinal_nodes": 32,
+    "field_grid": [
+      64,
+      16
+    ],
+    "longitudinal_velocity_max": 2.15387469179371,
+    "longitudinal_velocity_min": -2.15387469179371,
+    "marker_grid": [
+      2048,
+      512
+    ],
+    "nodes_at_or_above_resonance": 0,
+    "per_cell_velocity_tensor": [
+      32,
+      32
+    ],
+    "ppc": 1024,
+    "resonance_covered": false,
+    "resonant_phase_velocity": 3.2126424241344536
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "Nx": 64,
+  "Ny": 16,
+  "deposit_ms_per_step": 176.61364913918078,
+  "filter_ms_per_step": 0.0,
+  "gather_ms_per_step": 194.36784401070327,
+  "method": "deltaf",
+  "n_particles": 1048576,
+  "persistent_array_bytes": 50351304,
+  "persistent_bytes_per_particle": 48.01874542236328,
+  "ppc": 1024,
+  "process_peak_rss_bytes": 393846784,
+  "protocol": "linearized_delta_f",
+  "push_ms_per_step": 55.08447133470327,
+  "solve_ms_per_step": 1.3068716833367944,
+  "steps": 200,
+  "total_ms_per_step": 432.3113656695932,
+  "total_ms_step_std": 14.450291994425646,
+  "unattributed_ms_per_step": 4.938529501669109,
+  "warmup_steps": 10
+}

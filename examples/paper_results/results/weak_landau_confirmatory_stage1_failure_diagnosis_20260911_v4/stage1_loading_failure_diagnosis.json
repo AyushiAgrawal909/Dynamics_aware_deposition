@@ -1,0 +1,253 @@
+{
+  "comparison_scope": "The preserved job-4864819 development traces use the same regular spatial marker lattice but a global inverse-CDF velocity template; they continue damping through the two-e-fold target.",
+  "diagnosis": "The v1 interpretation of per-cell loading discretizes vx to 32 inverse-normal nodes per cell. Its largest node lies below the k*lambda_D=0.4 phase velocity, eliminating the resonant population. All seeds share this velocity support, so ensemble averaging cannot remove the deterministic regrowth. The [70,90] value is therefore recurrence/regrowth, not an independent-particle noise floor.",
+  "ensemble_behavior": {
+    "confirmatory_c4": {
+      "centered_envelope_points": 49,
+      "diagnostic_cadence": 0.10000000000000142,
+      "envelope_at_45_over_minimum_5_45": 3.9407092445671728,
+      "minimum_envelope_5_45": 0.005932490460896245,
+      "minimum_envelope_t_5_45": 20.900000000000002,
+      "n_seeds": 40,
+      "n_times": 901,
+      "time_start": 0.0,
+      "time_stop": 90.0
+    },
+    "confirmatory_cic": {
+      "centered_envelope_points": 49,
+      "diagnostic_cadence": 0.10000000000000142,
+      "envelope_at_45_over_minimum_5_45": 3.781731601642861,
+      "minimum_envelope_5_45": 0.006040803156401701,
+      "minimum_envelope_t_5_45": 20.8,
+      "n_seeds": 40,
+      "n_times": 901,
+      "time_start": 0.0,
+      "time_stop": 90.0
+    },
+    "development_c4": {
+      "centered_envelope_points": 49,
+      "diagnostic_cadence": 0.10000000000000142,
+      "envelope_at_45_over_minimum_5_45": 1.000611235691507,
+      "minimum_envelope_5_45": 0.0007111233704881472,
+      "minimum_envelope_t_5_45": 44.7,
+      "n_seeds": 10,
+      "n_times": 901,
+      "time_start": 0.0,
+      "time_stop": 90.0
+    },
+    "development_cic": {
+      "centered_envelope_points": 49,
+      "diagnostic_cadence": 0.10000000000000142,
+      "envelope_at_45_over_minimum_5_45": 1.0008824368699565,
+      "minimum_envelope_5_45": 0.0007643648368869167,
+      "minimum_envelope_t_5_45": 44.7,
+      "n_seeds": 10,
+      "n_times": 901,
+      "time_start": 0.0,
+      "time_stop": 90.0
+    }
+  },
+  "input_hashes": {
+    "config_sha256": "a800d3ae94ec0de9a76537fcd92600c8c47e4ffe02d095f418c5cc561a501508",
+    "history_files_manifest_sha256": "f5d75cf1ce197d0a942d35cfcbec2347518d8368a6109db5a5dbf900c91a3518",
+    "production_tree_manifest_sha256": "88d3779a199c9575606353d66752e9a3c9f3713a1ab6b841921fcf881ad7eb9e",
+    "stage1_sha256": "c50ae4a356942fb3ee0f446c982a97716f129769c50ce9c79fc7bdaceb09beda"
+  },
+  "input_schemas": {
+    "confirmatory": {
+      "Ex_snapshots": {
+        "dtype": "float64",
+        "shape": [
+          51,
+          64,
+          16
+        ]
+      },
+      "Ey_snapshots": {
+        "dtype": "float64",
+        "shape": [
+          51,
+          64,
+          16
+        ]
+      },
+      "field_energy": {
+        "dtype": "float64",
+        "shape": [
+          901
+        ]
+      },
+      "kinetic_energy": {
+        "dtype": "float64",
+        "shape": [
+          901
+        ]
+      },
+      "mode": {
+        "dtype": "complex128",
+        "shape": [
+          901
+        ]
+      },
+      "rho_snapshots": {
+        "dtype": "float64",
+        "shape": [
+          51,
+          64,
+          16
+        ]
+      },
+      "snapshot_times": {
+        "dtype": "float64",
+        "shape": [
+          51
+        ]
+      },
+      "times": {
+        "dtype": "float64",
+        "shape": [
+          901
+        ]
+      },
+      "total_charge": {
+        "dtype": "float64",
+        "shape": [
+          901
+        ]
+      }
+    },
+    "development": {
+      "mode": {
+        "dtype": "complex128",
+        "shape": [
+          901
+        ]
+      },
+      "ppc": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "seed": {
+        "dtype": "int64",
+        "shape": [
+          1
+        ]
+      },
+      "sigma_dx": {
+        "dtype": "float64",
+        "shape": [
+          1
+        ]
+      },
+      "times": {
+        "dtype": "float64",
+        "shape": [
+          901
+        ]
+      }
+    }
+  },
+  "loading_implementation": {
+    "code_links": [
+      "pic_kde_2d/pic_kde_2d/core/particles2d.py:139",
+      "pic_kde_2d/pic_kde_2d/core/particles2d.py:144",
+      "pic_kde_2d/pic_kde_2d/core/particles2d.py:157",
+      "pic_kde_2d/scripts/run_weak_landau_confirmatory.py:178",
+      "pic_kde_2d/scripts/run_landau_sigma_refinement.py:72"
+    ],
+    "k": 0.4,
+    "largest_velocity_below_resonance": true,
+    "longitudinal_distinct_unperturbed_velocities_per_cell": 32,
+    "longitudinal_velocity_max": 2.15387469179371,
+    "longitudinal_velocity_min": -2.15387469179371,
+    "maxwellian_one_sided_mass_above_largest_node": 0.015625000088944734,
+    "maxwellian_one_sided_mass_above_resonance": 0.0006575996048815719,
+    "omega_r": 1.2850569696537815,
+    "resonant_phase_velocity": 3.2126424241344536,
+    "spatial_marker_layout": "regular 2048 x 512 lattice; 1024 markers in every field-grid cell",
+    "velocity_layout": "32 x 32 tensor inverse-normal quadrature independently permuted within each cell"
+  },
+  "rate_ratios_computed": false,
+  "required_action": "Do not run Stage 2 or reuse v1 for validation. First confirm a corrected velocity-loading convention with a small fresh-seed pilot; any replacement 40-seed campaign requires a new frozen specification and seeds.",
+  "scope": "Stage-1 loading/envelope diagnosis only; no rate ratios computed",
+  "stage1_decisions": {
+    "c4_sigma1": {
+      "accepted_t_start": null,
+      "accepted_t_stop": null,
+      "censor_t": 5.0,
+      "central_fit_quality_pass": false,
+      "ending_detail": "first persistent 5x-floor crossing at t=5.0; centered-envelope guard excludes t>=2.6",
+      "ending_reason": "noise_threshold",
+      "envelope_distortion_flag": false,
+      "fit_duration": 0.0,
+      "fit_r_squared": null,
+      "fit_start_signal_to_floor": null,
+      "fitted_amplitude_efoldings": 0.0,
+      "floor_window": [
+        76.0,
+        81.0
+      ],
+      "gamma": null,
+      "noise_floor": 0.006404123032156856,
+      "observed_log_drop": null,
+      "recurrence_diagnostic": {
+        "first_t": null,
+        "flag": false
+      },
+      "signal_to_threshold_capacity_from_fit_start": null
+    },
+    "cic": {
+      "accepted_t_start": null,
+      "accepted_t_stop": null,
+      "censor_t": 5.0,
+      "central_fit_quality_pass": false,
+      "ending_detail": "first persistent 5x-floor crossing at t=5.0; centered-envelope guard excludes t>=2.6",
+      "ending_reason": "noise_threshold",
+      "envelope_distortion_flag": false,
+      "fit_duration": 0.0,
+      "fit_r_squared": null,
+      "fit_start_signal_to_floor": null,
+      "fitted_amplitude_efoldings": 0.0,
+      "floor_window": [
+        75.0,
+        80.0
+      ],
+      "gamma": null,
+      "noise_floor": 0.005877794121496481,
+      "observed_log_drop": null,
+      "recurrence_diagnostic": {
+        "first_t": null,
+        "flag": false
+      },
+      "signal_to_threshold_capacity_from_fit_start": null
+    },
+    "lscv_job5008392": {
+      "accepted_t_start": null,
+      "accepted_t_stop": null,
+      "censor_t": 5.0,
+      "central_fit_quality_pass": false,
+      "ending_detail": "first persistent 5x-floor crossing at t=5.0; centered-envelope guard excludes t>=2.6",
+      "ending_reason": "noise_threshold",
+      "envelope_distortion_flag": false,
+      "fit_duration": 0.0,
+      "fit_r_squared": null,
+      "fit_start_signal_to_floor": null,
+      "fitted_amplitude_efoldings": 0.0,
+      "floor_window": [
+        78.0,
+        83.0
+      ],
+      "gamma": null,
+      "noise_floor": 0.020918264811282807,
+      "observed_log_drop": null,
+      "recurrence_diagnostic": {
+        "first_t": null,
+        "flag": false
+      },
+      "signal_to_threshold_capacity_from_fit_start": null
+    }
+  },
+  "status": "FAIL_LOADING_ADMISSIBILITY"
+}

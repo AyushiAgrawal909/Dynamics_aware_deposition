@@ -1,0 +1,5 @@
+comparison,arm,from_gamma,to_gamma,difference_to_minus_from,interpretation
+"current endpoint effect, same seeds and implementation",cic,0.14474589901399387,0.1431473427589193,-0.0015985562550745736,isolates fit endpoint 69.16 versus 59.68 within current histories
+historical versus current at shared endpoint,cic,0.1431473427589193,0.1268009408684452,-0.016346401890474094,"different seeds and campaigns; source revision for historical job is unknown, so seed and implementation effects cannot be isolated"
+"current endpoint effect, same seeds and implementation",fixed_gaussian,0.136153204331046,0.13446578010612767,-0.0016874242249183269,isolates fit endpoint 69.16 versus 59.68 within current histories
+historical versus current at shared endpoint,fixed_gaussian,0.13446578010612767,0.11632115308662182,-0.018144627019505852,different seeds and campaigns; widths differ by 0.0000654 dy and the historical source revision is unknown

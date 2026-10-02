@@ -1,0 +1,7 @@
+campaign,histories,ppc,scope,loading_covariance_control_across_ppc
+e2_beam_drift_scan_5201231,120,512,"projected E2 drift scan, four completed drift values",NO_SINGLE_PPC_ONLY
+e2_beam_drift_scan_extension_5202227,30,512,projected E2 v_b=0.818 extension,NO_SINGLE_PPC_ONLY
+e2_compensated_corner_5195640,50,512,projected E2 compensated-filter corner,NO_SINGLE_PPC_ONLY
+e2_new_mode_m10n1_5197185,20,512,projected new-mode comparison,NO_SINGLE_PPC_ONLY
+e2_anisotropic_dense_5197174,0,32 candidate / 1024 independent static reference,t=0 density and pre-return-grid-field error only; no rate history,NOT_A_DYNAMICS_CONVERGENCE_TEST
+E2_m8_sigma_sweep_4863559,historical aggregate only,2048,"different mode/provenance; no paired v_b=0.80 (12,1) loading control",NOT_COMPARABLE

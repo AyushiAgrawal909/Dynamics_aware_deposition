@@ -1,0 +1,14 @@
+{
+  "added_columns_in_rebuilt": [],
+  "archived": "pic_kde_2d/results_raw_rate_audit/strong_landau_fidelity_5048278/analysis_fit3/strong_landau_fidelity.csv",
+  "archived_sha256": "77ae5e38276ec5f30c09a18f09a0d540848434769e15e041d05926694b8a4293",
+  "examples": [],
+  "max_abs_numeric_difference": 1.3322676295501878e-15,
+  "mismatch_count": 0,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v7/strong_alpha0p5_fit3/strong_landau_fidelity.csv",
+  "rebuilt_sha256": "7193388c1992ae7348b1679a36e244c16cc733548d40840c9b1e5e10c15560a9",
+  "rows_archived": 6,
+  "rows_rebuilt": 6,
+  "status": "PASS"
+}

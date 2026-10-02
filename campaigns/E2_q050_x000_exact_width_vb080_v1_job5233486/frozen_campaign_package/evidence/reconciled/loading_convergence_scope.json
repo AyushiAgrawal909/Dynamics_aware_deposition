@@ -1,0 +1,6 @@
+{
+  "decision": "keep separate from the exact-width validation and do not submit now",
+  "existing_correlation": "The observed CIC rate/loading-covariance correlation is descriptive and does not establish that the covariance causes the rate spread.",
+  "priority": "SECOND_PRIORITY_NOT_SUBMITTED",
+  "proposed_modified_loading_study": "A PPC scan using nested positions and antithetic per-cell beam/thermal quartets tests convergence of that modified loading scheme. It does not directly explain the spread of the original global-shuffle scheme unless an additional bridge comparison holds PPC and all other settings fixed while changing only the loading construction."
+}

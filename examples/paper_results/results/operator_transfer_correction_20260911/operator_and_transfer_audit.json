@@ -1,0 +1,58 @@
+{
+  "identity": {
+    "gaussian_one_axis": "exp[-(k*dx*sigma_cells)^2/2]",
+    "raw_binomial_one_axis": "cos(k*dx/2)^(2n) = (1-s)^n",
+    "sigma_sqrt_n_over_2": "leading-order k*dx -> 0 match only"
+  },
+  "impact_classification": [
+    {
+      "action": "replace by low-k asymptotic match; retain exact W for every quantitative mode",
+      "effect": "WORDING_AND_TABLE_METADATA",
+      "item": "claim that raw binomial and Gaussian are equivalent at protected modes to 5--6 digits"
+    },
+    {
+      "action": "production code already applies exact cos^(2n) transfer; sigma_eq is metadata only",
+      "effect": "NO_SIMULATION_OR_MEASUREMENT_CHANGE",
+      "item": "raw-binomial simulations and measured rate/noise reductions"
+    },
+    {
+      "action": "existing pass-budget helper compares exact protected-mode responses; audited values remain 12 and 0",
+      "effect": "NO_NUMERICAL_CHANGE",
+      "item": "integer Landau and E2 pass ceilings"
+    },
+    {
+      "action": "do not describe n=2 and sigma=1 as identical filters outside the low-k limit",
+      "effect": "INTERPRETATION_ONLY",
+      "item": "Gaussian-versus-binomial noise comparison"
+    },
+    {
+      "action": "use exact spectral k and k^2 symbols; reserve D_h and Lambda_h for the separate C++ finite-difference chain",
+      "effect": "EQUATION_WORDING",
+      "item": "Python production force-noise operator"
+    },
+    {
+      "action": "audited root code already uses the continuum Fourier Green function and exact spectral derivative",
+      "effect": "NO_RECOMPUTATION_REQUIRED",
+      "item": "dispersion predictions used for Python campaigns"
+    },
+    {
+      "action": "retain five-point Laplacian/implementation-specific gather description as a separate chain",
+      "effect": "NO_CHANGE",
+      "item": "C++ HYPRE conservation diagnostics"
+    }
+  ],
+  "input_sha256": {
+    "paper1_source_package/reproducibility/recompute_dispersion.py": "5f2e50624fd2c8e5c491ca61795284e82d513f2671614adf13bef1e9d60fba3a",
+    "pic_kde_2d_landau_cv_stage/pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2"
+  },
+  "quantified_anchors": {
+    "E2_m12_n4_one_way_relative_difference": -0.005122432283123701,
+    "Landau_m1_n12_one_way_relative_difference": -1.1619467855328303e-05
+  },
+  "status": "PASS_WITH_CORRECTIONS_IDENTIFIED",
+  "tables": {
+    "operator_symbols": "spectral_vs_finite_difference_symbols.csv",
+    "pass_budgets": "exact_pass_budgets.csv",
+    "transfers": "raw_binomial_vs_low_k_gaussian_transfer.csv"
+  }
+}

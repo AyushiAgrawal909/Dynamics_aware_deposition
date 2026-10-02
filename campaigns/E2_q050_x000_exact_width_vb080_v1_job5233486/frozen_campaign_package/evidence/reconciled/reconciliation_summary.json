@@ -1,0 +1,17 @@
+{
+  "authoritative_archived_density_interval": [
+    1.0778063603594845,
+    1.081663262724321
+  ],
+  "cause": "The archived reducer advances one NumPy RNG stream through density and field intervals for every candidate. The retrieval report restarted a fresh RNG at q050_x000. Bootstrap percentile Monte Carlo endpoints therefore differ slightly, while inputs, central ratio and estimator are identical.",
+  "density_report_csv_discrepancy_resolved": true,
+  "nested_complete_rule_density_interval": [
+    1.0779122787198236,
+    1.081703711461456
+  ],
+  "reporting": "Use the archived interval for the archived fixed-candidate claim; retain the nested interval under its separate complete-rule selection label.",
+  "selected_only_recomputed_density_interval": [
+    1.077914994575217,
+    1.081663262724321
+  ]
+}

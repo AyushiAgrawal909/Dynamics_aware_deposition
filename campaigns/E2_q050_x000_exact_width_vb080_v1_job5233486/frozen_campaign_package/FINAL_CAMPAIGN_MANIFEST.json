@@ -1,0 +1,58 @@
+{
+  "campaign_id": "E2_q050_x000_exact_width_vb080_v1",
+  "status": "FROZEN_NOT_SUBMITTED",
+  "manuscript_edited": false,
+  "selected_candidate": "q050_x000",
+  "exact_width_cells": {
+    "sigma_x_dx": 0.0,
+    "sigma_y_dy": 0.1716392815470568
+  },
+  "seeds": {
+    "original_fresh_paired_design": [105, 106, 107, 108, 109, 110, 111, 112, 113, 114],
+    "final_reuse_design": [200, 201, 202, 203, 204, 205, 206, 207, 208, 209],
+    "independent_of_bandwidth_selection": true,
+    "previously_analysed_in_job_5201231": true,
+    "change_made_before_exact_width_q050_results": true
+  },
+  "histories": {
+    "reused_cic": 10,
+    "new_q050_planned": 10,
+    "new_q050_present": 0
+  },
+  "analysis": {
+    "fit_window": [24.32, 69.16],
+    "primary_estimand": "ratio of arithmetic means of paired individual-seed fitted growth rates",
+    "measured_acceptance_interval": [0.9, 1.1],
+    "model_operating_ratio_min": 0.95,
+    "no_seed_rejection": true,
+    "no_post_result_seed_addition": true,
+    "no_post_result_window_change": true,
+    "no_automatic_extension_or_resubmission": true
+  },
+  "cost": {
+    "expected_new_cpu_node_hours": 0.6,
+    "hard_cap_cpu_node_hours": 1.0,
+    "scheduler_wall_time": "01:00:00",
+    "new_worker_count": 10
+  },
+  "historical_pairing": {
+    "historical_saved_particle_array_hash_available": false,
+    "basis": "MeluXina production-runtime deterministic reconstruction followed by mandatory pre-integration aggregate-hash and post-run per-array-hash checks",
+    "decision": "ADEQUATE_FOR_CONDITIONAL_REUSE_WITH_EXPLICIT_PROVENANCE_LIMITATION",
+    "reuse_audit_status": "PASS_PRODUCTION_RUNTIME_RECONSTRUCTION_AND_CIC_QUALITY",
+    "ensemble_amplitude_fitted_efoldings": 6.490406111787533,
+    "individual_fitted_efoldings_range": [4.207678708810261, 7.345924104431358]
+  },
+  "sha256": {
+    "config/q050_x000_vb080_exact_width.json": "3b763155abe28c4b105a1824969ff411a6d0b1b6a5f3d9319b23ff3c39ec4800",
+    "code/run_E2_q050_exact_arm.py": "1121e06004aadf7081d023cdaf31c8b101e8dd103d28a00bc3a121e9bae393ba",
+    "code/analyze_E2_q050_exact.py": "44b62c850c05e382196a13ecf01dbc9d52db0c6875cdb43a4d91a593f8598629",
+    "code/audit_existing_cic_reuse.py": "7d2b1e9b876077f1d40008aa835d882ab96cbc68fe912b19d3d1659ef425af73",
+    "code/preflight_exact_width.py": "e4d6dd886dca2ea39c3ccb11f0fc0ed97ae96935c3382884afd55a7621dd6a35",
+    "code/verify_initial_state_compatibility.py": "707b1ce13be95b9254def59972dfe5bf096efe04ef27fbd9a4cafb8082dc9f09",
+    "meluxina/submit_q050_exact_width_cpu.sbatch": "6cc864d067b17a487e3360c06ead1b8951c510bbd2d801d90dde002b43548c19",
+    "EXACT_WIDTH_VALIDATION_PLAN.md": "fcdb6db4491e79021d6d5b584c0d2bac4d70ae24e009bb97f299256657077978",
+    "RUN_COMMANDS.md": "4159601f458cab600d0e63dea2a3a1ce5cf67f9e3c93750ad120a934817de769",
+    "evidence/existing_cic_vb0800_5201231/reuse_audit.json": "e8b89e58e474274d351b192ed0fed06bea3979cec8edbec0ba4f338f7153838d"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "status": "FROZEN_EXTENSION_BUDGET_BEFORE_EXTENSION_RESULTS",
+  "amendment_timestamp_utc": "2026-09-11T19:35:02Z",
+  "original_campaign_id": "E2_beam_drift_scan_v1",
+  "original_frozen_campaign_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+  "original_job": 5201231,
+  "original_job_status": "INCOMPLETE_TIMEOUT_120_OF_150_HISTORIES",
+  "original_budget_wall_hours": 4.0,
+  "original_timeout_record_preserved": true,
+  "extension_scope": {
+    "v_beam": 0.818,
+    "drift_index": 4,
+    "arms": [
+      "cic",
+      "fixed_gaussian",
+      "constrained_gaussian"
+    ],
+    "seeds": [
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209
+    ],
+    "histories": 30,
+    "fit_window": [
+      24.32,
+      204.08
+    ],
+    "run_stop": 206.08
+  },
+  "additional_compute_budget": {
+    "partition": "gpu",
+    "nodes": 1,
+    "gpus_per_node_reserved_for_placement": 1,
+    "host_cpu_threads": 40,
+    "wall_hours_hard_max": 8.0,
+    "seed_count_fixed": true,
+    "no_sequential_seed_addition": true
+  },
+  "scientific_configuration_changed": false,
+  "acceptance_rules_changed": false,
+  "rate_estimator_changed": false,
+  "extension_label": "post-timeout extension of the preregistered campaign",
+  "rationale": "The v_b=0.818 configuration, arms, seeds, window and gates were fixed before any scan result. Job 5201231 did not begin these histories before its four-hour timeout. A post hoc diagnostic performed before this extension established that arithmetic-mean amplitude reweighting accounts for 74.39% of the registered v_b=0.80 CIC theory gap; the remaining mean-individual discrepancy is 5.61% under the manuscript convention. Current implemented transfer tests pass to 3.34e-16, while an unrecorded historical source revision remains explicitly unknown. The extension answers the original planned near-marginal question and is not pooled silently into the original four-hour result.",
+  "diagnostic_evidence": {
+    "script_sha256": "d59252c5e5532823e9f0fce5043b6dc3af5820bcaff60747fc7352f5f3f1910c",
+    "summary_sha256": "24ba99843bbd7817401528cf3b0925e26a430251405035512346637a7553bf39",
+    "result_tree_aggregate_sha256": "8eb00f8d4eea524726d8b4f986c8e9067bd48cd14b86bd731119fdcbd977ddbb"
+  },
+  "reporting_rule": "The 120-history four-hour campaign remains explicitly incomplete. The 30 new histories are reported as an extension, and the registered estimator remains primary; individual-seed estimators are diagnostic only.",
+  "extension_results_inspected_when_frozen": false,
+  "extension_submitted_when_frozen": false
+}

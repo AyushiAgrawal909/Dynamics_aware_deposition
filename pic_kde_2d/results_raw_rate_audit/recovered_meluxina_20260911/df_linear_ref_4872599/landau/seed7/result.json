@@ -1,0 +1,16 @@
+{
+  "alpha": 0.001,
+  "background": "maxwellian",
+  "benchmark": "landau",
+  "dt": 0.05,
+  "marker_dynamics": "free_streaming_frozen_equilibrium",
+  "max_delta_f_ratio": 0.10851073823828486,
+  "mode": 1,
+  "ppc": 512,
+  "seed": 7,
+  "sigma_dx": 0.0,
+  "t_end": 90.0,
+  "target_mode_projection": true,
+  "valid_through_run": true,
+  "validity_threshold": 0.5
+}

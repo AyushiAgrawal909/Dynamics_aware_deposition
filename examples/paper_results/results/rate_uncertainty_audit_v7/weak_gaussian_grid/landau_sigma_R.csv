@@ -1,0 +1,3 @@
+ppc,gamma_cic,gamma_cic_relative_error_to_theory,sigma_R_central_dx,sigma_R_ci_supported_dx,eps_gamma,baseline_quality_pass,baseline_rate_usable,R_coefficient_abs,R_coefficient_signed,R_coefficient_n_points,R_coefficient_sigma_max_dx
+32,-0.07439405046275457,0.12500146588163397,nan,nan,0.1,False,False,nan,nan,0,2.0
+1024,-0.0697375125212897,0.0545843830975187,2.0,1.0,0.1,True,True,0.639883098725731,0.5682179827852497,4,2.0

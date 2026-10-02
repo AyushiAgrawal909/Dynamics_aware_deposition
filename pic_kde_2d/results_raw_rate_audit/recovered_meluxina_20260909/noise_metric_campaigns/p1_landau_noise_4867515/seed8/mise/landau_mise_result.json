@@ -1,0 +1,21 @@
+{
+  "minimum_status": "interior",
+  "parameters": {
+    "Lx": 15.707963267948966,
+    "Ly": 8.0,
+    "Nx": 64,
+    "Ny": 16,
+    "dx": 0.2454369260617026,
+    "eval_window": [
+      5.0,
+      30.0
+    ],
+    "k_lambdaD": 0.4,
+    "ppc": 1024,
+    "reference_ppc": 16384
+  },
+  "sigma_mise_dx": 12.0,
+  "sigma_mise_lower_bound_dx": null,
+  "sigma_mise_relation": "=",
+  "summary_csv": "/mnt/tier2/users/u103576/logs/p1_landau_noise_4867515/seed8/mise/landau_mise_summary.csv"
+}

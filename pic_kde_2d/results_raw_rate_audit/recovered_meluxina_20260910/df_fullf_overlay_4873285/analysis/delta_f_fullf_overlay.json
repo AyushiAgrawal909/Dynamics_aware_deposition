@@ -1,0 +1,11 @@
+{
+  "alpha": 0.1,
+  "n_seeds": 5,
+  "fullf_early_gamma_5_15": -0.10079640942288359,
+  "deltaf_early_gamma_5_15": -0.066334258205128,
+  "first_persistent_25pct_divergence_time": 9.5,
+  "fullf_late_amplitude_mean_t40_60": 0.04593581624323568,
+  "deltaf_late_amplitude_mean_t40_60": 0.006826332662670511,
+  "late_amplitude_ratio_fullf_over_deltaf": 6.729208568230727,
+  "interpretation": "linearized delta-f omits nonlinear trapping; a sustained late-time full-f excess or bounce structure is the physics-level failure"
+}

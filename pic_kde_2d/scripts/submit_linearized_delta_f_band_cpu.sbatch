@@ -1,0 +1,57 @@
+#!/bin/bash -l
+#SBATCH --job-name=df_band_1_14
+#SBATCH --account=p201103
+#SBATCH --partition=cpu
+#SBATCH --qos=short
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=20
+#SBATCH --mem=120G
+#SBATCH --time=04:00:00
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=ayushiphysics909@gmail.com
+#SBATCH --output=/mnt/tier2/users/u103576/logs/df_band_1_14_%j.out
+#SBATCH --error=/mnt/tier2/users/u103576/logs/df_band_1_14_%j.err
+
+set -euo pipefail
+
+PROJECT=/home/users/u103576/hexapic-main/pic_kde_2d
+PYROOT=/apps/USE/easybuild/release/2024.1/software/Python/3.11.10-GCCcore-13.3.0
+PYTHON=${PYROOT}/bin/python3
+ROOT=${OUTPUT_ROOT:-/mnt/tier2/users/u103576/logs/df_band_1_14_${SLURM_JOB_ID}}
+
+export LD_LIBRARY_PATH="${PYROOT}/lib:${PYROOT}/lib64:${LD_LIBRARY_PATH:-}"
+export PYTHONPATH="${PROJECT}:${PROJECT}/scripts:${PYTHONPATH:-}"
+export NUMBA_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+mkdir -p "${ROOT}"
+cd "${PROJECT}"
+
+for mode in $(seq 1 14); do
+  T_END=60
+  if [ "${mode}" -le 5 ]; then T_END=120; fi
+  pids=()
+  for seed in $(seq 0 9); do
+    OUT=${ROOT}/m$(printf '%02d' "${mode}")/seed${seed}
+    mkdir -p "${OUT}/numba"
+    env NUMBA_CACHE_DIR="${OUT}/numba" \
+      "${PYTHON}" scripts/run_linearized_delta_f_mode.py \
+      --output "${OUT}" --benchmark two_stream --mode "${mode}" \
+      --seed "${seed}" --ppc 512 --alpha 1e-8 --sigma-dx 0 \
+      --Nx 128 --Ny 16 --Lx 64 --Ly 16 \
+      --v-beam 0.8 --v-thermal 0.05 --dt 0.02 --t-end "${T_END}" --diag-stride 2 \
+      >"${OUT}/run.log" 2>&1 &
+    pids+=("$!")
+  done
+  status=0
+  for pid in "${pids[@]}"; do
+    wait "${pid}" || status=1
+  done
+  if [ "${status}" -ne 0 ]; then
+    exit "${status}"
+  fi
+done
+
+"${PYTHON}" scripts/analyze_linearized_delta_f_band.py \
+  --input "${ROOT}" --output "${ROOT}/analysis" --seeds 10 --nboot 2000
+
+echo "complete output=${ROOT}"

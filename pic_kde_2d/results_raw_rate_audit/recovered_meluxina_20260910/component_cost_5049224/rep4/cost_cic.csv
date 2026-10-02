@@ -1,0 +1,2 @@
+method,protocol,Nx,Ny,ppc,n_particles,steps,warmup_steps,deposit_ms_per_step,solve_ms_per_step,filter_ms_per_step,gather_ms_per_step,push_ms_per_step,total_ms_per_step,total_ms_step_std,persistent_array_bytes,persistent_bytes_per_particle,process_peak_rss_bytes,unattributed_ms_per_step
+cic,full_f,64,16,1024,1048576,200,10,183.3306886581704,1.133711994625628,0.0,197.94808051548898,23.83900395128876,412.37739372532815,13.473611239002052,41962696,40.01874542236328,309981184,6.1259086057543755

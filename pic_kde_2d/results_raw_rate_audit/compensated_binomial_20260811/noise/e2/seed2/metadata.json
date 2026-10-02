@@ -1,0 +1,21 @@
+{
+  "alpha": 0.001,
+  "benchmark": "e2",
+  "eval_window": [
+    0.5,
+    4.0
+  ],
+  "filter_family": "compensated_binomial",
+  "live_method": "matched Gaussian sigma=0.25 dx",
+  "passes": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "ppc": 32,
+  "reference_ppc": 1024,
+  "seed": 2
+}

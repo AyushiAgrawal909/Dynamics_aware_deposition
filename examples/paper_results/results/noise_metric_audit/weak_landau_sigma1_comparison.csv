@@ -1,0 +1,4 @@
+source,job,filter,quiet_start_layout,noise_power_reduction,ci_lo,ci_hi,grid_density_mse_cic,grid_density_mse_filtered
+Table 4 selector-matrix reducer,4867515,Gaussian sigma=1 dx,randomized per-cell velocity quadrature,2.559393052975873,2.541134321405126,2.576671736859106,0.00024272307139901222,9.483618435112644e-05
+Fig. 7a filter-family figure Gaussian overlay,4868286,Gaussian sigma=1 dx,globally shuffled velocity quadrature,5.643223264073615,5.613434780135111,5.6745459672793634,0.0004346036081665044,7.701336414125525e-05
+Fig. 7a raw-binomial reducer (matched low-k width),5048431,"raw binomial n=2, sigma_eq=1 dx",globally shuffled velocity quadrature,5.8715086641784495,5.831014899684124,5.910255010970826,0.0004351671625319963,7.41150507342197e-05

@@ -1,0 +1,151 @@
+{
+  "archive_reproduction": {
+    "all_archived_central_values_and_bootstrap_intervals": "matched",
+    "e2_density_field_rows": 7,
+    "filter_family_rows": 44,
+    "gaussian_rows": 34
+  },
+  "difference_explaining_2p559_vs_5p643": "the particle velocity-quadrature layout changed from randomized per-cell to globally shuffled; metric, Fourier scope, PPC, high-PPC reference, time window, and 51-snapshot cadence are otherwise the same",
+  "figure_source_correction": "Fig. 7a obtains Gaussian 5.643 from job 4868286 via LANDAU_NOISE; the raw-binomial reducer's n=2 matched-width value is 5.872, not 5.643",
+  "loo_self_contribution_check": {
+    "archived_output": "lscv_self_terms.csv",
+    "archived_self_term_rows": 540,
+    "controlled_explicit_comparison": [
+      {
+        "absolute_difference": 8.326672684688674e-17,
+        "explicit_particle_loo_score": 0.09238660460703269,
+        "filter": "CIC",
+        "particle_phase_averaged_unit_self": 2.20114228834611,
+        "quadratic_form_score": 0.0923866046070326
+      },
+      {
+        "absolute_difference": 2.7755575615628914e-17,
+        "explicit_particle_loo_score": -0.08459713364641847,
+        "filter": "Gaussian sigma=1 cell",
+        "particle_phase_averaged_unit_self": 0.5985621852067291,
+        "quadratic_form_score": -0.08459713364641844
+      },
+      {
+        "absolute_difference": 8.326672684688674e-17,
+        "explicit_particle_loo_score": -0.10346053229071041,
+        "filter": "raw binomial n=4",
+        "particle_phase_averaged_unit_self": 0.3254208241068443,
+        "quadratic_form_score": -0.10346053229071049
+      }
+    ],
+    "formula": "CV=int rho_H^2 - 2*N/(N-1)*(int rho_H*rho_CIC - mean_self/N); mean_self is evaluated from each snapshot's actual bilinear CIC weights"
+  },
+  "metric_definition": {
+    "cic_baseline": "low-PPC unfiltered CIC snapshot density compared with the paired high-PPC unfiltered CIC snapshot density; both trajectories use the live matched Gaussian sigma=0.25-cell coupling",
+    "ensemble_quantity": "mean across ten independent seeds of the per-seed time-averaged ISE; called density MISE only after this ensemble average",
+    "field_metric": "E2 field MSE is grid-node mean[(Ex-Ex_ref)^2+(Ey-Ey_ref)^2] after one density filter and the Poisson solve",
+    "fourier_scope": "all resolved modes; no Fourier mask. k=0 is formally included in density MSE but vanishes for production pairs by charge normalization; the protected mode is included",
+    "noise_reduction": "ratio of CIC error power to filtered error power (ratio of ensemble means); it is not an amplitude ratio",
+    "particle_force_warning": "the field MSE does not apply the return-path filter and does not gather to particles; production particle force uses the full C-W-A-W-C^T chain",
+    "reference": "paired high-PPC CIC density (16384 PPC for Landau, 1024 PPC for E2), not the filtered candidate and not an analytic density",
+    "selection_independence": "the MISE width and its reported noise reduction use the same ten seeds, so this is in-sample estimator evaluation rather than a held-out validation; the reference itself does not contain the candidate",
+    "stored_per_seed_quantity": "time average of the realized grid mean squared charge-density error mean_g[(rho_candidate-rho_reference)^2]"
+  },
+  "normalization_and_parseval_checks": {
+    "charge_rows": [
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "CIC",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "landau"
+      },
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "Gaussian",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "landau"
+      },
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "raw binomial n=4",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "landau"
+      },
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "CIC",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "e2"
+      },
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "Gaussian",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "e2"
+      },
+      {
+        "absolute_charge_defect": 0.0,
+        "deposited_charge": -8.0,
+        "filter": "raw binomial n=4",
+        "mean_electron_charge_density": -1.0,
+        "mean_normalized_number_density": 1.0,
+        "particle_charge": -8.0,
+        "species": "e2"
+      }
+    ],
+    "parseval": {
+      "absolute_parseval_difference": 0.0,
+      "all_resolved_modes_power": 1.3772714630282397,
+      "k0_power_in_control": 0.0758333666224113,
+      "protected_mode_pair_power_in_control": 0.03237806071567841,
+      "real_space_grid_mean_square": 1.3772714630282397,
+      "scope": "all resolved modes; no Fourier mask. k=0 is formally included in density MSE but vanishes for production pairs by charge normalization; the protected mode is included"
+    }
+  },
+  "status": "PASS",
+  "weak_landau_sigma1_comparison": [
+    {
+      "ci_hi": 2.576671736859106,
+      "ci_lo": 2.541134321405126,
+      "filter": "Gaussian sigma=1 dx",
+      "grid_density_mse_cic": 0.00024272307139901222,
+      "grid_density_mse_filtered": 9.483618435112644e-05,
+      "job": "4867515",
+      "noise_power_reduction": 2.559393052975873,
+      "quiet_start_layout": "randomized per-cell velocity quadrature",
+      "source": "Table 4 selector-matrix reducer"
+    },
+    {
+      "ci_hi": 5.6745459672793634,
+      "ci_lo": 5.613434780135111,
+      "filter": "Gaussian sigma=1 dx",
+      "grid_density_mse_cic": 0.0004346036081665044,
+      "grid_density_mse_filtered": 7.701336414125525e-05,
+      "job": "4868286",
+      "noise_power_reduction": 5.643223264073615,
+      "quiet_start_layout": "globally shuffled velocity quadrature",
+      "source": "Fig. 7a filter-family figure Gaussian overlay"
+    },
+    {
+      "ci_hi": 5.910255010970826,
+      "ci_lo": 5.831014899684124,
+      "filter": "raw binomial n=2, sigma_eq=1 dx",
+      "grid_density_mse_cic": 0.0004351671625319963,
+      "grid_density_mse_filtered": 7.41150507342197e-05,
+      "job": "5048431",
+      "noise_power_reduction": 5.8715086641784495,
+      "quiet_start_layout": "globally shuffled velocity quadrature",
+      "source": "Fig. 7a raw-binomial reducer (matched low-k width)"
+    }
+  ]
+}

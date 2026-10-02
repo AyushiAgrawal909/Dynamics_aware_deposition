@@ -1,0 +1,14 @@
+{
+  "added_columns_in_rebuilt": [],
+  "archived": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/p1_landau_rates_4866573/analysis/landau_sigma_refinement.csv",
+  "archived_sha256": "e70795660edd6bee303a70fd17f4587c42570bdc74664c33c02d8cf11fa4e324",
+  "examples": [],
+  "max_abs_numeric_difference": 6.270539643082884e-13,
+  "mismatch_count": 0,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v8/weak_gaussian_silverman_recovered/landau_sigma_refinement.csv",
+  "rebuilt_sha256": "ad83f0fdb8434534bc5f3e968a3a87689a49ffd2b2170579a96162ac2f733e12",
+  "rows_archived": 3,
+  "rows_rebuilt": 3,
+  "status": "PASS"
+}

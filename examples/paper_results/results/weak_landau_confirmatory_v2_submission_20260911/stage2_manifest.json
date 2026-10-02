@@ -1,0 +1,86 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "stage": 2,
+  "development_seeds_pooled": false,
+  "n_fresh_seeds": 40,
+  "frozen_window_decisions_sha256": "cb724768fad3950d5ca181882285284b7f253d75643cee0c3e446fd1958b0cbf",
+  "result_sha256": "bd1f00e2fc4e2a4b6083568a08ea8e9610aca9029d00719e39fb9b1a42586eb4",
+  "coherent_history_sha256": "4b538b5ca0331140d8b4b10b4845bc6045d4adafbbe7c94d34037351ded79956",
+  "single_run_diagnostics_sha256": "58e8a297bd09cf605fc041b5e7be674267065a0a036a0d84a6ce52c7cb2aeac0",
+  "noise_by_seed_time_sha256": "d3b4265d5c2c70f25d154affe3f7ab394cb298f7bfd55f2905cdd05d2ec04a11",
+  "promotion_status": "FAIL",
+  "promotion_checks": {
+    "coverage_and_traceability": true,
+    "cic_absolute_rate_reference_interval": true,
+    "c4_to_cic_paired_interval": true,
+    "c4_two_efoldings": true,
+    "cic_two_efoldings": false,
+    "c4_signal_and_fit_quality": true,
+    "cic_signal_and_fit_quality": false,
+    "paired_bootstrap_quality_fraction": false
+  },
+  "rate_results": {
+    "cic_absolute_rate_over_fully_discrete_reference": {
+      "central": 1.0334338141689359,
+      "ci_lo": 0.9897740378835945,
+      "ci_hi": 1.078709566640724
+    },
+    "c4_over_cic": {
+      "central": 0.9894153689137298,
+      "ci_lo": 0.9678835537488053,
+      "ci_hi": 1.0138274034763808,
+      "valid_bootstrap_fraction": 1.0,
+      "paired_full_quality_fraction": 0.0
+    },
+    "lscv_over_cic": {
+      "central": 1.8938276925957562,
+      "ci_lo": 1.6790209453807259,
+      "ci_hi": 2.1387450195585194,
+      "valid_bootstrap_fraction": 1.0,
+      "paired_full_quality_fraction": 0.0
+    },
+    "bootstrap_draws": 5000,
+    "bootstrap_unit": "paired independent seed indices"
+  },
+  "same_campaign_squared_error_power": {
+    "reference": "same-seed independently generated PPC-4096 global-loading CIC",
+    "window": [
+      5.0,
+      30.0
+    ],
+    "cadence": 0.5,
+    "modes": "all resolved modes, including the protected mode; matched k=0 density difference is roundoff and k=0 field is zero",
+    "c4_density_reduction": {
+      "central": 3.2586464941677002,
+      "ci_lo": 3.251797148152599,
+      "ci_hi": 3.265002064487961
+    },
+    "c4_pre_return_filter_grid_field_reduction": {
+      "central": 1.6127965624275677,
+      "ci_lo": 1.6034478389168612,
+      "ci_hi": 1.62154865246095
+    },
+    "lscv_density_reduction": {
+      "central": 4.611531144330059,
+      "ci_lo": 4.598353767318561,
+      "ci_hi": 4.624896569118654
+    },
+    "lscv_pre_return_filter_grid_field_reduction": {
+      "central": 0.632380823486819,
+      "ci_lo": 0.6191925774647319,
+      "ci_hi": 0.6463697629577022
+    }
+  },
+  "window_diagnostic": {
+    "scope": "diagnostic-only reproduction of the frozen CIC/C4 coherent complex histories, one-period envelopes, fitted lines, floors, censor markers and accepted masks; no rate ratio recomputed",
+    "directory": "paper1_source_package/reproducibility/results/weak_landau_confirmatory_v2_window_diagnostic_20260911_r2",
+    "script_sha256": "37c7c23be57db8d387b8da2ddf18f71ed11bb19231064d21967b63a75dc673b2",
+    "csv_sha256": "e37cca634f97d9b5687c72914912ccd6f32bbed5e3e63efbf27ab76ed45a3e25",
+    "report_sha256": "a3108273efba092d5f183b56534d3ec66d83531f7158ca716dcacd90df7637f1",
+    "pdf_sha256": "1b1abee09932f4fe194cad9f909b3a7fc81861c66dec4a604ea413a917e01325",
+    "png_sha256": "2052b4ab0a18d055b62bfe7ad1e97e06b2988d393676358f2d184affe1c7b7e0",
+    "pdf_visually_checked": true
+  },
+  "interpretation": "The C4 rate and its own duration pass, but promotion remains failed because the preregistered paired CIC baseline does not span two fitted amplitude e-foldings. A passing C4/CIC interval cannot repair that failure.",
+  "single_run_scope": "The primary rate is obtained by averaging phase-aligned complex coefficients over 40 seeds before taking magnitude and the oscillation envelope. The 120 single-run fits are diagnostics and are not independent replacements for the coherent-ensemble result."
+}

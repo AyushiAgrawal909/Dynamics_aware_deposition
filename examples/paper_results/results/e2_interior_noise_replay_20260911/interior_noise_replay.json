@@ -1,0 +1,100 @@
+{
+  "boundary_result_retained_separately": [
+    {
+      "analysis_role": "FIXED_WIDTH_PAIRED_EVALUATION_NOT_SELECTION",
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 20260911,
+      "label": "saved_boundary_anchor",
+      "mean_error": 0.004555724311250881,
+      "metric": "density_mse",
+      "n_seeds": 10,
+      "noise_power_reduction_vs_cic": 1.1571404386355706,
+      "paired_bootstrap_ci_hi": 1.1604307307376334,
+      "paired_bootstrap_ci_lo": 1.1540577596831683,
+      "scope": "full-f E2 short-window grid error, t in [0.5,4.0]",
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.24273459979982182,
+      "v_beam": 0.8
+    },
+    {
+      "analysis_role": "FIXED_WIDTH_PAIRED_EVALUATION_NOT_SELECTION",
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 20260911,
+      "label": "saved_boundary_anchor",
+      "mean_error": 0.0009310068288700829,
+      "metric": "field_mse",
+      "n_seeds": 10,
+      "noise_power_reduction_vs_cic": 1.0734426150886447,
+      "paired_bootstrap_ci_hi": 1.0766446037756767,
+      "paired_bootstrap_ci_lo": 1.07086595232405,
+      "scope": "full-f E2 short-window grid error, t in [0.5,4.0]",
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.24273459979982182,
+      "v_beam": 0.8
+    }
+  ],
+  "input_sha256": {
+    "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/measure_E2_interior_noise_replay.py": "fb14adcb9f0e230420ec7f7c6a2c2b2f57e767fa4f78d5ec8f22b2fc68a54fbe",
+    "/Users/ayushi.agrawal/Downloads/pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "/Users/ayushi.agrawal/Downloads/pic_kde_2d/pic_kde_2d/core/particles2d.py": "91480a3e4e8827fa2b13beae630bacfdfad658413aedbc4788b7f9b40e7fbb3e",
+    "/Users/ayushi.agrawal/Downloads/pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+    "/Users/ayushi.agrawal/Downloads/pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "e53f35776ea1eef1d8015b35c31f8b9aea916d02ef2be488c78ad506960b30d2"
+  },
+  "interior_results": [
+    {
+      "analysis_role": "FIXED_WIDTH_PAIRED_EVALUATION_NOT_SELECTION",
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 20260911,
+      "label": "R095_interior_vb080",
+      "mean_error": 0.004875190799442436,
+      "metric": "density_mse",
+      "n_seeds": 10,
+      "noise_power_reduction_vs_cic": 1.0813141566534132,
+      "paired_bootstrap_ci_hi": 1.08292931061717,
+      "paired_bootstrap_ci_lo": 1.0797783621640644,
+      "scope": "full-f E2 short-window grid error, t in [0.5,4.0]",
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.1738592384458977,
+      "v_beam": 0.8
+    },
+    {
+      "analysis_role": "FIXED_WIDTH_PAIRED_EVALUATION_NOT_SELECTION",
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 20260911,
+      "label": "R095_interior_vb080",
+      "mean_error": 0.0009622828727563518,
+      "metric": "field_mse",
+      "n_seeds": 10,
+      "noise_power_reduction_vs_cic": 1.0385536658104169,
+      "paired_bootstrap_ci_hi": 1.0401821366239143,
+      "paired_bootstrap_ci_lo": 1.037245410266592,
+      "scope": "full-f E2 short-window grid error, t in [0.5,4.0]",
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.1738592384458977,
+      "v_beam": 0.8
+    }
+  ],
+  "interior_width": 0.1738592384458977,
+  "metric_definitions": {
+    "density_mse": "mean grid squared error versus paired PPC-1024 CIC density",
+    "evaluation_window": [
+      0.5,
+      4.0
+    ],
+    "field_mse": "mean squared Ex+Ey grid-field error versus paired PPC-1024 CIC field; pre-return-filter and pre-gather",
+    "ppc": 32,
+    "reference": "same-seed PPC-1024 trajectory",
+    "reference_ppc": 1024
+  },
+  "replay_anchors": {
+    "maximum_allowed_absolute_metric_difference": 5e-15,
+    "q050_x000_sigma_y_dy": 0.1716392815470568,
+    "q100_x000_boundary_sigma_y_dy": 0.24273459979982182
+  },
+  "scope": "v_b=0.80 full-f short-window grid-error protocol only; not a noise measurement for another drift and not the projected delta-f rate run",
+  "status": "PASS_EXACT_WIDTH_REPLAY_ANCHORED_TO_SAVED_DATA",
+  "tables": {
+    "per_seed": "per_seed_noise_replay.csv",
+    "summary": "interior_noise_summary.csv"
+  }
+}

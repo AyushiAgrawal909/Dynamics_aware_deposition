@@ -1,0 +1,51 @@
+{
+  "arms": {
+    "c4_sigma1": {
+      "accepted_t_start": 5.0,
+      "accepted_t_stop": 35.6,
+      "censor_t": 38.1,
+      "ending_detail": "first persistent 5x-floor crossing at t=38.1; centered-envelope guard excludes t>=35.7",
+      "ending_reason": "noise_threshold",
+      "envelope_points": 49,
+      "fit_r_squared": 0.998439974723854,
+      "fit_start_signal_to_floor": 45.74314033272029,
+      "fitted_amplitude_efoldings": 2.076369551904831,
+      "five_floor_threshold": 0.0008566548087122497,
+      "gamma": -0.06785521411453695,
+      "noise_floor": 0.00017133096174244995,
+      "signal_to_threshold_capacity_from_fit_start": 2.213603929962975
+    },
+    "cic": {
+      "accepted_t_start": 5.0,
+      "accepted_t_stop": 30.1,
+      "censor_t": 32.6,
+      "ending_detail": "first persistent 5x-floor crossing at t=32.6; centered-envelope guard excludes t>=30.2",
+      "ending_reason": "noise_threshold",
+      "envelope_points": 49,
+      "fit_r_squared": 0.9996738909643034,
+      "fit_start_signal_to_floor": 31.065338959382775,
+      "fitted_amplitude_efoldings": 1.7213861112191615,
+      "five_floor_threshold": 0.0012698446894966954,
+      "gamma": -0.0685811199688909,
+      "noise_floor": 0.00025396893789933906,
+      "signal_to_threshold_capacity_from_fit_start": 1.826654782317145
+    }
+  },
+  "artifacts": {
+    "complex_history_csv": "complex_histories_and_envelopes.csv",
+    "figure_pdf": "weak_landau_window_diagnostic.pdf",
+    "figure_png": "weak_landau_window_diagnostic.png"
+  },
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "diagnostic_only": true,
+  "inputs": {
+    "config": "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json",
+    "config_sha256": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+    "stage1_decisions": "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/results/weak_landau_confirmatory_v2_stage1_windows_20260911/window_decisions.json",
+    "stage1_decisions_sha256": "cb724768fad3950d5ca181882285284b7f253d75643cee0c3e446fd1958b0cbf",
+    "stage2_histories": "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/results/weak_landau_confirmatory_v2_stage2_analysis_20260911/coherent_ensemble_histories.npz",
+    "stage2_histories_sha256": "4b538b5ca0331140d8b4b10b4845bc6045d4adafbbe7c94d34037351ded79956"
+  },
+  "primary_reducer_operation": "average the complex Fourier coefficient across all 40 seeds, take its magnitude, then apply a one-period geometric envelope",
+  "rate_ratios_recomputed": false
+}

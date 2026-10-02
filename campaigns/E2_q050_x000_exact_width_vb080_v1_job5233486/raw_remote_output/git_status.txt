@@ -1,0 +1,169 @@
+ M ../source/controller_runtime.cpp
+ M ../source/deposition_action_library.cpp
+ M ../source/deposition_action_library.hpp
+ M ../source/field_solver_hypre.cpp
+ M ../source/hexapic.hpp
+ M ../source/main.cpp
+ M ../source/makefile
+ M ../source/makefile_HPCFS
+ M ../source/particles.cpp
+ M ../source/read_input_file.cpp
+ M ../tests/gaussian/README.md
+ M ../tests/gaussian/__pycache__/compare_gaussian_reference.cpython-314.pyc
+ M ../tests/gaussian/__pycache__/generate_gaussian_input.cpython-314.pyc
+ M ../tests/gaussian/compare_gaussian_reference.py
+ M ../tests/gaussian/generate_gaussian_input.py
+ M ../tests/gaussian/run_gaussian_comparison.sbatch
+ M ../tests/gaussian/run_unit_interpolation_compare.sbatch
+ M ../tests/gaussian/run_unit_physics_gaussian_py311.sbatch
+AM ../tests/landau-benchmark/analyze.py
+AM ../tests/landau-benchmark/pic1d.py
+AM ../tests/landau-benchmark/run_method.py
+ M ../tests/landau-damping/README.md
+ M ../tests/landau-damping/__pycache__/assemble_landau_matrix.cpython-314.pyc
+ M ../tests/landau-damping/__pycache__/generate_landau_input.cpython-314.pyc
+ M ../tests/landau-damping/__pycache__/scan_landau_matrix.cpython-314.pyc
+ M ../tests/landau-damping/assemble_landau_matrix.py
+ M ../tests/landau-damping/generate_landau_input.py
+ M ../tests/landau-damping/run_landau_damping.sbatch
+ M ../tests/landau-damping/run_landau_deposition_scan.sbatch
+ M ../tests/landau-damping/run_landau_dt_scan.sbatch
+ M ../tests/landau-damping/run_landau_grid_scan.sbatch
+ M ../tests/landau-damping/run_landau_ppc_scan.sbatch
+ M ../tests/landau-damping/run_landau_verification_matrix.sbatch
+ M ../tests/landau-damping/scan_landau_matrix.py
+ D ../tests/learned-controller/README.md
+ D ../tests/learned-controller/__pycache__/build_oracle_dataset.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/calibrate_controller.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/compute_controller_features.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/controller_action_registry.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/controller_metrics.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/controller_runtime.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/evaluate_heldout_controller.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/generate_oracle_landau_input.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/landau_reference.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/oracle_regimes.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/run_closed_loop_suite.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/train_controller.cpython-314.pyc
+ D ../tests/learned-controller/__pycache__/train_cost_sensitive_mlp.cpython-314.pyc
+ D ../tests/learned-controller/action_metadata_registry.json
+ D ../tests/learned-controller/build/test_deposition_action_library
+ D ../tests/learned-controller/build_oracle_dataset.py
+ D ../tests/learned-controller/calibrate_controller.py
+ D ../tests/learned-controller/compute_controller_features.py
+ D ../tests/learned-controller/controller_action_registry.py
+ D ../tests/learned-controller/controller_metrics.py
+ D ../tests/learned-controller/controller_runtime.py
+ D ../tests/learned-controller/evaluate_heldout_controller.py
+ D ../tests/learned-controller/generate_oracle_landau_input.py
+ D ../tests/learned-controller/landau_reference.py
+ D ../tests/learned-controller/oracle_regimes.py
+ D ../tests/learned-controller/run_action_library_tests.sh
+ D ../tests/learned-controller/run_closed_loop_controller_eval.sbatch
+ D ../tests/learned-controller/run_closed_loop_suite.py
+ D ../tests/learned-controller/run_controller_features.sbatch
+ D ../tests/learned-controller/run_heldout_controller_evaluation.sbatch
+ D ../tests/learned-controller/run_oracle_cost_generation.sbatch
+ D ../tests/learned-controller/run_train_controller.sbatch
+ D ../tests/learned-controller/runs/.gitkeep
+ D ../tests/learned-controller/test_deposition_action_library.cpp
+ D ../tests/learned-controller/train_controller.py
+ D ../tests/learned-controller/train_cost_sensitive_mlp.py
+?? ../.DS_Store
+?? ../ADIOS2/
+?? ../CONTEXT.md
+?? ../adaptive_sigma/
+?? ../entities.json
+?? ../paper1_source_package/
+?? ./
+?? ../picmi/input_file.inp.bp4/
+?? ../rb_cic_fixed_kernel/
+?? ../source/.DS_Store
+?? ../source/._diagnostics.cpp
+?? ../source/._hexapic.hpp
+?? ../source/._main.cpp
+?? ../source/._makefile_HPCFS
+?? ../source/._makefile_VEGA
+?? ../source/._particles.cpp
+?? ../source/._read_input_file.cpp
+?? ../source/HEXAPIC
+?? ../source/HEXAPIC.pre_momentum_audit
+?? ../source/build.sbatch
+?? ../source/collisions.o
+?? ../source/controller_runtime.cpp.orig
+?? ../source/controller_runtime.o
+?? ../source/deposition_action_library.o
+?? ../source/diagnostics.o
+?? ../source/domain_decomposition.o
+?? ../source/field_solver_hypre.o
+?? ../source/kde_deposition.cpp
+?? ../source/kde_deposition.hpp
+?? ../source/kde_deposition.o
+?? ../source/logs/
+?? ../source/main.o
+?? ../source/particles.o
+?? ../source/patch_particles.py
+?? ../source/patch_read_input.py
+?? ../source/plasma_wall.o
+?? ../source/profiling.txt
+?? ../source/read_input_file.o
+?? ../source/run_input_file_4nodes.sbatch
+?? ../source/volumetric_source.o
+?? ../tests/.DS_Store
+?? ../tests/gaussian/__pycache__/compare_gaussian_reference.cpython-311.pyc
+?? ../tests/gaussian/run_gaussian_ppc128_recover.sbatch
+?? ../tests/gaussian/run_gaussian_sigma_recover.sbatch
+?? ../tests/gaussian/run_gaussian_sigma_scan_ppc128.sbatch
+?? ../tests/gaussian/run_gaussian_sigma_scan_ppc64.sbatch
+?? ../tests/gaussian/run_gaussian_sigma_scan_ur32.sbatch
+?? ../tests/gaussian/run_gaussian_sigma_scan_ur64.sbatch
+?? ../tests/gaussian/runs/
+?? ../tests/landau-1d-python/
+?? ../tests/landau-benchmark/__pycache__/
+?? ../tests/landau-benchmark/plot_phase_vis.py
+?? ../tests/landau-benchmark/plots_4450965/
+?? ../tests/landau-benchmark/plots_4451000/
+?? ../tests/landau-benchmark/plots_4451177/
+?? ../tests/landau-benchmark/plots_4451246/
+?? ../tests/landau-benchmark/plots_4451251/
+?? ../tests/landau-benchmark/plots_4451260/
+?? ../tests/landau-benchmark/plots_4451588/
+?? ../tests/landau-benchmark/plots_4451715/
+?? ../tests/landau-benchmark/plots_4451856/
+?? ../tests/landau-benchmark/plots_4451878/
+?? ../tests/landau-benchmark/plots_4451918/
+?? ../tests/landau-benchmark/plots_4451957/
+?? ../tests/landau-benchmark/plots_phase_vis_4451899/
+?? ../tests/landau-benchmark/run_analysis.sbatch
+?? ../tests/landau-benchmark/run_cic.sbatch
+?? ../tests/landau-benchmark/run_compact_3x3.sbatch
+?? ../tests/landau-benchmark/run_compact_5x5_s1p2.sbatch
+?? ../tests/landau-benchmark/run_compact_5x5_s1p5.sbatch
+?? ../tests/landau-benchmark/run_compact_5x5_s2p0.sbatch
+?? ../tests/landau-benchmark/run_compact_7x7.sbatch
+?? ../tests/landau-benchmark/run_gaussian_3x3.sbatch
+?? ../tests/landau-benchmark/run_gaussian_5x5_moment_corrected.sbatch
+?? ../tests/landau-benchmark/run_gaussian_5x5_s1p2.sbatch
+?? ../tests/landau-benchmark/run_gaussian_5x5_s1p5.sbatch
+?? ../tests/landau-benchmark/run_gaussian_5x5_s1p5_moment_corrected.sbatch
+?? ../tests/landau-benchmark/run_gaussian_5x5_s2p0.sbatch
+?? ../tests/landau-benchmark/run_gaussian_7x7.sbatch
+?? ../tests/landau-benchmark/run_gaussian_7x7_moment_corrected.sbatch
+?? ../tests/landau-benchmark/run_phase_vis.sbatch
+?? ../tests/landau-benchmark/runs/
+?? ../tests/landau-damping/.DS_Store
+?? ../tests/landau_cic_example/
+?? ../tests/unit_physics/.venv/
+?? ../tests/unit_physics/__pycache__/
+?? ../tests/unit_physics/debug_exb_count_4438988/
+?? ../tests/unit_physics/debug_exb_count_4438991/
+?? ../tests/unit_physics/debug_exb_count_4439095/
+?? ../tests/unit_physics/debug_exb_count_4n.sbatch
+?? ../tests/unit_physics/debug_interp_4n_4439279/
+?? ../tests/unit_physics/debug_preserve_4n.sbatch
+?? ../tests/unit_physics/debug_runs_4n_4438979/
+?? ../tests/unit_physics/debug_runs_4n_4439142/
+?? ../tests/unit_physics/debug_runs_4n_4439214/
+?? ../tests/unit_physics/debug_runs_4n_4439239/
+?? ../tests/unit_physics/debug_static_4n_4439448/
+?? ../tests/unit_physics/run_physics_validation_py311.sbatch

@@ -1,0 +1,8 @@
+# Full Python environment for the general solver, included simulation examples,
+# and optional secondary checks. Unrelated learned-controller trees are excluded.
+numpy>=1.24,<3
+scipy>=1.10,<2
+numba>=0.57
+matplotlib>=3.7,<4
+pytest>=7
+h5py>=3.8

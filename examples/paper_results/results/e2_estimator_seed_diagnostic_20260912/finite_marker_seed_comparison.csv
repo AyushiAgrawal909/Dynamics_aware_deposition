@@ -1,0 +1,21 @@
+v_beam,seed,observed_individual_gamma,finite_marker_gamma,signal_scope
+0.8,200,0.11668779649753874,0.11606023724476233,registered comparison signal-valid
+0.8,201,0.09646062572983605,0.09653991740181558,registered comparison signal-valid
+0.8,202,0.1220422634600993,0.12217434853627436,registered comparison signal-valid
+0.8,203,0.0938376161643672,0.09263163314319496,registered comparison signal-valid
+0.8,204,0.14914331149340815,0.14926846961889598,registered comparison signal-valid
+0.8,205,0.12342468021054517,0.12323922785812237,registered comparison signal-valid
+0.8,206,0.16382524764565845,0.16380657737007118,registered comparison signal-valid
+0.8,207,0.14864243886090034,0.14862133093743557,registered comparison signal-valid
+0.8,208,0.12508518448910388,0.12494517555829462,registered comparison signal-valid
+0.8,209,0.10535892808656326,0.10469339809297054,registered comparison signal-valid
+0.818,200,0.017344533496979116,0.02270463748974048,registered comparison signal-invalid; descriptive only
+0.818,201,0.002396766643784888,1.3662474853702025e-07,registered comparison signal-invalid; descriptive only
+0.818,202,0.04340612598160725,0.04496670944205857,registered comparison signal-invalid; descriptive only
+0.818,203,0.004368375870000325,1.393708632461588e-07,registered comparison signal-invalid; descriptive only
+0.818,204,0.09744995580963296,0.09808237782882974,registered comparison signal-invalid; descriptive only
+0.818,205,0.046923350859048744,0.047835459967821896,registered comparison signal-invalid; descriptive only
+0.818,206,0.11948877091322538,0.11968813844638082,registered comparison signal-invalid; descriptive only
+0.818,207,0.09680150981286118,0.09706645234463161,registered comparison signal-invalid; descriptive only
+0.818,208,0.05205725965206022,0.05223169825343604,registered comparison signal-invalid; descriptive only
+0.818,209,0.005155716497960196,1.38304727605058e-07,registered comparison signal-invalid; descriptive only

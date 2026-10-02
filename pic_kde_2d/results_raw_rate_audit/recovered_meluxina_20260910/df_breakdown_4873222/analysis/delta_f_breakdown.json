@@ -1,0 +1,33 @@
+{
+  "validity_threshold": 0.5,
+  "rows": [
+    {
+      "alpha": 0.001,
+      "max_ratio_mean": 0.11380959404411854,
+      "max_ratio_ci_lo": 0.10978982301462073,
+      "max_ratio_ci_hi": 0.12396733997239262,
+      "breakdown_seed_fraction": 0.0,
+      "median_first_crossing_time": NaN,
+      "n_seeds": 5
+    },
+    {
+      "alpha": 0.01,
+      "max_ratio_mean": 1.1380959404411857,
+      "max_ratio_ci_lo": 1.0978982301462055,
+      "max_ratio_ci_hi": 1.2396733997239258,
+      "breakdown_seed_fraction": 1.0,
+      "median_first_crossing_time": 6.1000000000000005,
+      "n_seeds": 5
+    },
+    {
+      "alpha": 0.1,
+      "max_ratio_mean": 11.380959404411858,
+      "max_ratio_ci_lo": 10.978982301462084,
+      "max_ratio_ci_hi": 12.396733997239258,
+      "breakdown_seed_fraction": 1.0,
+      "median_first_crossing_time": 0.0,
+      "n_seeds": 5
+    }
+  ],
+  "breakdown_demonstrated": true
+}

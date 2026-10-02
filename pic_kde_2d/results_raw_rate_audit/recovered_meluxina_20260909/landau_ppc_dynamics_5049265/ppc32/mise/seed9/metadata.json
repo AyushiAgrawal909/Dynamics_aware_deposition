@@ -1,0 +1,12 @@
+{
+  "alpha": 0.01,
+  "choice": "mise",
+  "diag_stride": 2,
+  "dt": 0.05,
+  "n_steps": 1800,
+  "ppc": 32,
+  "quiet_start": "regular positions, globally shuffled velocity quadrature",
+  "seed": 9,
+  "sigma_dx": 14.310350991901185,
+  "width_source": "direct mise interior minimum"
+}

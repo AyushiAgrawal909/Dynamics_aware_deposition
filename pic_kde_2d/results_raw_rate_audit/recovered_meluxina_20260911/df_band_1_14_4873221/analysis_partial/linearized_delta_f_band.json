@@ -1,0 +1,72 @@
+{
+  "n_seeds": 10,
+  "requested_modes": [
+    1,
+    2,
+    3
+  ],
+  "complete_m1_m14_scan": false,
+  "measured_clean_unstable_modes": [],
+  "highest_clean_unstable_mode": null,
+  "upper_edge_resolved": false,
+  "binding_mode": null,
+  "binding_analytic_sigma_R_dx": null,
+  "production_sigma_dx": 0.18445488487247555,
+  "production_width_stands": false,
+  "rows": [
+    {
+      "mode": 1,
+      "k": 0.09817477042468103,
+      "gamma": NaN,
+      "gamma_sem": NaN,
+      "gamma_ci_lo": NaN,
+      "gamma_ci_hi": NaN,
+      "gamma_warm": 0.07713191927880572,
+      "fit_t_start": NaN,
+      "fit_t_stop": NaN,
+      "fit_r2": NaN,
+      "fit_efoldings": 0.0,
+      "strict_clean_unstable": false,
+      "classification": "no_clean_growth",
+      "max_delta_f_ratio": 0.05052788146315626,
+      "analytic_sigma_R_dx": 31.296126581401758,
+      "n_seeds": 10
+    },
+    {
+      "mode": 2,
+      "k": 0.19634954084936207,
+      "gamma": 0.14968345150986256,
+      "gamma_sem": 0.0006061394882968078,
+      "gamma_ci_lo": 0.14845645581003383,
+      "gamma_ci_hi": 0.15080481961698067,
+      "gamma_warm": 0.14895171438984794,
+      "fit_t_start": 38.52,
+      "fit_t_stop": 119.88,
+      "fit_r2": 0.9999542681784385,
+      "fit_efoldings": 12.178245614842416,
+      "strict_clean_unstable": false,
+      "classification": "no_clean_growth",
+      "max_delta_f_ratio": 47.96974683231597,
+      "analytic_sigma_R_dx": 11.437100367957484,
+      "n_seeds": 10
+    },
+    {
+      "mode": 3,
+      "k": 0.2945243112740431,
+      "gamma": 0.21269077489981517,
+      "gamma_sem": 0.0008733681176157587,
+      "gamma_ci_lo": 0.21083715992043658,
+      "gamma_ci_hi": 0.21420786886103926,
+      "gamma_warm": 0.21161854428224136,
+      "fit_t_start": 20.04,
+      "fit_t_stop": 119.92,
+      "fit_r2": 0.9999551464426716,
+      "fit_efoldings": 21.243554596993537,
+      "strict_clean_unstable": false,
+      "classification": "no_clean_growth",
+      "max_delta_f_ratio": 95778.26903658257,
+      "analytic_sigma_R_dx": 6.038302830568773,
+      "n_seeds": 10
+    }
+  ]
+}

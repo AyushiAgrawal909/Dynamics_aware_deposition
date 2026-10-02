@@ -1,0 +1,62 @@
+{
+  "benchmark": {
+    "lambda_D_over_dx": 0.16,
+    "n_seeds": 5,
+    "nx": 64,
+    "ny": 16,
+    "omega_pe_dt": 0.5,
+    "omega_pe_t_end": 1000.0,
+    "ppc": 32,
+    "thermal_cell_crossing_per_step": 0.08
+  },
+  "methods": [
+    {
+      "final_ci95_hi": 3.969571167995709,
+      "final_ci95_lo": 3.9217734275391605,
+      "final_temperature_ratio_mean": 3.9476186957529387,
+      "label": "CIC",
+      "late_heating_slope_per_omega_pe_t": 0.0027690241740491567,
+      "method_id": "cic"
+    },
+    {
+      "final_ci95_hi": 1.0241311703124105,
+      "final_ci95_lo": 1.020922326329896,
+      "final_temperature_ratio_mean": 1.0223447969186545,
+      "label": "C4 Gaussian ($\\sigma=1\\,\\Delta x$)",
+      "late_heating_slope_per_omega_pe_t": 2.6062467806062285e-05,
+      "method_id": "c4_gaussian"
+    },
+    {
+      "final_ci95_hi": 1.0032058910468962,
+      "final_ci95_lo": 1.0024959166150025,
+      "final_temperature_ratio_mean": 1.0028691291024767,
+      "label": "Binomial ($n=4$)",
+      "late_heating_slope_per_omega_pe_t": 4.774815789398689e-06,
+      "method_id": "binomial_n4"
+    },
+    {
+      "final_ci95_hi": 1.043764319730503,
+      "final_ci95_lo": 1.0354294199385101,
+      "final_temperature_ratio_mean": 1.0391758600379633,
+      "label": "Compensated ($p=1$, $n=4$)",
+      "late_heating_slope_per_omega_pe_t": 4.389158400875418e-05,
+      "method_id": "compensated_p1_n4"
+    },
+    {
+      "final_ci95_hi": 1.1212932521464176,
+      "final_ci95_lo": 1.1119838523849903,
+      "final_temperature_ratio_mean": 1.116544584911295,
+      "label": "Compensated ($p=2$, $n=4$)",
+      "late_heating_slope_per_omega_pe_t": 0.00013105535959399776,
+      "method_id": "compensated_p2_n4"
+    },
+    {
+      "final_ci95_hi": 1.2238463289853168,
+      "final_ci95_lo": 1.2163864242028608,
+      "final_temperature_ratio_mean": 1.2204694822698017,
+      "label": "Compensated ($p=3$, $n=4$)",
+      "late_heating_slope_per_omega_pe_t": 0.00024725038548088665,
+      "method_id": "compensated_p3_n4"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date": "2026-09-12",
+  "authoritative_manuscript": {
+    "path": "Dynamics_constrained_Deposition/introduction.tex",
+    "modified_in_this_stage": false,
+    "last_verified_pdf": "Dynamics_constrained_Deposition/output/Dynamics_constrained_Deposition_verified_20260911_r4.pdf"
+  },
+  "code_identity": {
+    "supplied_hexapic_commit": "ed6dd96d16d0b70a53bf9486fd78a270ab3486d6",
+    "supplied_hexapic_worktree": "dirty with preserved later research modifications",
+    "paper1_python_repository_commit": null,
+    "paper1_python_revision_status": "not tracked by the supplied HEXAPIC commit; source hashes are recorded per result",
+    "historical_revision_status": "unknown unless a campaign row explicitly states a current local/remote hash match"
+  },
+  "campaigns": [
+    {
+      "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+      "role": "fresh paired same-campaign noise/rate confirmation",
+      "jobs": [5200457, 5200458, 5200485, 5200486, 5200487, 5200488],
+      "state": "COMPLETE",
+      "seeds": "202609300..202609339",
+      "arms": ["cic", "c4_sigma1", "lscv_job5008392"],
+      "ppc": 1024,
+      "reference_ppc": 4096,
+      "frozen_config_sha256": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+      "raw_aggregate_sha256": "47019511f4557621010e27c13025e6b51e827664685bf80270eb183c3468a7a1",
+      "result": "FAIL_PROMOTION_BASELINE_DURATION",
+      "evidence": "results/weak_landau_confirmatory_v2_submission_20260911/stage2_manifest.json"
+    },
+    {
+      "campaign_id": "e2_compensated_corner_5195640",
+      "role": "direct compensated binding-corner projected-rate comparison",
+      "jobs": [5195640, 5195641],
+      "state": "COMPLETE",
+      "seeds": "0..9",
+      "arms": ["base", "p1n1", "p2n2", "p2n4", "p3n4"],
+      "ppc": 512,
+      "mode": [12, 1],
+      "raw_aggregate_sha256": "1376b97196782c33193fdb6c36f400579ffbab5bc4aa604bc98c57908f006b7f",
+      "revision_status": "current local and remote runner hashes matched before launch",
+      "evidence": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_compensated_corner_5195640"
+    },
+    {
+      "campaign_id": "e2_joint_corner_4913408",
+      "role": "historical Table-5 corner rates and short full-f noise",
+      "jobs": [4913408],
+      "state": "COMPLETE",
+      "seeds": "0..9 for rates; 100..109 for recovered noise protocol",
+      "revision_status": "exact historical source revision unknown",
+      "evidence": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408"
+    },
+    {
+      "campaign_id": "E2_beam_drift_scan_v1_original",
+      "role": "preregistered controlled drift scan",
+      "jobs": [5201231],
+      "state": "INCOMPLETE_TIMEOUT_120_OF_150_HISTORIES",
+      "elapsed": "04:00:38",
+      "seeds": "200..209",
+      "complete_v_beam": [0.6, 0.7, 0.76, 0.8],
+      "missing_v_beam": [0.818],
+      "frozen_config_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+      "raw_aggregate_sha256": "0d00fe2db11362532f8ec510f4c47361a7745ab95c0761cb8e765f239bc75114",
+      "registered_result": "results/e2_beam_drift_scan_analysis_20260911_timeout_r6",
+      "evidence": "results/e2_beam_drift_scan_design_20260911/campaign_timeout_5201231.json"
+    },
+    {
+      "campaign_id": "E2_beam_drift_scan_v1_vb0818_extension",
+      "role": "separately frozen completion of the original 30 missing histories",
+      "jobs": [5202227],
+      "state": "COMPLETED_30_OF_30_FILES_SCIENTIFIC_RESULT_UNRESOLVED",
+      "slurm_exit_code": "0:0",
+      "elapsed": "02:21:40",
+      "time_limit": "08:00:00",
+      "seeds": "200..209",
+      "v_beam": 0.818,
+      "arms": ["cic", "fixed_gaussian", "constrained_gaussian"],
+      "frozen_config_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+      "budget_amendment_sha256": "fc9ae62fcdd7321c546718852582a4759c977e55d3791673cbdd8274f4b15700",
+      "remote_source_revision": "ed6dd96d16d0b70a53bf9486fd78a270ab3486d6",
+      "duplicate_submission": false,
+      "budget_changed_after_submission": false,
+      "result": "UNRESOLVED: all arms fail frozen fit-start SNR and linear-delta-f validity",
+      "evidence": "results/e2_vb0818_extension_audit_20260912/extension_audit.json"
+    },
+    {
+      "campaign_id": "e2_estimator_comparison_complete_20260912_with_extension",
+      "role": "post-hoc estimator sensitivity using existing histories",
+      "jobs": [],
+      "state": "COMPLETE_REGISTERED_RESULTS_UNCHANGED",
+      "bootstrap_draws": 5000,
+      "bootstrap_seed": 20260911,
+      "bootstrap_unit": "paired seed",
+      "evidence": "results/e2_estimator_comparison_complete_20260912_with_extension/diagnostic_summary.json"
+    },
+    {
+      "campaign_id": "e2_seed_rate_variation_20260912_with_extension",
+      "role": "post-hoc amplitude/phase/window/loading and finite-marker diagnosis",
+      "jobs": [],
+      "state": "COMPLETE_REGISTERED_RESULTS_UNCHANGED",
+      "per_seed_rows": 270,
+      "window_rows": 1890,
+      "finite_marker_rows": 260,
+      "evidence": "results/e2_seed_rate_variation_20260912_with_extension/diagnostic_summary.json"
+    },
+    {
+      "campaign_id": "e2_R095_interior_noise_replay_vb080",
+      "role": "exact interior-width compatible short full-f grid-error replay",
+      "jobs": [],
+      "state": "PASS_EXACT_WIDTH_REPLAY_ANCHORED_TO_SAVED_DATA",
+      "seeds": "100..109",
+      "ppc": 32,
+      "reference_ppc": 1024,
+      "sigma_y_dy": 0.1738592384458977,
+      "evaluation_window": [0.5, 4.0],
+      "evidence": "results/e2_interior_noise_replay_20260911/interior_noise_replay.json"
+    }
+  ]
+}

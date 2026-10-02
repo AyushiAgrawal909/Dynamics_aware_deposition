@@ -1,0 +1,86 @@
+{
+  "audit_date": "2026-09-11",
+  "search_scope": [
+    "/mnt/tier2/users/u103576",
+    "/home/users/u103576"
+  ],
+  "preservation_policy": "Cluster originals were read only. Local copies were written below a new recovered_meluxina_20260911 directory; earlier local results were not overwritten.",
+  "campaigns": {
+    "4872599": {
+      "job_name": "df_linear_ref",
+      "scheduler_state": "COMPLETED",
+      "workdir": "/mnt/tier2/users/u103576/hexapic-main/pic_kde_2d",
+      "submit_line": "sbatch --parsable scripts/submit_linearized_delta_f_reference_cpu.sbatch",
+      "remote_root": "/mnt/tier2/users/u103576/logs/df_linear_ref_4872599",
+      "local_root": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260911/df_linear_ref_4872599",
+      "file_count": 92,
+      "mode_history_count": 30,
+      "result_json_count": 30,
+      "remote_local_aggregate_sha256": "534466ba9a99b05ffb297d45e12d4ac6f42f54c30d829594b77a414b21ce3453",
+      "reducer": "pic_kde_2d/scripts/analyze_linearized_delta_f_reference.py",
+      "reducer_sha256": "4c963b9c4dd015582c6e3926e460c50a94dd5c800932d432d6c90d9692f6a585",
+      "regenerated_csv": "paper1_source_package/reproducibility/results/recovered_delta_f_reference_4872599_20260911/linearized_delta_f_reference.csv",
+      "regenerated_csv_sha256": "259aacecb194cb62ba79553096a3d2f3c3054b60bed65b7ba38346f15cd57b55",
+      "archived_vs_regenerated_rows": 3,
+      "archived_vs_regenerated_max_abs_numeric_difference": 3.375077994860476e-14,
+      "archived_vs_regenerated_nonnumeric_mismatches": 0
+    },
+    "4872745": {
+      "job_name": "df_m12_sigma",
+      "scheduler_state": "COMPLETED",
+      "workdir": "/mnt/tier2/users/u103576/hexapic-main/pic_kde_2d",
+      "submit_line": "sbatch --dependency=afterok:4872599 scripts/submit_linearized_delta_f_m12_sigma_cpu.sbatch",
+      "remote_root": "/mnt/tier2/users/u103576/logs/df_m12_sigma_4872745",
+      "local_root": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260911/df_m12_sigma_4872745",
+      "remote_native_file_count": 122,
+      "remote_nonzero_sigma_mode_history_count": 40,
+      "remote_sigma_zero_symlink": "/mnt/tier2/users/u103576/logs/df_linear_ref_4872599/two_stream/m12",
+      "copy_note": "scp -r materialized the sigma_0 symlink, making the local sweep self-contained with 152 files and 50 histories.",
+      "remote_local_native_files_aggregate_sha256": "1e4a721f20043520ec0b0c0aff8457a9ff6daaa0f73ac2a7e165202ad7599e35",
+      "local_self_contained_aggregate_sha256": "2b5895ffcb794913a5b5b485fa703f8fa720e2920507ad9cd7cf7d5160f5f124",
+      "reducer": "pic_kde_2d/scripts/analyze_linearized_delta_f_m12_sigma.py",
+      "reducer_sha256": "73e5c1974e42e9225be1ce0c15e762caeeedd9e87424a40e375fe96ddeb5b529",
+      "regenerated_csv": "paper1_source_package/reproducibility/results/recovered_delta_f_m12_sigma_4872745_20260911/m12_sigma_sweep.csv",
+      "regenerated_csv_sha256": "0ba8f0cd1f664f6db360472249080ff22190f5e2ef464b4fe978a7cd96b60519",
+      "archived_vs_regenerated_rows": 5,
+      "archived_vs_regenerated_max_abs_numeric_difference": 3.6637359812630166e-15,
+      "archived_vs_regenerated_nonnumeric_mismatches": 0
+    },
+    "4873221": {
+      "job_name": "df_band_1_14",
+      "scheduler_state": "TIMEOUT",
+      "workdir": "/mnt/tier2/users/u103576/hexapic-main/pic_kde_2d",
+      "submit_line": "sbatch scripts/submit_linearized_delta_f_band_cpu.sbatch",
+      "remote_root": "/mnt/tier2/users/u103576/logs/df_band_1_14_4873221",
+      "local_root": "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260911/df_band_1_14_4873221",
+      "file_count": 424,
+      "mode_history_count": 140,
+      "result_json_count": 140,
+      "completeness_note": "The scheduler record is TIMEOUT, but all requested modes 1 through 14 and seeds 0 through 9 exist, and both final analysis files are present.",
+      "remote_local_aggregate_sha256": "cb3fa4bafc1d2e4d4c1ac593e6791d8488131ff93327bfd688b52fdb0ffc5c52",
+      "reducer": "pic_kde_2d/scripts/analyze_linearized_delta_f_band.py",
+      "reducer_sha256": "27bba81fe40376396a9753e681b3f346f29e058fd0aa8aebece9458fbd72675b",
+      "regenerated_csv": "paper1_source_package/reproducibility/results/recovered_delta_f_band_4873221_20260911_r2/linearized_delta_f_band.csv",
+      "regenerated_csv_sha256": "0085eff021dd33e233985c60b003fdb42df0a29a7f8a9233a7da18e9db03fc5f",
+      "archived_vs_regenerated_rows": 14,
+      "archived_vs_regenerated_max_abs_numeric_difference": 0.0,
+      "archived_vs_regenerated_nonnumeric_mismatches": 0
+    }
+  },
+  "validation_effect": {
+    "previous_matrix": "validation_audit_v6: 6 PASS, 31 FAIL, 3 UNRESOLVED",
+    "new_matrix": "validation_audit_v7: 8 PASS, 31 FAIL, 1 UNRESOLVED",
+    "newly_resolved_passes": [
+      "e2_gaussian_sigma01845",
+      "df_e2_m8_reference"
+    ],
+    "unchanged_failed_rows_with_restored_traceability": [
+      "e2_gaussian_sigma01987",
+      "df_landau_reference",
+      "df_e2_m12_reference"
+    ],
+    "weak_landau_complete_pass_count": 0,
+    "e2_binding_corner_passes_unchanged": true
+  },
+  "historical_revision_warning": "Raw outputs and current matching reducers are recovered, but the jobs did not record an immutable source commit or dependency lock; byte identity of the current reducers to the submission-time files remains unknown."
+}

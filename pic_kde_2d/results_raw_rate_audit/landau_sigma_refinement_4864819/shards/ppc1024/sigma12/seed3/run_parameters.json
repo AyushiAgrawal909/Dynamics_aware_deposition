@@ -1,0 +1,19 @@
+{
+  "Lx": 15.707963267948966,
+  "Ly": 8.0,
+  "Nx": 64,
+  "Ny": 16,
+  "alpha": 0.01,
+  "diag_stride": 2,
+  "dt": 0.05,
+  "dx": 0.2454369260617026,
+  "dy": 0.5,
+  "initialization": "density-and-current moment-matched traveling Landau perturbation",
+  "k_lambdaD": 0.4,
+  "kx_mode": 1,
+  "n_steps": 1800,
+  "physics_chain": "CIC -> Gaussian W on rho -> spectral Poisson -> same W on E -> CIC gather",
+  "ppc": 1024,
+  "seed": 3,
+  "sigma_dx": 12.0
+}

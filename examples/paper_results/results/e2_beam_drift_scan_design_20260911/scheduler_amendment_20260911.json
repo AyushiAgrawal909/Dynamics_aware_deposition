@@ -1,0 +1,13 @@
+{
+  "amendment_scope": "scheduler placement only",
+  "cpu_analysis_job": 5201212,
+  "cpu_raw_job": 5201211,
+  "cpu_start_state": "never started",
+  "evidence": "Slurm pending reason AssocGrpGRESMinutes; sshare reported project gres/cpun usage 3945 minutes (65.75 node-hours)",
+  "frozen_campaign_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+  "new_partition": "gpu",
+  "new_requested_gpu_nodes": 1,
+  "new_requested_wall_hours_hard_max": 4.0,
+  "scientific_design_changed": false,
+  "status": "FROZEN_BEFORE_ANY_SIMULATION_STARTED"
+}

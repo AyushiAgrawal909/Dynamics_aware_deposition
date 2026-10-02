@@ -1,0 +1,19 @@
+{
+  "allocation_cap_cpu_node_hours": 1.0,
+  "allocated_cpu_hours": 138.38222222222223,
+  "allocated_cpus": 256,
+  "allocated_nodes": 1,
+  "campaign_id": "E2_q050_x000_exact_width_vb080_v1",
+  "completion_marker_utc": "2026-09-21T12:40:31Z",
+  "elapsed_seconds": 1946,
+  "exit_code": "0:0",
+  "job_id": 5233486,
+  "new_q050_histories": 10,
+  "node_hours": 0.5405555555555556,
+  "reused_cic_histories": 10,
+  "slurm_end": "2026-09-21T14:40:32 Europe/Luxembourg",
+  "slurm_end_utc": "2026-09-21T12:40:32Z",
+  "slurm_start": "2026-09-21T14:08:06 Europe/Luxembourg",
+  "slurm_state": "COMPLETED",
+  "total_cpu_time_hours": 4.723611111111111
+}

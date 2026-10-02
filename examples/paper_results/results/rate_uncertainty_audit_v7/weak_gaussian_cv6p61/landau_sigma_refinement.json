@@ -1,0 +1,59 @@
+{
+  "interpretation": "PASS",
+  "parameters": {
+    "R_linear_sigma_max_dx": 2.0,
+    "baseline": "CIC, sigma=0",
+    "baseline_theory_tolerance": 0.15,
+    "eps_gamma": 0.1,
+    "fit": {
+      "envelope_period": 4.889421601963993,
+      "fit_t_start": 5.0,
+      "fit_t_stop_max": 30.0,
+      "min_duration": 5.0,
+      "min_model_efoldings": 0.5,
+      "min_points": 30,
+      "min_r_squared": 0.75,
+      "noise_factor": 5.0,
+      "noise_floor_start": 70.0,
+      "noise_floor_stop": 90.0,
+      "persistence_points": 5
+    },
+    "gamma_theory": -0.06612795869066172,
+    "ppcs": [
+      1024
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "sigma_grid_dx": [
+      0.0,
+      6.61
+    ]
+  },
+  "sigma_R": [
+    {
+      "R_coefficient_abs": NaN,
+      "R_coefficient_n_points": 0,
+      "R_coefficient_sigma_max_dx": 2.0,
+      "R_coefficient_signed": NaN,
+      "baseline_quality_pass": true,
+      "baseline_rate_usable": true,
+      "eps_gamma": 0.1,
+      "gamma_cic": -0.0697375125212897,
+      "gamma_cic_relative_error_to_theory": 0.0545843830975187,
+      "ppc": 1024,
+      "sigma_R_central_dx": 0.0,
+      "sigma_R_ci_supported_dx": 0.0
+    }
+  ],
+  "sigma_R_non_decreasing_with_ppc": true
+}

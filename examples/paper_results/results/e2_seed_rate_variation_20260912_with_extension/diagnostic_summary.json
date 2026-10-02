@@ -1,0 +1,41 @@
+{
+  "current_vbeam_080_cic": {
+    "arm": "cic",
+    "finite_marker_gamma_mean": 0.12419803157618377,
+    "finite_marker_gamma_sd": 0.023587890844910333,
+    "finite_marker_roots_converged": 10,
+    "marker_group": "current_drift_seeds_200_209",
+    "n_seeds": 10,
+    "observed_gamma_correlation_beam_thermal_vx_covariance": -0.9464566529784095,
+    "observed_gamma_correlation_per_cell_beam_imbalance_rms": -0.2695611351754812,
+    "observed_gamma_correlation_per_cell_thermal_vx_mean_rms": 0.07877102203827623,
+    "observed_gamma_correlation_per_cell_vy_mean_rms": 0.02692796036645661,
+    "observed_gamma_mean": 0.12445080926380203,
+    "observed_gamma_sd": 0.02332842741892679,
+    "observed_vs_finite_marker_gamma_correlation": 0.9998848555631765,
+    "observed_vs_finite_marker_rmse": 0.0004883997571447638,
+    "v_beam": 0.8
+  },
+  "finite_marker_scope": "Principal represented mode, diagonal +k finite-marker response of the explicit-midpoint update; spatial aliases and finite-sample +/-k mixing omitted.",
+  "higher_ppc_decision_rule": "No higher-PPC run is launched by this diagnostic. It would be justified only if a remaining finite-particle question is both specific and not identifiable from the saved histories/loading reconstruction.",
+  "historical_loading_status": "Historical marker arrays were not saved. Seeds 0--9 are reconstructed with the current audited initializer only; exact historical source identity is unknown.",
+  "initial_condition_result": "Every arm has seed-invariant saved t=0 amplitude and phase; therefore initial field amplitude/phase cannot explain within-arm seed-rate spread.",
+  "input_sha256": {
+    "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/recompute_dispersion.py": "5f2e50624fd2c8e5c491ca61795284e82d513f2671614adf13bef1e9d60fba3a",
+    "/Users/ayushi.agrawal/Downloads/pic_kde_2d_landau_cv_stage/pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+    "paper1_source_package/reproducibility/results/e2_beam_drift_scan_analysis_20260912_complete_extension/E2_beam_drift_scan.json": "a007561ae0037cd8d96c2f067a90791a86676c1bba76876e6ae70ac3a05ba460",
+    "paper1_source_package/reproducibility/results/e2_beam_drift_scan_design_20260911/frozen_campaign.json": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+    "paper1_source_package/reproducibility/results/e2_estimator_comparison_complete_20260912_with_extension/individual_seed_rates.csv": "1434cf419a0fde779292fb4d7b3f58fbeab5df5988bc819daf7a343915aac6f4",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_compensated_corner_5195640/analysis/E2_compensated_corner.json": "7937519dc1a6625d3d471d4e82a6b79755b3fa7a5da0c777bac6eda772072fe1",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/analysis/joint_corner_sweep.json": "75aed2e9912f547fe5dd3730ff0959e2877876538bbcb2bd03a8a860d52d4108"
+  },
+  "status": "POST_HOC_DIAGNOSTIC_COMPLETE_REGISTERED_RESULTS_UNCHANGED",
+  "tables": {
+    "finite_marker_linear_response": "finite_marker_linear_response.csv",
+    "finite_marker_response_summary": "finite_marker_response_summary.csv",
+    "fixed_window_sensitivity_grid": "fixed_window_sensitivity_grid.csv",
+    "group_history_diagnostics": "group_history_diagnostics.csv",
+    "per_seed_history_diagnostics": "per_seed_history_diagnostics.csv",
+    "reconstructed_loading_moments": "reconstructed_loading_moments.csv"
+  }
+}

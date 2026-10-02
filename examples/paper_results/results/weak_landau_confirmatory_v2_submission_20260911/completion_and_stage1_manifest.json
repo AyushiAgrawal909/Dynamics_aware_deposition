@@ -1,0 +1,123 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "recorded_at": "2026-09-11T13:18:18+02:00",
+  "production_completion": {
+    "all_slurm_elements_completed_exit_zero": true,
+    "low_final_seed_directories": 40,
+    "low_partial_directories": 0,
+    "reference_final_seed_directories": 40,
+    "reference_partial_directories": 0,
+    "nonempty_matching_stderr_files": 0,
+    "completed_elements": {
+      "5200457": [
+        "1",
+        "2",
+        "3"
+      ],
+      "5200458": [
+        "1",
+        "2",
+        "3"
+      ],
+      "5200485": [
+        "batch"
+      ],
+      "5200486": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "5200487": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "5200488": [
+        "batch"
+      ]
+    }
+  },
+  "cpu_quota_actual": {
+    "low_elapsed_seconds": [
+      2287,
+      2287,
+      2183,
+      2406
+    ],
+    "reference_elapsed_seconds": [
+      3194,
+      3111,
+      3096,
+      3122,
+      3139
+    ],
+    "total_cpu_node_seconds": 24825,
+    "total_cpu_node_hours": 6.895833333333333,
+    "margin_below_stated_seven_hours_seconds": 375
+  },
+  "preserved_raw_archive": {
+    "remote_root": "/mnt/tier2/users/u103576/paper1_validation/weak_landau_confirmatory_v2_global_velocity",
+    "local_root": "paper1_source_package/reproducibility/results/weak_landau_confirmatory_v2_production_20260911",
+    "low_files": 280,
+    "reference_files": 80,
+    "total_files": 360,
+    "aggregate_method": "from the campaign root, hash the sorted stream of per-file SHA-256 lines for find low reference -type f",
+    "remote_local_aggregate_sha256": "47019511f4557621010e27c13025e6b51e827664685bf80270eb183c3468a7a1"
+  },
+  "stage_1": {
+    "status": "COMPLETE_AND_FROZEN",
+    "rate_ratios_computed": false,
+    "all_pairing_hashes_verified": true,
+    "n_seeds": 40,
+    "window_decisions_path": "paper1_source_package/reproducibility/results/weak_landau_confirmatory_v2_stage1_windows_20260911/window_decisions.json",
+    "window_decisions_sha256": "cb724768fad3950d5ca181882285284b7f253d75643cee0c3e446fd1958b0cbf",
+    "decisions": {
+      "cic": {
+        "accepted_window": [
+          5.0,
+          30.1
+        ],
+        "ending_reason": "noise_threshold",
+        "censor_t": 32.6,
+        "gamma": -0.0685811199688909,
+        "fitted_amplitude_efoldings": 1.7213861112191615,
+        "fit_r_squared": 0.9996738909643034,
+        "fit_start_signal_to_floor": 31.065338959382775,
+        "central_fit_quality_pass": false,
+        "failed_requirement": "fitted amplitude e-foldings < 2.0"
+      },
+      "c4_sigma1": {
+        "accepted_window": [
+          5.0,
+          35.6
+        ],
+        "ending_reason": "noise_threshold",
+        "censor_t": 38.1,
+        "gamma": -0.06785521411453695,
+        "fitted_amplitude_efoldings": 2.076369551904831,
+        "fit_r_squared": 0.998439974723854,
+        "fit_start_signal_to_floor": 45.74314033272029,
+        "central_fit_quality_pass": true
+      },
+      "lscv_job5008392": {
+        "accepted_window": [
+          5.0,
+          28.0
+        ],
+        "ending_reason": "noise_threshold",
+        "censor_t": 30.5,
+        "gamma": -0.12988082418631738,
+        "fitted_amplitude_efoldings": 2.9872589562853,
+        "fit_r_squared": 0.9953980620449908,
+        "fit_start_signal_to_floor": 109.47817928883252,
+        "central_fit_quality_pass": true
+      }
+    },
+    "promotion_implication_before_ratios": "FAIL: the preregistered rule requires both CIC and C4 to have at least two fitted amplitude e-foldings; CIC has 1.721386.",
+    "stage_2_run": false
+  },
+  "manuscript_change": "none: Stage 1 is reported before any comparative-rate analysis, as preregistered"
+}

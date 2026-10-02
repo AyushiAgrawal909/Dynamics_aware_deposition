@@ -1,0 +1,202 @@
+{
+  "W_one_application": 0.9977310235762052,
+  "W_squared_particle_force": 0.9954671954064223,
+  "config_sha256": "3b763155abe28c4b105a1824969ff411a6d0b1b6a5f3d9319b23ff3c39ec4800",
+  "interpretation": "CIC and q050 initialize identically within this runtime. Exact hashes can differ across NumPy runtimes in w_delta; only the MeluXina production-runtime hashes are used to admit historical CIC reuse.",
+  "matches_meluxina_production_runtime_array_hash": {
+    "200": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "201": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "202": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "203": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "204": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "205": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "206": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "207": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "208": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    },
+    "209": {
+      "vx": true,
+      "vy": true,
+      "w_delta": false,
+      "w_full": true,
+      "x": true,
+      "y": true
+    }
+  },
+  "matches_meluxina_production_runtime_hash": {
+    "200": false,
+    "201": false,
+    "202": false,
+    "203": false,
+    "204": false,
+    "205": false,
+    "206": false,
+    "207": false,
+    "208": false,
+    "209": false
+  },
+  "no_simulation_run": true,
+  "q_at_target_mode": 0.004543108902388957,
+  "runtime": {
+    "numpy": "2.5.1",
+    "python": "3.14.6"
+  },
+  "same_runtime_cic_q050_reconstructed_array_sha256": {
+    "200": {
+      "vx": "1a1e30c1abefc9862b298d89d70afc00d3f133640b63be75e51823e7e968cda6",
+      "vy": "e3e2a5cd7e24b3fbe4b0086550593c40ac1039769ab1eba40bfdd725be099463",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "201": {
+      "vx": "a1b9215d036902472a584418e33f9db95a3f0c2ff81c8d213170242e138d7f2f",
+      "vy": "1f0a2d1603d2f8feb2225b20a3e503b238264d780bb75600404e37220288792d",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "202": {
+      "vx": "b1361a6eac1364a08fae499ff5c6b0b3453543d73ec631da4c055c818fdc57b5",
+      "vy": "cccfa37337a81a5f0da405cfa4ce80e39beab37c11a0894b06725fbaaed6ed14",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "203": {
+      "vx": "075967f3d1721d07a30e201ebd415fd76e22371aa6ce7f9d22bdc2626172790d",
+      "vy": "ac0fda8b48d46366ce92714f8c0353c49a6ae9d2aac1adf8c06cbca4249f0ed1",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "204": {
+      "vx": "a8aaad30fb2a161f2839fee989c62fc4e49d7814bbaa4a460455d491c52e915d",
+      "vy": "39e3b32c6223662eadebc9d8211956502c01f902c6e8ae4b91f6bec7dbf18011",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "205": {
+      "vx": "12eade5793235d04e9fa31fe8851b19ffad8b672cd581b404ccdbb692e94c3fc",
+      "vy": "78c75a8581e570bebbc78f105d64caad2f773cebb53c2170f78ab5667cc1e050",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "206": {
+      "vx": "84acb958bebaad3254a4121eeb9ced69510b12fdf5208c89008cda3bb6184cb5",
+      "vy": "1dd1e322c4bb58ba6348274b60379b36433112e0a3ca4d1b5e9207d2cb48e4b1",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "207": {
+      "vx": "3fc40be3c72aab93ee3aa896f1774ef87c041314dd337b85625616d8490a577b",
+      "vy": "a9b80a83178e285126171145a18cf7d56086953d40885de56c68b79e73002428",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "208": {
+      "vx": "fdd4e2382d8e534c4e8372722c7e47e6cc0915008a0895a618b37faa4ca5b354",
+      "vy": "1f26a874be9dd9588ce3d6ebdd30a4c27f26bd941c89a7ee11d1171c25bc5689",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    },
+    "209": {
+      "vx": "d2d764d12c588afcbf19b2d5d15be8efabff4c029cc91ec0e17d850a3277574e",
+      "vy": "e7706445e004d0758431c29bfa9f922b8fad84889ac1dfaa1bee90cb6a13fa88",
+      "w_delta": "27bd4d07cf006db2eefd283a5e2fe21535992e8b1df721c724c60d6d8fd613d0",
+      "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+      "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+      "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+    }
+  },
+  "same_runtime_cic_q050_reconstructed_state_sha256": {
+    "200": "1cc27ac94a5190cb2c6a56a95845b500626c3dd76596adec2e6337290e0e97d7",
+    "201": "ae2447906acde342822921cabf50c59713dcdb8ee6cca8b8db9295b5ca8fe3ae",
+    "202": "621c57e3155f4122f52658a3d211e703443f28877c37eaea02af312865b6d6da",
+    "203": "290ab456e0b538a8c570dba4eecfcad71ad83a17e9b0bc20a0a981a0c8db98ac",
+    "204": "74d62db98434ecc2306b2dae86871a173c6cd9b5027bcc5ab1f69aa85f796833",
+    "205": "f2eabf8c688341f2238aac004bca5f520644256481abb38e00cc82ecadce6d76",
+    "206": "da9be74b9faba4de682a675299549c554c0e114e2a5d2f6ff8d97f7a385b3522",
+    "207": "4402775ad520d60e199603614d7019ad1ab4dd9ff44ad66cc24d59ac3d08d204",
+    "208": "a1391660739b4ddd6e2d063469011821c7080f9a20d28784168d82f5b6dc5187",
+    "209": "3984d4c344e0fd2e7d518767e06bb9c14e4195b2673d610e0827946a003cd124"
+  },
+  "source_hashes_verified": true,
+  "status": "PASS"
+}

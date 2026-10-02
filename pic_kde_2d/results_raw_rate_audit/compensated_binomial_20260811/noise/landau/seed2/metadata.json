@@ -1,0 +1,21 @@
+{
+  "alpha": 0.01,
+  "benchmark": "landau_weak",
+  "eval_window": [
+    5.0,
+    30.0
+  ],
+  "filter_family": "compensated_binomial",
+  "live_method": "matched Gaussian sigma=0.25 dx",
+  "passes": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "ppc": 1024,
+  "reference_ppc": 16384,
+  "seed": 2
+}

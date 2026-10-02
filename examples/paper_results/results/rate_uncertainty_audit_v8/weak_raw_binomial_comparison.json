@@ -1,0 +1,17 @@
+{
+  "added_columns_in_rebuilt": [
+    "compensation_order",
+    "filter_family"
+  ],
+  "archived": "pic_kde_2d/results_raw_rate_audit/landau_binomial_weak_5048412/analysis/landau_binomial_passes.csv",
+  "archived_sha256": "8e552c6180c4feb6d6973e86e0b5d69248ce641e83d5a66e35e5b17aee7f4097",
+  "examples": [],
+  "max_abs_numeric_difference": 7.327471962526033e-15,
+  "mismatch_count": 0,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v8/weak_raw_binomial/landau_binomial_passes.csv",
+  "rebuilt_sha256": "2aca2134829874734f6f344f6c1f87ef042ef839f807864a46e50c3d82b43adb",
+  "rows_archived": 8,
+  "rows_rebuilt": 8,
+  "status": "PASS_WITH_SCHEMA_EXTENSION"
+}

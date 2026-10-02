@@ -1,0 +1,49 @@
+{
+  "minimum": {
+    "bandwidth": 3.0,
+    "explanation": "A finite interior minimum is identified on the search grid.",
+    "identified": true,
+    "index": 18,
+    "lower_bound": null,
+    "score": -0.007991489500613107,
+    "search_max": 4.0,
+    "search_min": 0.0,
+    "status": "interior"
+  },
+  "n_seeds": 10,
+  "per_seed_minimum": {
+    "max_dx": 2.8616750947061096,
+    "mean_dx": 2.820488419087008,
+    "median_dx": 2.815285971634631,
+    "min_dx": 2.7810906366850117,
+    "n_interior": 10,
+    "n_total": 10,
+    "std_dx": 0.031861445509867664
+  },
+  "protocol_checks": {
+    "eval_window": [
+      3.0,
+      12.0
+    ],
+    "ppc": 1024,
+    "quiet_start_layout": "global",
+    "self_term": "exact particle-phase-averaged CIC quadratic form",
+    "zero_variance_guard": "passed"
+  },
+  "sigma_cv_grid_dx": 3.0,
+  "sigma_cv_quadratic_ci_hi": 2.840074360409444,
+  "sigma_cv_quadratic_ci_lo": 2.8016293045530443,
+  "sigma_cv_quadratic_dx": 2.8208225628757857,
+  "source_files": [
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed0/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed1/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed2/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed3/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed4/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed5/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed6/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed7/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed8/landau_lscv_seed_values.csv",
+    "/home/users/u103576/hexapic-main/pic_kde_2d/results/strong_landau_alpha025_20260811/cv_shards/seed9/landau_lscv_seed_values.csv"
+  ]
+}

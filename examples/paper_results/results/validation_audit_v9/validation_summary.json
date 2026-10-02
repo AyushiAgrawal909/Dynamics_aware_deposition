@@ -1,0 +1,22 @@
+{
+  "counts": {
+    "FAIL": 31,
+    "PASS": 8,
+    "UNRESOLVED": 1
+  },
+  "criteria": {
+    "baseline_duration": "The fresh v2 confirmation preregistered a separate two-e-folding check for both arms because their censoring windows differ. Retrospective NOT_APPLICABLE values mean that the older candidate-only schema had no separate baseline column; they must not be read as automatic baseline passes. For the E2 Gaussian corner the shared-window CIC baseline is measured and passes with 4.484 e-foldings.",
+    "duration": "at least 2.0 model e-foldings for the measured arm",
+    "overall": "PASS requires model, rate, duration, signal, protected-mode coverage and raw traceability all PASS",
+    "prediction_policy": "predictions are reported separately and never satisfy a measurement gate",
+    "rate": "two-sided 95% rate-ratio interval wholly inside [0.90,1.10]",
+    "signal": "fit-specific quality; E2 amplitude SNR >=5 and >=2 current-rate e-foldings where available"
+  },
+  "e2_binding_corner_overall_passes": [
+    "e2_c4_corner",
+    "e2_comp_p2_n2_corner",
+    "e2_comp_p3_n4_corner"
+  ],
+  "rows": 40,
+  "weak_landau_overall_passes": []
+}

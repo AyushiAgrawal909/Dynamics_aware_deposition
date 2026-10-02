@@ -1,0 +1,21 @@
+{
+  "added_columns_in_rebuilt": [],
+  "archived": "pic_kde_2d/results_raw_rate_audit/strong_landau_fidelity_5048278/analysis/strong_landau_fidelity.csv",
+  "archived_sha256": "81f92549804deedb8870847d6bf53e43d0d346c6e2a36fa49d1a7059f295835d",
+  "examples": [
+    "row 0, gate_status: rebuilt='UNRESOLVED', archived='FAIL'",
+    "row 1, gate_status: rebuilt='UNRESOLVED', archived='FAIL'",
+    "row 2, gate_status: rebuilt='UNRESOLVED', archived='FAIL'",
+    "row 3, gate_status: rebuilt='UNRESOLVED', archived='FAIL'",
+    "row 4, gate_status: rebuilt='UNRESOLVED', archived='FAIL'",
+    "row 5, gate_status: rebuilt='UNRESOLVED', archived='FAIL'"
+  ],
+  "max_abs_numeric_difference": 3.3306690738754696e-15,
+  "mismatch_count": 6,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v7/strong_alpha0p5_fit5/strong_landau_fidelity.csv",
+  "rebuilt_sha256": "52d0e5aac75ec99a45571e45289b7ee3fab995464f6aa5ec0f174c33270f750e",
+  "rows_archived": 6,
+  "rows_rebuilt": 6,
+  "status": "FAIL"
+}

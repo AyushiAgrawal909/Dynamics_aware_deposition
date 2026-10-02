@@ -1,0 +1,44 @@
+{
+  "gate": "G0_locality_field_headroom",
+  "decision": "PROCEED_TO_CONSERVATION_PRECHECK",
+  "preregistered_threshold": 1.5,
+  "sigma_safe_cells": 2.453,
+  "intended_geometry": "narrowband_H2_candidate",
+  "summaries": [
+    {
+      "geometry": "proposed_L64",
+      "intended": false,
+      "geometry_valid": false,
+      "carrier_cycles_in_core": 0.4,
+      "relative_packet_bandwidth": 1.5915494309189535,
+      "best_admissible_sigma_free_cells": 32.0,
+      "best_admissible_field_noise_gain": 1.426157939236703,
+      "density_noise_gain_at_best_field_point": 7.429696116867425,
+      "packet_field_error_at_best_field_point": 0.05746639813451122,
+      "ideal_outside_deletion_field_gain_upper_bound": 3.248164502018684,
+      "field_gain_threshold": 1.5,
+      "gate_pass": false
+    },
+    {
+      "geometry": "narrowband_H2_candidate",
+      "intended": true,
+      "geometry_valid": true,
+      "carrier_cycles_in_core": 4.000000000000001,
+      "relative_packet_bandwidth": 0.15915494309189532,
+      "best_admissible_sigma_free_cells": 384.0,
+      "best_admissible_field_noise_gain": 1.6223083964655458,
+      "density_noise_gain_at_best_field_point": 8.860354402434835,
+      "packet_field_error_at_best_field_point": 0.02585823432255422,
+      "ideal_outside_deletion_field_gain_upper_bound": 3.6754692892054894,
+      "field_gain_threshold": 1.5,
+      "gate_pass": true
+    }
+  ],
+  "method": {
+    "noise_covariance": "independent equal-variance source-cell density noise",
+    "deposit": "principal CIC transfer times source-dependent periodic Gaussian",
+    "field_operator": "continuum spectral -i*k/|k|^2 with k=0 removed",
+    "diagnostic": "Gaussian-packet-power-weighted Ex+Ey variance",
+    "fit_parameters": 0
+  }
+}

@@ -1,0 +1,39 @@
+# Operating-system and editor metadata
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+_matplotlib_cache/
+numba_cache/
+
+# Reproduction outputs are generated locally and never overwrite the archive
+reproduced/
+.mpl-cache-*/
+
+# Common generated-document intermediates (no manuscript source is distributed)
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.synctex.gz
+*.toc
+
+# Local logs and scheduler scratch
+slurm-*.out
+slurm-*.err
+
+# Two recovered conservation-audit logs are archived evidence, not local scratch.
+!pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260910/G0_conservation_precheck/slurm-4928989.out
+!pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260910/G0_conservation_precheck/slurm-4928994.out

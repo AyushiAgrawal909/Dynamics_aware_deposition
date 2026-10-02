@@ -1,0 +1,3 @@
+metric,train_selected_label,train_selected_sigma_x_dx,train_selected_sigma_y_dy,train_selected_q_fraction,train_selected_x_allocation,test_best_label,test_selection_matches_train,test_reduction,test_ci_lo,test_ci_hi,nested_ci_lo,nested_ci_hi
+density,q100_x000,0.0,0.24273459979982182,1.0,0.0,q100_x000,True,1.1583740799157567,1.154085142093341,1.161964692171787,1.154085142093341,1.1622599313574065
+field,q100_x000,0.0,0.24273459979982182,1.0,0.0,q100_x000,True,1.0750930987652219,1.0706382773357248,1.0798924221771655,1.0706382773357246,1.0798924221771655

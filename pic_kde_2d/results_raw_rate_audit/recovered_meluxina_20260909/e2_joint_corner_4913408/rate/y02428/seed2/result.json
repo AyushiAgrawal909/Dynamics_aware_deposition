@@ -1,0 +1,20 @@
+{
+  "alpha": 1e-08,
+  "background": "two_stream",
+  "benchmark": "two_stream",
+  "dt": 0.02,
+  "kx_mode": 12,
+  "ky_mode": 1,
+  "marker_dynamics": "free_streaming_frozen_equilibrium",
+  "max_delta_f_ratio": 1.8496664504675285e-05,
+  "mode": 12,
+  "ppc": 512,
+  "seed": 2,
+  "sigma_dx": null,
+  "sigma_x_dx": 0.0,
+  "sigma_y_dy": 0.2428,
+  "t_end": 60.0,
+  "target_mode_projection": true,
+  "valid_through_run": true,
+  "validity_threshold": 0.5
+}

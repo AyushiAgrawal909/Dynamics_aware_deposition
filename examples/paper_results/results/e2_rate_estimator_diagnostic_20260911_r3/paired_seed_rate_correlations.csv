@@ -1,0 +1,9 @@
+v_beam,comparison_arm,pearson_correlation_with_cic_individual_rates,interpretation
+0.6,fixed_gaussian,0.9999998345597401,paired finite-particle seed effects are shared across arms
+0.6,constrained_gaussian,0.9999924397338381,paired finite-particle seed effects are shared across arms
+0.7,fixed_gaussian,0.9999998897344395,paired finite-particle seed effects are shared across arms
+0.7,constrained_gaussian,0.9999985694313521,paired finite-particle seed effects are shared across arms
+0.76,fixed_gaussian,0.9999991317229434,paired finite-particle seed effects are shared across arms
+0.76,constrained_gaussian,0.9999975801603166,paired finite-particle seed effects are shared across arms
+0.8,fixed_gaussian,0.9998189082589377,paired finite-particle seed effects are shared across arms
+0.8,constrained_gaussian,0.999966556530986,paired finite-particle seed effects are shared across arms

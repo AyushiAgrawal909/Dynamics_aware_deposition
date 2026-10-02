@@ -1,0 +1,139 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "config_path": "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json",
+  "config_sha256": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+  "development_seeds_pooled": false,
+  "n_fresh_seeds": 40,
+  "preflight_sha256": "f48de6f8f9dc3ae6c8a06ad5f5851c3d79506b7cf90b4b08af85eb0242a6f5de",
+  "primary_observable": "coherently averaged complex field, then magnitude and envelope",
+  "promotion_checks": {
+    "c4_signal_and_fit_quality": true,
+    "c4_to_cic_paired_interval": true,
+    "c4_two_efoldings": true,
+    "cic_absolute_rate_reference_interval": true,
+    "cic_signal_and_fit_quality": false,
+    "cic_two_efoldings": false,
+    "coverage_and_traceability": true,
+    "paired_bootstrap_quality_fraction": false
+  },
+  "promotion_status": "FAIL",
+  "rates": {
+    "bootstrap": {
+      "cic_absolute_ratio_to_discrete_reference": {
+        "central": 1.0334338141689359,
+        "ci_hi": 1.078709566640724,
+        "ci_lo": 0.9897740378835945
+      },
+      "cic_quality_fraction": 0.0,
+      "comparisons": {
+        "c4_sigma1": {
+          "central_ratio_to_cic": 0.9894153689137298,
+          "paired_quality_fraction": 0.0,
+          "ratio_ci_hi": 1.0138274034763808,
+          "ratio_ci_lo": 0.9678835537488053,
+          "valid_fraction": 1.0
+        },
+        "lscv_job5008392": {
+          "central_ratio_to_cic": 1.8938276925957562,
+          "paired_quality_fraction": 0.0,
+          "ratio_ci_hi": 2.1387450195585194,
+          "ratio_ci_lo": 1.6790209453807259,
+          "valid_fraction": 1.0
+        }
+      },
+      "n_draws": 5000
+    },
+    "central": {
+      "c4_sigma1": {
+        "duration": 30.6,
+        "efoldings": 2.076369551904831,
+        "fit_start_snr": 45.74314033272029,
+        "gamma": -0.06785521411453695,
+        "n_points": 307,
+        "quality_pass": true,
+        "r_squared": 0.998439974723854
+      },
+      "cic": {
+        "duration": 25.1,
+        "efoldings": 1.7213861112191615,
+        "fit_start_snr": 31.065338959382775,
+        "gamma": -0.0685811199688909,
+        "n_points": 252,
+        "quality_pass": false,
+        "r_squared": 0.9996738909643034
+      },
+      "lscv_job5008392": {
+        "duration": 23.0,
+        "efoldings": 2.9872589562853,
+        "fit_start_snr": 109.47817928883252,
+        "gamma": -0.12988082418631738,
+        "n_points": 231,
+        "quality_pass": true,
+        "r_squared": 0.9953980620449908
+      }
+    }
+  },
+  "runtime_source_sha256": {
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory.py": "e7fced38279323ead13261954d94d65f509ba5840a005f074eef26dde7d30324",
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory_v2.py": "f27c7bb14fdfad9a65c5bbe50f4d9ec05ea06a0ea6c88529bf07faf75e182e31",
+    "paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+    "pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "pic_kde_2d/pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+    "pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+    "pic_kde_2d/pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W_wrappers.py": "fca889c207843de7c448b778e54b32c98cd48293ab1234629e4efcef9a0f16ff",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory.py": "3cefeb6d3467a6b731bbd0cc3cf8102239a41393f68802b877ab64b5cc30b93f",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory_v2.py": "3c85334aa7ba138a2a40d4396b0afb1f6bf558b1109086a1895a7d7d46d05cc1"
+  },
+  "same_campaign_noise_metrics": {
+    "arms": {
+      "c4_sigma1": {
+        "density_error_power_reduction_vs_cic": {
+          "central": 3.2586464941677002,
+          "ci_hi": 3.265002064487961,
+          "ci_lo": 3.251797148152599
+        },
+        "grid_field_error_power_reduction_vs_cic": {
+          "central": 1.6127965624275677,
+          "ci_hi": 1.62154865246095,
+          "ci_lo": 1.6034478389168612
+        },
+        "mean_density_error_power": 0.0001566921866405723,
+        "mean_grid_field_error_power": 2.3629644170293692e-05
+      },
+      "cic": {
+        "density_error_power_reduction_vs_cic": {
+          "central": 1.0,
+          "ci_hi": 1.0,
+          "ci_lo": 1.0
+        },
+        "grid_field_error_power_reduction_vs_cic": {
+          "central": 1.0,
+          "ci_hi": 1.0,
+          "ci_lo": 1.0
+        },
+        "mean_density_error_power": 0.0005106044446597719,
+        "mean_grid_field_error_power": 3.810980888923628e-05
+      },
+      "lscv_job5008392": {
+        "density_error_power_reduction_vs_cic": {
+          "central": 4.611531144330059,
+          "ci_hi": 4.624896569118654,
+          "ci_lo": 4.598353767318561
+        },
+        "grid_field_error_power_reduction_vs_cic": {
+          "central": 0.632380823486819,
+          "ci_hi": 0.6463697629577022,
+          "ci_lo": 0.6191925774647319
+        },
+        "mean_density_error_power": 0.0001107234080566857,
+        "mean_grid_field_error_power": 6.026401730385586e-05
+      }
+    },
+    "reference": "PPC-4096 unfiltered CIC run with the same global inverse-normal velocity-assignment protocol and seed identifier, generated independently for each of the 40 v2 seeds"
+  },
+  "single_run_diagnostics_are_primary": false,
+  "stage": 2,
+  "window_decisions_sha256": "cb724768fad3950d5ca181882285284b7f253d75643cee0c3e446fd1958b0cbf"
+}

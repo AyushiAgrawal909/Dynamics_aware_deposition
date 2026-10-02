@@ -1,0 +1,45 @@
+{
+  "candidate_fitted_efoldings": 4.113115973142947,
+  "checks": {
+    "all_5000_paired_resamples_valid": true,
+    "candidate_efoldings_at_least_2": true,
+    "delta_f_guard_below_0p5": true,
+    "fit_r_squared_at_least_0p98": true,
+    "fit_start_snr_at_least_5": true,
+    "shared_cic_baseline_efoldings_at_least_2": true
+  },
+  "condition": "E2 Gaussian C4 binding corner (12,1), sigma_x=0, sigma_y=0.2428 dy",
+  "fit_r_squared": 0.9959129522959156,
+  "fit_window": [
+    24.32,
+    59.68
+  ],
+  "floor": {
+    "fit_start_amplitude": 6.571334862887537e-09,
+    "fit_start_snr": 11.213402344678167,
+    "floor_definition": "quietest rolling-median pre-emergence window",
+    "floor_scope": "per-cell",
+    "floor_t_start": 8.16,
+    "floor_t_stop": 10.120000000000001,
+    "noise_floor": 5.860250672273669e-10
+  },
+  "historical_reducer_gap": "the original joint reducer stored no floor; this audit applies the existing quietest two-time-unit rolling-median pre-emergence estimator to the recovered histories",
+  "max_delta_f_ratio_fit_window": 0.00026671833268478986,
+  "paired_bootstrap_valid": 5000,
+  "raw_history_count": 10,
+  "raw_history_sha256": {
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed0/mode_history.npz": "c27cef5f250692ad3cd64f9f01ad892f3dd3a9421b0e0cbbb272d73f07ca19e6",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed1/mode_history.npz": "e25e3de201c3a802023c78a3869faad17a8d5829672bfa430f64e231ccffc7c8",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed2/mode_history.npz": "fb04c1fb2c450243571556252d00f319a547e669f3309543d59c3e755238322d",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed3/mode_history.npz": "05e3689dbb9b846f1371874057b6b010b3053d719b377ae82918074502e8ba25",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed4/mode_history.npz": "d9d40bc5c00e71878d964942623ef4ec8c7f542b83c55a5d326344f914cb5176",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed5/mode_history.npz": "d5f9a7353d9e85b74de8ad949a42811ac45e8a5d06e4dc9dd2725ae64ee503d6",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed6/mode_history.npz": "65b049b74febe8c52e636f4bfdba2c8d6fd580e61aa5346dcb8d0c392fc14bd9",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed7/mode_history.npz": "c3fb9eb4ae0185c50f533bf7aa5ac7e1abe76271f53654353dc6c07a9104be5c",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed8/mode_history.npz": "ac140d5510c625086d6ba4d861a663c1f9a906e049d4a26155731782596c008f",
+    "pic_kde_2d/results_raw_rate_audit/recovered_meluxina_20260909/e2_joint_corner_4913408/rate/y02428/seed9/mode_history.npz": "0096cac6ef71db5361bac7af47459ce9ef543d4a2bde7e2979811f70212246c6"
+  },
+  "reduction_sha256": "ab5cf8ea83eef4765966ef2e3aec8dc61ae1f55e270ef7a2db7cab81b26ce3eb",
+  "shared_cic_baseline_fitted_efoldings": 4.483681269108223,
+  "signal_resolvability": "PASS"
+}

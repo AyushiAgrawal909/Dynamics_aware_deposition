@@ -1,0 +1,161 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v1",
+  "status": "frozen_not_submitted",
+  "purpose": "Independent fixed-sample confirmation of weak-Landau duration, C4 rate fidelity, and same-campaign noise benefit",
+  "development_data": {
+    "campaign": "landau_sigma_refinement_4864819",
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "use": "diagnosis and campaign design only; never pooled into the primary confirmatory analysis"
+  },
+  "confirmation": {
+    "seed_start": 202609100,
+    "seed_stop_inclusive": 202609139,
+    "n_seeds": 40,
+    "fixed_sample": true,
+    "sequential_seed_addition_forbidden": true,
+    "pairing": "For each seed, initialize one PPC-1024 particle state and byte-copy x,y,vx,vy,w into all three arms; save and compare SHA-256 digests."
+  },
+  "benchmark": {
+    "k_lambda_D": 0.4,
+    "alpha": 0.01,
+    "perturbation_phase_radians": 0.0,
+    "kx_mode": 1,
+    "ky_mode": 0,
+    "initialization": "density-and-current moment-matched traveling Landau perturbation",
+    "velocity_thermal": 1.0,
+    "velocity_loading": "randomized per-cell tensor inverse-normal quiet start",
+    "per_cell_velocity_quadrature": "32 by 32 for PPC 1024; independently permuted within each cell with the frozen seed",
+    "particle_loading": "regular 2048 by 512 marker lattice before the perturbation displacement",
+    "ppc": 1024
+  },
+  "grid": {
+    "Nx": 64,
+    "Ny": 16,
+    "Lx": 15.707963267948966,
+    "Ly": 8.0,
+    "dx": 0.2454369260617026,
+    "dy": 0.5,
+    "boundary_conditions": "periodic in x and y"
+  },
+  "time_integration": {
+    "integrator": "electrostatic velocity-Verlet with two force evaluations per step",
+    "dt": 0.05,
+    "n_steps": 1800,
+    "simulation_t_stop": 90.0,
+    "early_stopping": false,
+    "mode_diagnostic_stride_steps": 2,
+    "mode_diagnostic_cadence": 0.1,
+    "noise_snapshot_t_start": 5.0,
+    "noise_snapshot_t_stop": 30.0,
+    "noise_snapshot_stride_steps": 10,
+    "noise_snapshot_cadence": 0.5
+  },
+  "field_solver": {
+    "algorithm": "numpy rfft2 periodic spectral Poisson solve",
+    "equations": "phi_hat=rho_hat/k^2 for k!=0; Ex_hat=-i*kx*phi_hat; Ey_hat=-i*ky*phi_hat; k=0 set to zero",
+    "tolerance": "not applicable: direct FFT solve",
+    "particle_field_chain": "CIC deposit -> W on rho -> spectral Poisson -> same W on Ex,Ey -> CIC gather"
+  },
+  "arms": [
+    {
+      "id": "cic",
+      "name": "Baseline CIC",
+      "filter": "identity",
+      "sigma_cells": 0.0
+    },
+    {
+      "id": "c4_sigma1",
+      "name": "Gaussian C4 constrained setting",
+      "filter": "Gaussian W=exp[-(kx^2 sigma_x^2 + ky^2 sigma_y^2)/2]",
+      "sigma_cells": 1.0,
+      "directional_convention": "cell-isotropic: sigma_x=1.0*dx and sigma_y=1.0*dy; W is applied once on deposition and once on the return field"
+    },
+    {
+      "id": "lscv_job5008392",
+      "name": "Previously selected exact LOO-CV comparator",
+      "filter": "Gaussian W=exp[-(kx^2 sigma_x^2 + ky^2 sigma_y^2)/2]",
+      "sigma_cells": 7.244293147028428,
+      "directional_convention": "cell-isotropic: sigma_x=7.244293147028428*dx and sigma_y=7.244293147028428*dy; W is applied once on deposition and once on the return field",
+      "selection_source": "landau_lscv_static_5008392, alpha=0.01, PPC 1024, ten global-layout development seeds, exact particle-phase-averaged CIC LOO self term, t=0 static selection",
+      "selection_independence_note": "The width is frozen before this campaign and is not reselected from confirmatory rates. Its source used global rather than per-cell velocity loading, which must be disclosed."
+    }
+  ],
+  "fit_rule": {
+    "observable": "abs(mean over seeds of the complex Ex Fourier coefficient at mode (1,0)))",
+    "operation_order": "average complex coefficients, then magnitude, then centered one-period geometric envelope, then one log-linear slope",
+    "fit_t_start": 5.0,
+    "fit_t_stop_max": 45.0,
+    "fit_t_stop_rationale": "The cap is frozen above 35.2444, the time needed for two amplitude e-foldings from t=5 at the verified reference magnitude, with 9.76 additional time units of margin.",
+    "noise_floor_t_start": 70.0,
+    "noise_floor_t_stop": 90.0,
+    "noise_floor_estimator": "minimum rolling median of the centered envelope over complete five-time-unit windows stepped by one time unit",
+    "noise_threshold_factor": 5.0,
+    "persistence_points": 5,
+    "envelope_period": 4.889421601963993,
+    "envelope_points_at_frozen_cadence": 49,
+    "lookahead_guard_points": 24,
+    "accepted_end_rule": "Use the last diagnostic strictly before first_persistent_5x_floor_crossing_index minus 24 centered-envelope look-ahead samples; if no crossing occurs, use the lesser of t=45 and simulation end.",
+    "end_reason_values": [
+      "noise_threshold",
+      "analysis_cap",
+      "simulation_end",
+      "insufficient_or_nonfinite_data"
+    ],
+    "recurrence_and_distortion_policy": "They are recorded as post-fit diagnostics, not used to shorten the interval. A resulting signal-quality failure is a campaign failure; the interval is not tuned after looking at the rate ratio.",
+    "recurrence_diagnostic": "After the accepted endpoint and before t=70, flag the first run of five samples for which log(envelope[t])-log(envelope[t-one_period]) is nonnegative. This flag never changes the accepted endpoint.",
+    "envelope_distortion_diagnostic": "Flag when accepted-fit R^2 is below 0.90. This is a signal-quality failure and never triggers a shorter refit.",
+    "min_points": 30,
+    "min_duration": 5.0,
+    "min_fit_r_squared": 0.9,
+    "min_fit_start_signal_to_floor": 5.0,
+    "min_fitted_amplitude_efoldings": 2.0,
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 20260910,
+    "bootstrap_pairing": "resample the same seed indices in CIC and the comparison arm; use the pre-recorded central accepted window for each arm"
+  },
+  "numerical_reference": {
+    "field_amplitude_gamma": -0.06636237273118674,
+    "kind": "fully discrete principal-mode prediction with CIC, midpoint time stepping, spatial aliases and temporal aliases converged through lmax=1024",
+    "continuum_gamma_for_context_only": -0.06612795869074942,
+    "absolute_rate_budget_fraction": 0.1,
+    "gate": "the 95% interval for abs(gamma_CIC)/abs(gamma_fully_discrete) must lie wholly within [0.90,1.10]"
+  },
+  "promotion_rule": {
+    "all_required": true,
+    "requirements": [
+      "CIC central accepted fit has at least 2.0 fitted amplitude e-foldings",
+      "C4 central accepted fit has at least 2.0 fitted amplitude e-foldings",
+      "CIC and C4 each pass fit-start SNR>=5, R^2>=0.90, minimum-points and minimum-duration checks",
+      "at least 80% of paired bootstrap draws pass the frozen signal and fit-quality checks in both arms",
+      "the CIC absolute-rate 95% interval lies wholly inside the predeclared 10% fully-discrete reference budget",
+      "the paired 95% interval for gamma_C4/gamma_CIC lies wholly inside [0.90,1.10]",
+      "all 40 fresh seeds are present exactly once, every three-arm particle hash matches within seed, and all raw histories and configuration/source hashes are recorded"
+    ],
+    "cic_over_cic_ratio_is_not_an_accuracy_test": true,
+    "pooled_development_plus_confirmation_analysis": "optional secondary result only, labeled pooled; never substitutes for the primary 40-seed result"
+  },
+  "same_campaign_noise_metrics": {
+    "reference": "PPC-4096 unfiltered CIC run with the same frozen per-cell protocol and seed identifier, generated independently for each of the 40 seeds",
+    "reference_ppc": 4096,
+    "density_error_power": "mean over all grid nodes of (rho_arm-rho_reference)^2 after the arm deposition filter; k=0 and protected mode are retained (the matched total charge makes the k=0 difference zero up to roundoff)",
+    "field_error_power": "mean over all grid nodes of [(Ex_arm-Ex_reference)^2+(Ey_arm-Ey_reference)^2] after deposition filtering and Poisson solve, before the return-path W and before particle gather; k=0 field is zero and every nonzero resolved mode, including (1,0), is retained",
+    "reduction_ratio": "ratio of the ensemble-and-time mean CIC error power to the corresponding candidate error power",
+    "averaging_window": [5.0, 30.0],
+    "cadence": 0.5,
+    "amplitude_variance_power_note": "Both metrics are squared-error powers. They are neither amplitude attenuation nor particle-force error.",
+    "reference_limit": "The finite PPC-4096 reference has residual sampling error; report it and do not call it an exact continuum field."
+  },
+  "reporting_order": [
+    "presence, hashes, and pairing checks",
+    "accepted start/end and exact end reason for CIC, C4, and comparator",
+    "fitted e-foldings and signal/fit-quality gates",
+    "CIC absolute-rate reference gate",
+    "paired comparative rate intervals",
+    "same-campaign density and field error-power results",
+    "single-run traces separately from coherent-ensemble validation"
+  ],
+  "analysis_lock": {
+    "stage_1": "Write and hash window_decisions.json containing each arm's accepted interval and ending reason; compute no rate ratios.",
+    "stage_2": "Refuse comparative analysis unless the stage-1 file and every input history hash match; use those accepted intervals unchanged for central and paired-bootstrap rates."
+  }
+}

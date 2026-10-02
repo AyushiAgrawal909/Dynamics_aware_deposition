@@ -1,0 +1,9 @@
+benchmark,seed,passes,sigma_eq_dx,filter_family,compensation_order,mise,n_times,eval_t_start,eval_t_stop
+landau_weak,9,0,,compensated_binomial,2,0.00043298629616461194,251,5.0,30.0
+landau_weak,9,1,,compensated_binomial,2,0.00023615488657466454,251,5.0,30.0
+landau_weak,9,2,,compensated_binomial,2,0.00017724372688521754,251,5.0,30.0
+landau_weak,9,4,,compensated_binomial,2,0.00012219954313502057,251,5.0,30.0
+landau_weak,9,0,,compensated_binomial,3,0.00043298629616461194,251,5.0,30.0
+landau_weak,9,1,,compensated_binomial,3,0.0002640377750903879,251,5.0,30.0
+landau_weak,9,2,,compensated_binomial,3,0.00020783899715014982,251,5.0,30.0
+landau_weak,9,4,,compensated_binomial,3,0.00014975515842885416,251,5.0,30.0

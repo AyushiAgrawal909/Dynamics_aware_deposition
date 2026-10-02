@@ -1,0 +1,95 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "paired_clone_check": {
+    "all_hashes_match": true,
+    "n_arms": 3,
+    "particle_sha256": "67dceca7d8b1a9f37508b2eb40bcf2ce21ea744a5b41ca7a6527138bbe1aaee0",
+    "seed": 202609300
+  },
+  "production_submitted": false,
+  "reference_velocity_support_check": {
+    "distinct_unperturbed_longitudinal_nodes": 4194304,
+    "longitudinal_velocity_max": 5.166578125221197,
+    "n_particles": 4194304,
+    "nodes_at_or_above_positive_resonance": 2758,
+    "ppc": 4096,
+    "resonance_in_support": true,
+    "resonant_phase_velocity": 3.2126424241344536
+  },
+  "single_mode_transfer_tolerance": 2e-12,
+  "source_sha256": {
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory.py": "e7fced38279323ead13261954d94d65f509ba5840a005f074eef26dde7d30324",
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory_v2.py": "f27c7bb14fdfad9a65c5bbe50f4d9ec05ea06a0ea6c88529bf07faf75e182e31",
+    "paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+    "pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "pic_kde_2d/pic_kde_2d/core/particles2d.py": "91480a3e4e8827fa2b13beae630bacfdfad658413aedbc4788b7f9b40e7fbb3e",
+    "pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+    "pic_kde_2d/pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "e53f35776ea1eef1d8015b35c31f8b9aea916d02ef2be488c78ad506960b30d2",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W_wrappers.py": "0e62b22e777cd25e247fff85f334743d02e5eff4e12d9e13bedefe34bd5eed52",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory.py": "3cefeb6d3467a6b731bbd0cc3cf8102239a41393f68802b877ab64b5cc30b93f",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory_v2.py": "3c85334aa7ba138a2a40d4396b0afb1f6bf558b1109086a1895a7d7d46d05cc1"
+  },
+  "spatial_loading_check": {
+    "low_particles_per_cell_before_perturbation": 1024,
+    "reference_particles_per_cell_before_perturbation": 4096,
+    "regular_lattice": true
+  },
+  "status": "PASS",
+  "transfers": [
+    {
+      "arm": "cic",
+      "expected_W2_particle_force": 1.0,
+      "expected_W_after_deposition": 1.0,
+      "expected_W_after_field_calculation": 1.0,
+      "maximum_absolute_error": 0.0,
+      "measured_W2_particle_force": 1.0,
+      "measured_W_after_deposition": 1.0,
+      "measured_W_after_field_calculation": 1.0,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 0.0
+    },
+    {
+      "arm": "c4_sigma1",
+      "expected_W2_particle_force": 0.9904080138578515,
+      "expected_W_after_deposition": 0.9951924506636148,
+      "expected_W_after_field_calculation": 0.9951924506636148,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "measured_W2_particle_force": 0.9904080138578517,
+      "measured_W_after_deposition": 0.9951924506636148,
+      "measured_W_after_field_calculation": 0.9951924506636151,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 1.0
+    },
+    {
+      "arm": "lscv_job5008392",
+      "expected_W2_particle_force": 0.6030138367647635,
+      "expected_W_after_deposition": 0.7765396556292302,
+      "expected_W_after_field_calculation": 0.7765396556292302,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "measured_W2_particle_force": 0.6030138367647636,
+      "measured_W_after_deposition": 0.7765396556292303,
+      "measured_W_after_field_calculation": 0.7765396556292304,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 7.244293147028428
+    }
+  ],
+  "velocity_support_check": {
+    "distinct_unperturbed_longitudinal_nodes": 1048576,
+    "longitudinal_velocity_max": 4.900964213447618,
+    "n_particles": 1048576,
+    "nodes_at_or_above_positive_resonance": 690,
+    "ppc": 1024,
+    "resonance_in_support": true,
+    "resonant_phase_velocity": 3.2126424241344536
+  }
+}

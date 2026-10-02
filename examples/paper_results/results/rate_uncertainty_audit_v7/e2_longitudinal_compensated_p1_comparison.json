@@ -1,0 +1,16 @@
+{
+  "added_columns_in_rebuilt": [
+    "compensation_order"
+  ],
+  "archived": "pic_kde_2d/results_raw_rate_audit/compensated_binomial_20260811/analysis/e2_rate/E2_binomial_passes.csv",
+  "archived_sha256": "5dae7a0ffe5f737e6de927c82e9f202f38e4df98073994d8905e34fdb4746890",
+  "examples": [],
+  "max_abs_numeric_difference": 3.375077994860476e-14,
+  "mismatch_count": 0,
+  "missing_archived_columns": [],
+  "rebuilt": "paper1_source_package/reproducibility/results/rate_uncertainty_audit_v7/e2_longitudinal_compensated_p1/E2_binomial_passes.csv",
+  "rebuilt_sha256": "c7c2b34583d83b59993bbb60255e8c3635c7ac62350fdbdf624265bd0e528456",
+  "rows_archived": 6,
+  "rows_rebuilt": 6,
+  "status": "PASS_WITH_SCHEMA_EXTENSION"
+}

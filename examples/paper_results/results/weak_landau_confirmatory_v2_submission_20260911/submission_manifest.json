@@ -1,0 +1,99 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v2_global_velocity",
+  "submission_date": "2026-09-11",
+  "scheduler_submit_time": "2026-09-11T10:33:39",
+  "scheduler_timezone": "Europe/Luxembourg",
+  "remote_root": "/mnt/tier2/users/u103576/paper1_validation/weak_landau_confirmatory_v2_global_velocity",
+  "submission_gate": {
+    "local_smoke": "PASS",
+    "local_preflight": "PASS",
+    "remote_smoke": "PASS",
+    "remote_preflight": "PASS",
+    "focused_regression_tests": "11/11 PASS",
+    "shell_syntax": "PASS for both launchers",
+    "slurm_test_only": "PASS for both launchers",
+    "target_state_before_preflight": "absent",
+    "target_state_before_production": "only immutable smoke, preflight, and Numba-cache records; no low or reference seed target existed"
+  },
+  "fixed_sample": {
+    "seeds": "202609300..202609339 inclusive",
+    "count": 40,
+    "fresh_relative_to_development_and_pilot": true,
+    "sequential_addition_forbidden": true,
+    "development_data_pooled": false,
+    "pilot_data_pooled": false
+  },
+  "jobs": {
+    "low_ppc_three_paired_arms": {
+      "slurm_array_job_id": 5200458,
+      "array": "0-3%2",
+      "seeds_per_task": 10,
+      "task_seed_mapping": {
+        "0": "202609300..202609309",
+        "1": "202609310..202609319",
+        "2": "202609320..202609329",
+        "3": "202609330..202609339"
+      },
+      "ppc": 1024,
+      "arms": [
+        "cic",
+        "c4_sigma1",
+        "lscv_job5008392"
+      ],
+      "state_immediately_after_submission": "PENDING (Priority)"
+    },
+    "same_campaign_reference": {
+      "slurm_array_job_id": 5200457,
+      "array": "0-3%2",
+      "seeds_per_task": 10,
+      "task_seed_mapping": {
+        "0": "202609300..202609309",
+        "1": "202609310..202609319",
+        "2": "202609320..202609329",
+        "3": "202609330..202609339"
+      },
+      "ppc": 4096,
+      "arm": "cic_reference",
+      "role": "finite-PPC reference for density and pre-return-filter grid-field squared-error power; never a damping-rate denominator",
+      "state_immediately_after_submission": "PENDING (Resources)"
+    }
+  },
+  "slurm_request_per_array_task": {
+    "partition": "gpu",
+    "qos": "default",
+    "nodes": 1,
+    "tasks": 1,
+    "cpus_requested": 12,
+    "scheduler_minimum_cpus_on_gpu_node": 18,
+    "gpus": 1,
+    "memory": "64G",
+    "walltime": "02:00:00",
+    "solver_gpu_usage": "none; the NumPy/Numba solver is CPU-backed and the GPU request selects the GPU partition"
+  },
+  "frozen_settings_source": "paper1_source_package/reproducibility/weak_landau_confirmatory_v2_global_velocity.json",
+  "analysis_state": {
+    "window_stage_submitted": false,
+    "comparative_stage_submitted": false,
+    "rate_ratios_computed": false,
+    "required_next_order": "after all low histories complete, archive them and run the window-only stage; inspect and hash the accepted intervals before any comparative-rate analysis"
+  },
+  "sha256": {
+    "frozen_config": "d107eeda9957de42419cd0a0307887336544e20fc4ab208ce1b99620d134d707",
+    "v2_runner": "3c85334aa7ba138a2a40d4396b0afb1f6bf558b1109086a1895a7d7d46d05cc1",
+    "v2_analyzer_wrapper": "f27c7bb14fdfad9a65c5bbe50f4d9ec05ea06a0ea6c88529bf07faf75e182e31",
+    "low_launcher": "05b98c60e04306e583f6340c4a8e52885eba828574c68ed9722d750d545a8638",
+    "reference_launcher": "11f1e2a2ab7649a6debdc443fab0a500ffb507c9368dafc4c0da05a474423183",
+    "remote_smoke_record_archived_locally": "5feeec05d2778457a35a699ca42ad7ec3e4f813afebc9af9ab91e8a4d43ceaf9",
+    "remote_preflight_record_archived_locally": "f48de6f8f9dc3ae6c8a06ad5f5851c3d79506b7cf90b4b08af85eb0242a6f5de"
+  },
+  "preflight_numeric_evidence": {
+    "low_distinct_longitudinal_velocity_nodes": 1048576,
+    "low_nodes_at_or_above_positive_resonance": 690,
+    "reference_distinct_longitudinal_velocity_nodes": 4194304,
+    "reference_nodes_at_or_above_positive_resonance": 2758,
+    "resonant_phase_velocity": 3.2126424241344536,
+    "low_maximum_longitudinal_velocity": 4.900964213447618,
+    "reference_maximum_longitudinal_velocity": 5.166578125221197,
+    "maximum_transfer_absolute_error": 2.220446049250313e-16
+  }
+}

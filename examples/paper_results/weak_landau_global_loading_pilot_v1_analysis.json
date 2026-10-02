@@ -1,0 +1,32 @@
+{
+  "campaign_id": "weak_landau_global_loading_pilot_v1",
+  "status": "frozen_before_result_inspection",
+  "slurm_job_id": 5200354,
+  "seeds": [202609180, 202609181, 202609182],
+  "arms": ["cic", "c4_sigma1"],
+  "observable": "abs(mean over three seeds of the complex Ex Fourier coefficient at mode (1,0)))",
+  "envelope": {
+    "method": "centered geometric mean of the coherent amplitude over one frozen oscillation period",
+    "period": 4.889421601963993,
+    "expected_points_at_cadence": 49
+  },
+  "fixed_diagnostic_fit_window": [5.0, 20.0],
+  "purpose": "Check that correcting only the velocity assignment restores ordinary early Landau decay before any replacement confirmation is specified.",
+  "checks": {
+    "absolute_gamma_min": -0.09,
+    "absolute_gamma_max": -0.04,
+    "minimum_r_squared": 0.97,
+    "maximum_envelope_t20_over_t5": 0.55,
+    "maximum_envelope_t30_over_t5": 0.45,
+    "maximum_pilot_to_failed_v1_envelope_ratio_at_t30": 0.25,
+    "all_required_for_pilot_pass": true
+  },
+  "prohibitions": [
+    "compute or report a C4/CIC rate ratio",
+    "treat these three development seeds as confirmation data",
+    "pool these pilot seeds into a replacement fixed-sample campaign",
+    "alter the thresholds after inspecting the pilot histories"
+  ],
+  "next_step_if_pass": "Freeze a new v2 campaign with a disjoint 40-seed set and the complete original promotion rule.",
+  "next_step_if_fail": "Stop and diagnose the global-loading dynamics; do not launch a replacement campaign."
+}

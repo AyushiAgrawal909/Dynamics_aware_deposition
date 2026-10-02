@@ -1,0 +1,32 @@
+* text=auto
+
+*.py text eol=lf
+*.sh text eol=lf
+*.sbatch text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.tsv text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cff text eol=lf
+*.svg text eol=lf
+
+*.npz binary
+*.npy binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.h5 binary
+*.hdf5 binary
+*.bp binary
+*.bp4 binary
+*.tar binary
+*.gz binary
+*.zip binary
+
+# Large scientific evidence tables are data, not source-code statistics.
+**/time_dependent_seed_contributions.csv linguist-generated=true
+reproduced/** linguist-generated=true

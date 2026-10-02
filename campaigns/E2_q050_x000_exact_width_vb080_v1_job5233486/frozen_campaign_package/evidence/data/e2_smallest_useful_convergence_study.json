@@ -1,0 +1,26 @@
+{
+  "analysis": "paired seed bootstrap of means and variances across PPC; regress finite-marker prediction and fitted-rate spread against 1/sqrt(Np); do not add seeds after inspection",
+  "cost_scaling": "linear in PPC and duration: 0.466 node-h * (71.16/60) * [(128+512+2048)/512] = 2.90 node-h; cap includes about 26% margin",
+  "empirical_cost_basis": "Slurm job 5195640: each ten-seed PPC-512 t=60 arm used 27.0--30.6 min on one CPU node (five completed array tasks).",
+  "estimated_cpu_node_hours": 2.9,
+  "fixed_seeds_per_level": 10,
+  "histories": 30,
+  "loading_control": "Use nested regular position lattices and antithetic per-cell quartets with exactly balanced beam signs and paired +/- thermal-vx samples, so global and per-cell mean(sign*thermal_vx) are zero to roundoff at every PPC. Keep the same base uniforms and perturbation phase across PPC levels.",
+  "ppc_levels": [
+    128,
+    512,
+    2048
+  ],
+  "question": "Does the v_b=0.80 individual-rate distribution converge with marker count when beam-sign/thermal-vx covariance is held at zero rather than changing randomly?",
+  "recommended_hard_cap_cpu_node_hours": 3.65,
+  "record_before_run": [
+    "particle-array hashes and exact initialization arrays",
+    "beam-sign/thermal-vx covariance globally and per cell",
+    "initialization-only finite-marker eigenvalue and convergence residual",
+    "individual complex mode history through t=71.16",
+    "fixed [24.32,69.16] fitted rate and signal/linearity diagnostics"
+  ],
+  "scope": "CIC only; target mode (12,1); projected linearized delta-f; existing grid and dt",
+  "status": "SPECIFICATION_ONLY_NOT_SUBMITTED",
+  "why_minimal": "One arm isolates loading/PPC convergence; three PPC levels distinguish a trend from a two-point difference; ten seeds matches the existing uncertainty estimate."
+}

@@ -1,0 +1,43 @@
+{
+  "analysis": "missing validation data retrieval",
+  "bandwidth_status": "PARTIAL_ERROR_PASS_DYNAMICS_UNRESOLVED",
+  "date": "2026-09-21",
+  "finite_marker_loading_status": "NO_EXISTING_CONTROLLED_MULTI_PPC_RATE_COMPARISON",
+  "handoff_files": [
+    "RETRIEVAL_REPORT.md",
+    "COMMANDS_AND_PROVENANCE.md"
+  ],
+  "landau_status": {
+    "c4_sigma1": "FAIL",
+    "cic": "FAIL",
+    "lscv_job5008392": "PASS"
+  },
+  "manuscripts_edited": false,
+  "no_simulations_launched": true,
+  "outputs": [
+    "bandwidth_85_complete_rule.csv",
+    "bandwidth_85_per_seed_objectives.csv",
+    "bandwidth_complete_rule_selection.csv",
+    "bandwidth_complete_rule_summary.json",
+    "e2_existing_ppc_loading_inventory.csv",
+    "e2_finite_marker_loading_summary.json",
+    "e2_smallest_useful_convergence_study.json",
+    "e2_vb080_finite_marker_loading_joined.csv",
+    "e2_vb080_finite_marker_summary.csv",
+    "e2_vb080_historical_nominal_finite_marker.csv",
+    "fig_bandwidth_85_complete_rule.pdf",
+    "fig_bandwidth_85_complete_rule.png",
+    "fig_bandwidth_85_complete_rule.svg",
+    "fig_landau_three_arm_common_window.pdf",
+    "fig_landau_three_arm_common_window.png",
+    "fig_landau_three_arm_common_window.svg",
+    "landau_histories_and_envelopes.csv",
+    "landau_individual_complex_histories.csv",
+    "landau_paired_bootstrap_draws.npz",
+    "landau_phase_decomposition.csv",
+    "landau_three_arm_common_window.csv",
+    "landau_three_arm_summary.json"
+  ],
+  "script": "/Users/ayushi.agrawal/Downloads/paper1_source_package/reproducibility/retrieve_missing_validation_data_20260921.py",
+  "script_sha256": "71b4cdbf6227a88d7d9b25d822071396e0aac317531bab5dae5bd79685f4c4a5"
+}

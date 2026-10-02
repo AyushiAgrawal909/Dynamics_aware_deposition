@@ -1,0 +1,48 @@
+{
+  "alpha": 1e-08,
+  "arm": "q050_x000",
+  "background": "two_stream",
+  "benchmark": "two_stream",
+  "campaign_id": "E2_q050_x000_exact_width_vb080_v1",
+  "config_sha256": "3b763155abe28c4b105a1824969ff411a6d0b1b6a5f3d9319b23ff3c39ec4800",
+  "diagnostic_stride": 2,
+  "dt": 0.02,
+  "filter_kind": "gaussian",
+  "initial_array_sha256": {
+    "vx": "d2d764d12c588afcbf19b2d5d15be8efabff4c029cc91ec0e17d850a3277574e",
+    "vy": "e7706445e004d0758431c29bfa9f922b8fad84889ac1dfaa1bee90cb6a13fa88",
+    "w_delta": "a1d280bb658a419a8f3a8081b62febe3ddea2161ebecdb184704ab903988154c",
+    "w_full": "d8467b8a8500ed7a12aa74723a8f8207cffbb019c192af2aa6ce2f5d585f15e6",
+    "x": "476ca9ce5abca984854c07484d63dec606145c284fb0a64a66fcf14d0dd96c06",
+    "y": "51f847fdb0d304fd62ecf561c895fa7100ff22556f5d7de55922a932465cb922"
+  },
+  "initial_state_matches_production_runtime_reconstruction": true,
+  "initial_state_sha256": "0c320a9da6e3485d14f17a3a6b4051eaba9d951cd12aeda9e040c0abf1ccf6eb",
+  "kx_mode": 12,
+  "ky_mode": 1,
+  "marker_dynamics": "free_streaming_frozen_equilibrium",
+  "max_delta_f_ratio": 0.00018391106354502304,
+  "ppc": 512,
+  "project": "/mnt/tier2/users/u103576/hexapic-main/pic_kde_2d",
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.11.10"
+  },
+  "seed": 209,
+  "sigma_x_dx": 0.0,
+  "sigma_y_dy": 0.1716392815470568,
+  "source_sha256": {
+    "pic_kde_2d/conventions.py": "1540f55332353e3c045ef12c4121011cebd2504c5873c34f690d9bacbe6a9eb2",
+    "pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "pic_kde_2d/core/particles2d.py": "7bc3e88101d9071048c85eff204694c71e96f2a55f32b68082ff055f171bdb4e",
+    "pic_kde_2d/core/pic_loop_delta_f.py": "cc2231527ba0e725d4929bd0b12c3ffb04b52cb6c69d6fc20c925e16d831c814",
+    "pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+    "pic_kde_2d/methods/delta_f.py": "e5c75624ae09cb94381fa3c519a82828528ca511ec3e73f9cf6dce6799f9e074",
+    "pic_kde_2d/methods/spectral_W.py": "fc9d4091d53873be2519bac4c1a6edd7bcbd047913de56ee4ec7777b03053ca2",
+    "scripts/run_linearized_delta_f_mode.py": "c0e849a96c4822d07263cb6de137296766f1ef531d182a10c9a3d39236143599"
+  },
+  "t_end": 71.16,
+  "target_mode_projection": true,
+  "valid_through_run": true,
+  "validity_threshold": 0.5
+}

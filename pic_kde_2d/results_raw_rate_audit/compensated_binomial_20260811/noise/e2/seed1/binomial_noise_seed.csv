@@ -1,0 +1,7 @@
+benchmark,seed,passes,sigma_eq_dx,filter_family,mise,n_times,eval_t_start,eval_t_stop
+e2,1,0,,compensated_binomial,0.005245477797147199,36,0.5,4.0
+e2,1,1,,compensated_binomial,0.001876275757099361,36,0.5,4.0
+e2,1,2,,compensated_binomial,0.0013276813578382838,36,0.5,4.0
+e2,1,4,,compensated_binomial,0.000889496098561979,36,0.5,4.0
+e2,1,8,,compensated_binomial,0.0005347123825837392,36,0.5,4.0
+e2,1,16,,compensated_binomial,0.00028588844120292916,36,0.5,4.0

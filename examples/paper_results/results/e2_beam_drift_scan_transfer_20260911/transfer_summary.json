@@ -1,0 +1,14 @@
+{
+  "fixed_W_one_application": 0.9954671953989629,
+  "fixed_particle_force_W2": 0.990954937115477,
+  "fixed_sigma_y_dy": 0.2427346,
+  "maximum_absolute_error_W": 1.1102230246251565e-16,
+  "maximum_absolute_error_W2": 3.3306690738754696e-16,
+  "mode": [
+    12,
+    1
+  ],
+  "rows": 10,
+  "scope": "implemented spectral W; two applications represent matched deposit and gather filtering",
+  "status": "PASS"
+}

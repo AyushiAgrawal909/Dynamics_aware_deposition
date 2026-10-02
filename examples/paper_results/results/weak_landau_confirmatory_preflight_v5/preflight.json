@@ -1,0 +1,70 @@
+{
+  "campaign_id": "weak_landau_confirmatory_v1",
+  "paired_clone_check": {
+    "all_hashes_match": true,
+    "n_arms": 3,
+    "particle_sha256": "a20204674b5f19d65c46358db78abcc8f4dcd931f558ac42787c1cb873864db4",
+    "seed": 202609100
+  },
+  "production_submitted": false,
+  "single_mode_transfer_tolerance": 2e-12,
+  "source_sha256": {
+    "paper1_source_package/reproducibility/analyze_weak_landau_confirmatory.py": "e7fced38279323ead13261954d94d65f509ba5840a005f074eef26dde7d30324",
+    "paper1_source_package/reproducibility/weak_landau_confirmatory_v1.json": "a800d3ae94ec0de9a76537fcd92600c8c47e4ffe02d095f418c5cc561a501508",
+    "pic_kde_2d/pic_kde_2d/core/grid2d.py": "f3b3c04fb7bbb06ee67cf299ca2e2b0c7d4ae58f18660d2e083fae1381826299",
+    "pic_kde_2d/pic_kde_2d/core/particles2d.py": "91480a3e4e8827fa2b13beae630bacfdfad658413aedbc4788b7f9b40e7fbb3e",
+    "pic_kde_2d/pic_kde_2d/core/pic_loop.py": "2ebbc3a6efaf8004cb9451a14f19a13d57205e8988e9c8756776ddfe010338d0",
+    "pic_kde_2d/pic_kde_2d/methods/cic.py": "dc9c4f15e49062f11adf66dfe365e833e89bd5d6947310f97492d201e8e213e1",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W.py": "e53f35776ea1eef1d8015b35c31f8b9aea916d02ef2be488c78ad506960b30d2",
+    "pic_kde_2d/pic_kde_2d/methods/spectral_W_wrappers.py": "0e62b22e777cd25e247fff85f334743d02e5eff4e12d9e13bedefe34bd5eed52",
+    "pic_kde_2d/scripts/run_weak_landau_confirmatory.py": "3cefeb6d3467a6b731bbd0cc3cf8102239a41393f68802b877ab64b5cc30b93f"
+  },
+  "status": "PASS",
+  "transfers": [
+    {
+      "arm": "cic",
+      "expected_W2_particle_force": 1.0,
+      "expected_W_after_deposition": 1.0,
+      "expected_W_after_field_calculation": 1.0,
+      "maximum_absolute_error": 0.0,
+      "measured_W2_particle_force": 1.0,
+      "measured_W_after_deposition": 1.0,
+      "measured_W_after_field_calculation": 1.0,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 0.0
+    },
+    {
+      "arm": "c4_sigma1",
+      "expected_W2_particle_force": 0.9904080138578515,
+      "expected_W_after_deposition": 0.9951924506636148,
+      "expected_W_after_field_calculation": 0.9951924506636148,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "measured_W2_particle_force": 0.9904080138578517,
+      "measured_W_after_deposition": 0.9951924506636148,
+      "measured_W_after_field_calculation": 0.9951924506636151,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 1.0
+    },
+    {
+      "arm": "lscv_job5008392",
+      "expected_W2_particle_force": 0.6030138367647635,
+      "expected_W_after_deposition": 0.7765396556292302,
+      "expected_W_after_field_calculation": 0.7765396556292302,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "measured_W2_particle_force": 0.6030138367647636,
+      "measured_W_after_deposition": 0.7765396556292303,
+      "measured_W_after_field_calculation": 0.7765396556292304,
+      "mode": [
+        1,
+        0
+      ],
+      "sigma_cells": 7.244293147028428
+    }
+  ]
+}

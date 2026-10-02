@@ -1,0 +1,46 @@
+{
+  "frozen_campaign_sha256": "e664460d392a216b953bc87d3859c3bce9e1cce2f1652ab9417c1a58b3baf446",
+  "loading_invariance": {
+    "drift_endpoints_checked": [
+      0.6,
+      0.818
+    ],
+    "exact_equalities": {
+      "charge": true,
+      "initial_delta_density": true,
+      "initial_delta_weight": true,
+      "initial_full_density": true,
+      "vy": true,
+      "x": true,
+      "y": true
+    },
+    "initial_delta_density_sha256": "423667e0dc41e1db69149020824671e72a8e76b8ced9db1c430db7507407cf45",
+    "initial_full_density_sha256": "6185c7e91480231e36508b1d623ad0e354b37a45bb5e09e298b7726b562c95c3",
+    "marker_grid": [
+      2048,
+      512
+    ],
+    "maximum_thermal_residual_difference": 1.1102230246251565e-16,
+    "negative_beam_particles": 524288,
+    "particles": 1048576,
+    "positive_beam_particles": 524288,
+    "ppc": 512,
+    "scope": "initial density and perturbation are invariant; later snapshots are not claimed invariant",
+    "seed": 200
+  },
+  "marginal_v_beam": 0.8191540596575886,
+  "maximum_q8_l1024_vs_q10_l2048_boundary_difference": 9.075693538362906e-08,
+  "maximum_q8_l1024_vs_q10_l2048_gamma_difference": 4.4977456259420734e-08,
+  "maximum_q8_l1024_vs_q10_l2048_safety_width_difference": 6.518378878328512e-08,
+  "new_simulations_run": false,
+  "q8_l1024_vs_q10_l2048_marginal_difference": 3.5451357405236195e-09,
+  "selected_drifts": [
+    0.6,
+    0.7,
+    0.76,
+    0.8,
+    0.818
+  ],
+  "simulation_results_read": false,
+  "status": "PASS"
+}

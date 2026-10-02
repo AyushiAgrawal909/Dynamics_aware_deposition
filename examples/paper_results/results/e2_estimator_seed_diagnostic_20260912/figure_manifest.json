@@ -1,0 +1,8 @@
+{
+  "scope": "Panel (a) omits the signal-invalid v_b=0.818 rates; panel (b) shows them only as descriptive finite-marker diagnostics.",
+  "source_tables": [
+    "estimator_by_drift.csv",
+    "finite_marker_seed_comparison.csv"
+  ],
+  "status": "POST_HOC_DIAGNOSTIC_COMPLETE_REGISTERED_RESULTS_UNCHANGED"
+}

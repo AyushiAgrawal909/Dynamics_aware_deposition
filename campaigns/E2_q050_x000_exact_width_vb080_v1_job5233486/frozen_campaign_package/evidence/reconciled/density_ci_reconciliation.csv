@@ -1,0 +1,3 @@
+metric,candidate,central_ratio,archived_reducer_ci_lo,archived_reducer_ci_hi,selected_only_rerun_ci_lo,selected_only_rerun_ci_hi,difference_source,reporting_decision
+density,q050_x000,1.079880132634031,1.0778063603594845,1.081663262724321,1.077914994575217,1.081663262724321,Monte Carlo bootstrap stream position; same five held-out seeds and same central estimator,use archived reducer interval for the archived fixed-candidate result
+field,q050_x000,1.038413110696628,1.0362103851386404,1.0407762090394073,1.0362103851386406,1.0407762090394073,Monte Carlo bootstrap stream position; same five held-out seeds and same central estimator,use archived reducer interval for the archived fixed-candidate result

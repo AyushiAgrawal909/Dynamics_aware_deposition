@@ -1,0 +1,54 @@
+{
+  "all_reproduced": false,
+  "campaigns_run": [
+    "weak_gaussian_grid",
+    "weak_gaussian_mise6",
+    "weak_gaussian_cv6p61",
+    "weak_raw_binomial",
+    "weak_compensated_p1",
+    "weak_compensated_p2",
+    "weak_compensated_p3",
+    "strong_alpha0p5_fit5",
+    "strong_alpha0p5_fit3",
+    "strong_alpha0p25_grid",
+    "strong_alpha0p25_cv_exact",
+    "e2_longitudinal_compensated_p1",
+    "e2_longitudinal_compensated_p2",
+    "e2_longitudinal_compensated_p3"
+  ],
+  "rate_definition": {
+    "e2_ensemble": "absolute value per seed, then arithmetic seed mean",
+    "e2_window": "one CIC-selected common growth window for all compared filters",
+    "field_energy_rate": "2*gamma; not the quantity tabulated as gamma",
+    "reported_gamma": "slope of ln(field-mode amplitude); units omega_pe",
+    "strong_landau_ensemble": "coherent complex seed mean, then absolute value and one-period geometric envelope",
+    "strong_window": "common paired pre-bounce stop; start is campaign parameter",
+    "temporal_resampling": "none",
+    "uncertainty_unit": "independent seed; paired CIC/filter seed indices",
+    "weak_landau_ensemble": "coherent complex seed mean, then absolute value and one-period geometric envelope",
+    "weak_window": "candidate [5,30], independently censored at persistent 5x late-floor crossing"
+  },
+  "source_limitation": "the preserved stage E2 analyzer requires analyze_E2_mode_growth.py and analyze_linearized_delta_f_m12_sigma.py from the supplied top-level research tree because those helpers are absent from pic_kde_2d_landau_cv_stage/scripts",
+  "unresolved": [
+    {
+      "claim": "E2 binding-corner (12,1) compensated-filter rates",
+      "consequence": "longitudinal (12,0) measurements cannot certify the corner",
+      "status": "raw histories not recovered"
+    },
+    {
+      "claim": "E2 raw-binomial pass sweep",
+      "consequence": "archived interval cannot be regenerated from raw output",
+      "status": "summary only in supplied and remote result trees"
+    },
+    {
+      "claim": "E2 Gaussian m=12 and oblique reference rates",
+      "consequence": "archived intervals cannot be regenerated from raw output",
+      "status": "summary only in supplied and remote result trees"
+    },
+    {
+      "claim": "linearized delta-f reference and band intervals",
+      "consequence": "archived intervals cannot be regenerated from raw output",
+      "status": "summary only in supplied and remote result trees"
+    }
+  ]
+}

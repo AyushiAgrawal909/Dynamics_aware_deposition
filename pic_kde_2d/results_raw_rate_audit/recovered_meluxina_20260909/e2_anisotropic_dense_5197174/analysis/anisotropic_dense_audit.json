@@ -1,0 +1,97 @@
+{
+  "design": {
+    "boundary_x_allocation_step": 0.05,
+    "filter_family": "diagonal anisotropic Gaussian",
+    "points": 85,
+    "q_fractions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "fixed_split": {
+    "test": [
+      105,
+      106,
+      107,
+      108,
+      109
+    ],
+    "train": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ]
+  },
+  "max_neutrality_defect": 4.694267989150308e-15,
+  "max_relative_charge_error": 4.440892098500626e-16,
+  "metric_scope": {
+    "density": "full-grid density squared-error power",
+    "field": "pre-return-filter, pre-gather grid-field squared-error power"
+  },
+  "model_admissibility_budget": 0.009086217804777913,
+  "nested_bootstrap": {
+    "density": {
+      "heldout_reduction_ci_hi": 1.1622599313574065,
+      "heldout_reduction_ci_lo": 1.154085142093341,
+      "selection_frequencies": [
+        {
+          "fraction": 1.0,
+          "label": "q100_x000"
+        }
+      ]
+    },
+    "field": {
+      "heldout_reduction_ci_hi": 1.0798924221771655,
+      "heldout_reduction_ci_lo": 1.0706382773357246,
+      "selection_frequencies": [
+        {
+          "fraction": 1.0,
+          "label": "q100_x000"
+        }
+      ]
+    }
+  },
+  "optimality_statement": "only discrete-design optimality among these 85 model-admissible diagonal Gaussian points; not continuous, filter-family-global, or particle-force optimality",
+  "protected_mode": [
+    12,
+    1
+  ],
+  "status": "PASS",
+  "summary": [
+    {
+      "metric": "density",
+      "nested_ci_hi": 1.1622599313574065,
+      "nested_ci_lo": 1.154085142093341,
+      "test_best_label": "q100_x000",
+      "test_ci_hi": 1.161964692171787,
+      "test_ci_lo": 1.154085142093341,
+      "test_reduction": 1.1583740799157567,
+      "test_selection_matches_train": true,
+      "train_selected_label": "q100_x000",
+      "train_selected_q_fraction": 1.0,
+      "train_selected_sigma_x_dx": 0.0,
+      "train_selected_sigma_y_dy": 0.24273459979982182,
+      "train_selected_x_allocation": 0.0
+    },
+    {
+      "metric": "field",
+      "nested_ci_hi": 1.0798924221771655,
+      "nested_ci_lo": 1.0706382773357246,
+      "test_best_label": "q100_x000",
+      "test_ci_hi": 1.0798924221771655,
+      "test_ci_lo": 1.0706382773357248,
+      "test_reduction": 1.0750930987652219,
+      "test_selection_matches_train": true,
+      "train_selected_label": "q100_x000",
+      "train_selected_q_fraction": 1.0,
+      "train_selected_sigma_x_dx": 0.0,
+      "train_selected_sigma_y_dy": 0.24273459979982182,
+      "train_selected_x_allocation": 0.0
+    }
+  ]
+}

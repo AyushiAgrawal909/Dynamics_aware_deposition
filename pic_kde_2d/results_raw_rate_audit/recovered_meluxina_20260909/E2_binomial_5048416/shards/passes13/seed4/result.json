@@ -1,0 +1,23 @@
+{
+  "alpha": 1e-08,
+  "background": "two_stream",
+  "benchmark": "two_stream",
+  "binomial_passes_x": 13,
+  "binomial_passes_y": 13,
+  "dt": 0.02,
+  "filter_kind": "binomial",
+  "kx_mode": 12,
+  "ky_mode": 0,
+  "marker_dynamics": "free_streaming_frozen_equilibrium",
+  "max_delta_f_ratio": 9.110171504592026e-07,
+  "mode": 12,
+  "ppc": 512,
+  "seed": 4,
+  "sigma_dx": null,
+  "sigma_x_dx": 2.5495097567963922,
+  "sigma_y_dy": 2.5495097567963922,
+  "t_end": 60.0,
+  "target_mode_projection": true,
+  "valid_through_run": true,
+  "validity_threshold": 0.5
+}

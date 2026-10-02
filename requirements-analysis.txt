@@ -1,0 +1,7 @@
+# Existing-data reducers and figure generation.
+# Ranges match the recorded project requirements; historical exact versions
+# were not recorded and are therefore not invented here.
+numpy>=1.24,<3
+scipy>=1.10,<2
+matplotlib>=3.7,<4
+

@@ -1,0 +1,26 @@
+{
+  "campaign": "E2_q050_x000_exact_width_vb080_v1",
+  "created_utc_date": "2026-09-21",
+  "manuscript_edited": false,
+  "new_simulation_submitted": false,
+  "preflight": {
+    "config_sha256": "3b763155abe28c4b105a1824969ff411a6d0b1b6a5f3d9319b23ff3c39ec4800",
+    "initial_pairing_seeds_checked": [200, 201, 202, 203, 204, 205, 206, 207, 208, 209],
+    "no_time_integration": true,
+    "source_hashes": "PASS",
+    "transfer_values": "PASS"
+  },
+  "recovered_cic_histories": 10,
+  "recovered_cic_reuse_audit": "PASS_PRODUCTION_RUNTIME_RECONSTRUCTION_AND_CIC_QUALITY",
+  "historical_saved_particle_array_hash_available": false,
+  "reuse_decision": "ADEQUATE_FOR_CONDITIONAL_REUSE_WITH_EXPLICIT_PROVENANCE_LIMITATION",
+  "original_seed_design": [105, 106, 107, 108, 109, 110, 111, 112, 113, 114],
+  "final_seed_design": [200, 201, 202, 203, 204, 205, 206, 207, 208, 209],
+  "final_seeds_independent_of_bandwidth_selection": true,
+  "final_seeds_previously_analysed": true,
+  "new_q050_histories_prepared": 10,
+  "new_q050_histories_present": 0,
+  "prepared_scheduler_hard_cap_cpu_node_hours": 1.0,
+  "scope": "one exact-width dynamics validation plus corrected export of existing evidence",
+  "complete_paired_simulation_results_present": false
+}

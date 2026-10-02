@@ -1,0 +1,50 @@
+{
+  "eval_window": [
+    5.0,
+    30.0
+  ],
+  "lscv": {
+    "bootstrap_interior_fraction": 1.0,
+    "ci_hi": 11.791269425690306,
+    "ci_lo": 11.171822168483912,
+    "grid_width_dx": 12.0,
+    "quadratic_width_dx": 11.499083376931248,
+    "status": "interior"
+  },
+  "mise": {
+    "bootstrap_interior_fraction": 1.0,
+    "ci_hi": 6.8697310717191575,
+    "ci_lo": 6.610577390188785,
+    "grid_width_dx": 7.0,
+    "quadratic_width_dx": 6.7313008021611065,
+    "status": "interior"
+  },
+  "ppc": 1024,
+  "reference": "paired leave-one-seed-out ensemble density",
+  "reference_noise_note": "reference variance is reduced by the other nine seeds but is nonzero",
+  "sampling": "evolving production global-shuffle ensemble",
+  "sigma_grid_dx": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    10.0,
+    12.0,
+    16.0,
+    20.0,
+    30.0,
+    45.0,
+    60.0
+  ]
+}

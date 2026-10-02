@@ -1,0 +1,101 @@
+{
+  "acceptance": {
+    "duration": "at least two candidate model e-foldings",
+    "rate": "two-sided paired 95% ratio interval inside [0.90,1.10]",
+    "signal": "candidate R^2 >= 0.98 and fit-start SNR >= 5"
+  },
+  "benchmark": "independent new protected-mode E2 Gaussian test",
+  "fit_window": [
+    20.0,
+    44.0
+  ],
+  "grid_time_discrete_prediction": {
+    "baseline_gamma": 0.2960428038699564,
+    "candidate_gamma": 0.2928595715169717,
+    "candidate_ratio": 0.9892473915549623,
+    "fitted_parameters": 0,
+    "force_transfer": 0.9909549371303279
+  },
+  "measured_mode": [
+    10,
+    1
+  ],
+  "rows": [
+    {
+      "duration_gate": "PASS",
+      "fit_r_squared": 0.9999934294596838,
+      "fit_start_amplitude": 2.2668416001129176e-07,
+      "fit_start_snr": 247.6313713808617,
+      "fit_t_start": 20.0,
+      "fit_t_stop": 44.0,
+      "floor_definition": "quietest rolling-median pre-emergence window",
+      "floor_scope": "per-cell",
+      "floor_t_start": 0.96,
+      "floor_t_stop": 2.92,
+      "gamma": 0.29384812374712715,
+      "gamma_ci_hi": 0.2965732463765499,
+      "gamma_ci_lo": 0.29024631655737665,
+      "gamma_ratio_to_cic": 1.0,
+      "label": "base",
+      "max_delta_f_ratio_fit_window": 0.11662899577305932,
+      "mode_x": 10,
+      "mode_y": 1,
+      "model_efoldings": 7.052354969931052,
+      "n_seeds": 10,
+      "noise_floor": 9.154097025237051e-10,
+      "rate_gate": "PASS",
+      "ratio_ci_hi": 1.0,
+      "ratio_ci_lo": 1.0,
+      "seed_start": 100,
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.0,
+      "signal_gate": "PASS"
+    },
+    {
+      "duration_gate": "PASS",
+      "fit_r_squared": 0.9999934508457224,
+      "fit_start_amplitude": 2.1213211549903685e-07,
+      "fit_start_snr": 232.76874674685553,
+      "fit_t_start": 20.0,
+      "fit_t_stop": 44.0,
+      "floor_definition": "quietest rolling-median pre-emergence window",
+      "floor_scope": "per-cell",
+      "floor_t_start": 0.96,
+      "floor_t_stop": 2.92,
+      "gamma": 0.29065050692568456,
+      "gamma_ci_hi": 0.2933859642356417,
+      "gamma_ci_lo": 0.2870335879264772,
+      "gamma_ratio_to_cic": 0.9891181308879333,
+      "label": "c4",
+      "max_delta_f_ratio_fit_window": 0.10102791330893193,
+      "mode_x": 10,
+      "mode_y": 1,
+      "model_efoldings": 6.975612166216429,
+      "n_seeds": 10,
+      "noise_floor": 9.113427745939545e-10,
+      "rate_gate": "PASS",
+      "ratio_ci_hi": 0.9892525754644281,
+      "ratio_ci_lo": 0.9889281872553365,
+      "seed_start": 100,
+      "sigma_x_dx": 0.0,
+      "sigma_y_dy": 0.24273459979982182,
+      "signal_gate": "PASS"
+    }
+  ],
+  "seed_partition": {
+    "new_seed_ids": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109
+    ],
+    "relationship_to_prior_campaigns": "disjoint from prior seed ids 0--9"
+  },
+  "status": "PASS"
+}

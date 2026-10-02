@@ -1,0 +1,10 @@
+campaign,rate_npz_count,seed_values,trace_lengths,schema_count,status
+compensated_binomial_20260811,120,0;1;2;3;4;5;6;7;8;9,901;1501,2,raw histories present
+higher_order_compensation_20260811,160,0;1;2;3;4;5;6;7;8;9,901;1501,2,raw histories present
+landau_binomial_weak_5048412,80,0;1;2;3;4;5;6;7;8;9,901,1,raw histories present
+landau_cv_rate_5007754,20,0;1;2;3;4;5;6;7;8;9,901,1,raw histories present
+landau_mise6_rate_4872322,20,0;1;2;3;4;5;6;7;8;9,901,1,raw histories present
+landau_sigma_refinement_4864819,180,0;1;2;3;4;5;6;7;8;9,901,1,raw histories present
+recovered_meluxina_20260909,290,0;1;2;3;4;5;6;7;8;9,451;901;1501,3,raw histories present
+strong_landau_alpha025_20260811,80,0;1;2;3;4;5;6;7;8;9,601,1,raw histories present
+strong_landau_fidelity_5048278,60,0;1;2;3;4;5;6;7;8;9,451,1,raw histories present

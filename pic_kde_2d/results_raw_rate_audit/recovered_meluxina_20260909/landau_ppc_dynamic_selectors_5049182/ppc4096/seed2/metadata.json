@@ -1,0 +1,12 @@
+{
+  "eval_window": [
+    5.0,
+    30.0
+  ],
+  "initializer": "regular positions, globally shuffled velocity quadrature",
+  "live_sigma_dx": 0.25,
+  "n_particles": 4194304,
+  "n_snapshots": 51,
+  "ppc": 4096,
+  "seed": 2
+}
