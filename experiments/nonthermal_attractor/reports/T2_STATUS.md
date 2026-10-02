@@ -55,3 +55,9 @@ python3 scripts/t2_analyze.py configs/t2_smoke.yaml /tmp/t2_smoke --out results/
 - **The Δv_b = 0.15 v_b preparation.** Only its cost is estimated.
 - **The L-doubling check.** It is listed in the protocol and runs as an extra job.
 - **Exact Vlasov positivity.** The spectral x-shift can undershoot slightly (f_min is recorded per snapshot). A positivity-preserving x-advection (PFC) is the upgrade if the undershoots matter for ρ(η) at low η.
+
+## Pipeline smoke (not physics)
+
+`configs/t2_smoke.yaml` ran end to end in about 5 minutes on 4 cores. It produced 12 PIC bundles, 2 Vlasov bundles and 8 stable-control bundles, plus the analysis in `results/t2_smoke/`.
+
+Everything ran: the gate, the onset model and the quality gate. The printed outcome is `REGULATOR_RESULT`, but **it means nothing physically**. The run stops at t = 100 on a 4-wavelength box, so it is INCONCLUSIVE by the spec. It is committed only to show the code path works.
