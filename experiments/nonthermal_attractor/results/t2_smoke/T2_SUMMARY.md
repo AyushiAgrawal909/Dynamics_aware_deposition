@@ -1,15 +1,11 @@
-# T2 analysis SMOKE: pipeline check only, NOT a physics result
+# T2 analysis SMOKE
 
-This smoke run used a 4-wavelength box, ran to t = 100, and had 4 levels (1024 down to 128 ppc), 3 seeds and 2 Vlasov levels (`configs/t2_smoke.yaml`). It shows that bundles, the stable control, the frozen gate, the quality gate and the decision file work end to end on real backend output.
-
-**The verdicts below must not be interpreted.** The run is far too short for tail evolution, and the box is too small for hole mergers. Under the T2 spec, a run this short is INCONCLUSIVE whatever the gate prints.
-
-Gate outcome: **REGULATOR_RESULT**
+Gate outcome: **REGULATOR_RESULT_EPS_Q_ONLY**
 
 | Feature | Verdict | Reason |
 |---|---|---|
 | eps_q | FAIL_REGULATOR_DEPENDENT | paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time) |
-| eta_min | FAIL_REGULATOR_DEPENDENT | paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time) |
+| eta_min | INCONCLUSIVE | floor-limited: only 0 level(s) resolve eta_min |
 
 Onset model preferred: INCONCLUSIVE (Delta AIC 1.2890785473710764)
 

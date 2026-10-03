@@ -1,5 +1,5 @@
 # T2 base configuration: symmetric waterbag beams, dv_b = 0.20 v_b.
-# DRAFT - values marked VERIFY must be checked before T2_PROTOCOL.yaml is frozen.
+# FROZEN with protocol/T2_PROTOCOL.yaml (values set from the 128-ppc pilot, results/t2_pilot/).
 preparation:
   v_b: 1.0
   dv_b: 0.20
@@ -9,7 +9,7 @@ grid:
   nx: 4096                    # dx = L/nx = 0.03996 <= lambda_Db = 0.05774
 time:
   dt: 0.05                    # omega_p dt <= 0.1; confirm with dt-halving (V4)
-  t_end: 4800.0               # VERIFY: 1.5 x Ewart et al. tail-formation time (~3200/omega_p per the review), rescaled by 1/gamma_max
+  t_end: 4800.0               # 1.5 x the last time Ewart et al. (arXiv:2409.01742) follow the tail to (3200/omega_pe)
 seed_spectrum:                # deterministic, identical for all runs and both backends
   modes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
   amplitudes: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001]   # per mode; 10.5x the 128-ppc floor (marginal), <= 1e-3 linear cap
@@ -23,7 +23,7 @@ pic:
   ppc_levels: [16384, 8192, 4096, 2048, 1024, 512, 256, 128]
   seeds: [0, 1, 2, 3]
 vlasov:
-  v_max: 4.0                  # VERIFY against the finest PIC tail (mass beyond 0.8 v_max < 1e-6)
+  v_max: 10.0                 # pilot (128 ppc): mass beyond |v| = 6.3 is 3.8e-6, none beyond 7.1 (1-particle floor 1.9e-6); 0.8 v_max = 8
   dv_finest: 0.0015625        # dv_b/128; levels double dv: /128, /64, /32, /16
   levels: 4
 bins:
@@ -36,15 +36,17 @@ bins:
   eta_log_step: 0.25
 reconstruction:
   nx_b: 256
-  nv_b: 400
-  v_lim: 4.0
+  nv_b: 800                   # dv_b = 0.02 unchanged
+  v_lim: 8.0                  # covers the pilot tail (no particle beyond |v| = 7.1); was 4.0, which cut 4e-4 of the mass
 diagnostics:
   every_steps: 200            # every 10 / omega_p
   n_phase: 8
   phase_decimate: 256
-analysis:                     # VERIFY on the first coarse run, then freeze in T2_PROTOCOL.yaml
+analysis:                     # frozen in T2_PROTOCOL.yaml after the 128-ppc pilot
   q: 0.01                     # eps_q feature
-  eps_tail: 1.0               # snapped to the nearest frozen edge; initial max eps = (v_b + dv_b/2)^2/2 = 0.605
-  q_onset: 0.001              # onset: tail fraction above eps_tail crosses this
-  window: [500.0, 4800.0]     # VERIFY
+  eps_tail: 7.92              # snapped to the nearest frozen edge (7.92); 13x the initial max eps = 0.605
+  q_onset: 0.0003             # onset: fraction above eps_tail crosses this (>= 157 particles at 128 ppc)
+  # (eps_tail = 1, q = 1e-3 crossed at t = 10 in the pilot: that is beam saturation, unresolved by 10/omega_p snapshots)
+  window: [500.0, 4800.0]
+  eta_min_max_limited_fraction: 0.05   # eta_min enters the gate only at levels resolved in >= 95% of window snapshots
   tau: 0.1
