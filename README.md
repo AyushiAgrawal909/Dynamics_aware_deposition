@@ -6,17 +6,11 @@ filtering, compensated transfer functions, bandwidth selection, full-`f` and
 mode-projected linearized `delta-f` evolution, and conservation/transfer
 diagnostics.
 
-The software is independent of any manuscript. The repository also contains a
-frozen `examples/paper_results/` layer with the configurations, archived
+The repository also contains a frozen `examples/paper_results/` layer with the configurations, archived
 seed-level histories, and reducers needed to reproduce the reported numerical
-results. It contains no manuscript, LaTeX source, bibliography, or paper-build
-workflow.
+results. 
 
-This is the lean distribution. Superseded reducer revisions, duplicate rebuild
-trees, invalid-development raw runs, ordinary per-run console logs, caches, and
-other regenerable intermediates are intentionally omitted. The retained raw
-histories and final numerical anchors are sufficient for the maintained
-commands below; `python3 reproduce.py all` rebuilds the omitted derived output.
+`python3 reproduce.py all` rebuilds the omitted derived output.
 
 ## Install the general code
 
