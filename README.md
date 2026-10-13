@@ -92,6 +92,5 @@ The exact-width replay should recover:
 - `pic_kde_2d_landau_cv_stage/`: historical implementation snapshot retained
   where exact reproduction requires it;
 - `reproduce.py`: existing-data reproduction entry point;
-- `PROVENANCE.md`: origin, frozen hashes, qualifications, and known limits;
 - `SIMULATION_RERUN_GUIDE.md`: requirements for simulation reruns.
 
