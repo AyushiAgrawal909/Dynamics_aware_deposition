@@ -14,9 +14,6 @@ results.
 
 ## Install the general code
 
-Python 3.12 is the verified environment. Python 3.10 or newer is declared by
-the package.
-
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -40,12 +37,12 @@ The reusable implementation is under `pic_kde_2d/pic_kde_2d/`:
 - `core/`: grids, particles, full-`f` and linearized `delta-f` PIC loops;
 - `methods/`: CIC, Gaussian, spectral, compensated and adaptive filtering,
   bandwidth selection, and delta-`f` weights;
-- `benchmarks/`: Landau and two-stream initializations and theory helpers;
+- `benchmarks/`: Landau and two-stream initializations and theory;
 - `validation/`: transfer, conservation, self-force, momentum, and rate-fit
   diagnostics.
 
-Research-grade command-line runners and Slurm examples are in
-`pic_kde_2d/scripts/`. They are examples, not a stable public API.
+command-line runners and Slurm examples are in
+`pic_kde_2d/scripts/`. 
 
 ## Reproduce the reported numerical results
 
@@ -65,8 +62,7 @@ python3 reproduce.py all
 
 This runs the 87 scientific regressions, the bounded Landau/E2 analysis, the
 research-completion reductions, and the exact-width q050 reduction. It does
-not submit simulations. New products go under `reproduced/` and archived data
-are never overwritten.
+not submit simulations. New products go under `reproduced/`.
 
 Individual workflows are also available:
 
@@ -95,7 +91,7 @@ The exact-width replay should recover:
 - `campaigns/`: self-contained completed campaign snapshots;
 - `pic_kde_2d_landau_cv_stage/`: historical implementation snapshot retained
   where exact reproduction requires it;
-- `reproduce.py`: safe top-level existing-data reproduction entry point;
+- `reproduce.py`: existing-data reproduction entry point;
 - `PROVENANCE.md`: origin, frozen hashes, qualifications, and known limits;
-- `SIMULATION_RERUN_GUIDE.md`: requirements for genuine simulation reruns.
+- `SIMULATION_RERUN_GUIDE.md`: requirements for simulation reruns.
 
