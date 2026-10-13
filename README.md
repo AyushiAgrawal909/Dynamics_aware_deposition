@@ -119,8 +119,3 @@ The repository preserves negative and unresolved outcomes. In particular, the
 joint confirmation fails because the CIC arm lacks the required fitted
 duration. Regression success means the code reproduces the archived evidence;
 it does not change those verdicts.
-
-Before publishing publicly, resolve the project-wide license and data
-redistribution questions described in `LICENSE_NOTICE.md` and
-`GITHUB_UPLOAD_GUIDE.md`. This preparation did not initialize Git or upload
-anything.
