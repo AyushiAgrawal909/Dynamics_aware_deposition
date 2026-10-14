@@ -1,24 +1,3 @@
-# Verification report
-
-Original scientific workflows were verified from the clean code-and-data tree
-on 30 September 2026. The general-code/example layout and optional-checksum
-entry point were revalidated on 1 October 2026. The lean tree was revalidated
-after pruning on 2 October 2026.
-
-## Scientific regression suite
-
-Command:
-
-```bash
-MPLBACKEND=Agg python3 -m unittest discover \
-  -s examples/paper_results/tests -p 'test_*.py'
-```
-
-Result: `Ran 87 tests ... OK`.
-
-The two tests that previously checked prose in a manuscript now check the
-underlying archived numerical anchors and explicit metric definitions. No
-scientific acceptance threshold or expected numerical result was changed.
 
 ## General solver test suite
 
