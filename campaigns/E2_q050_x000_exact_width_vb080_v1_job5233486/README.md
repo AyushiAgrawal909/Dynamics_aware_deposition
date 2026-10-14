@@ -1,15 +1,5 @@
 # E2 q050 exact-width validation campaign
 
-This directory is the complete archived evidence for MeluXina job 5233486.
-It combines the immutable pre-submission package with the downloaded run root,
-all twenty complex mode histories used by the reducer, bootstrap draws,
-scheduler logs, configuration, source snapshot, and result documentation.
-
-The only new simulations were the ten q050 histories for seeds 200-209. CIC
-histories from job 5201231 were reused only after the production-runtime
-reconstruction audit. The historical CIC particle arrays were not saved, so
-the provenance qualification in `RESULTS_REPORT.md` remains mandatory.
-
 From the top-level reproduction package, rebuild the frozen reducer with:
 
 ```bash
