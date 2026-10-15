@@ -1,0 +1,44 @@
+# Oblique two-stream benchmark of the paper: two equal Maxwellian electron
+# beams at +-0.80 along x, v_th = 0.05, omega_p = 1 (total), immobile ions.
+# Protected mode (m_x, m_y) = (12, 1); 5% rate tolerance; reference-free
+# model objective with the production marker count (PPC 32).
+title: two-stream (12,1), v_b = 0.80
+
+grid:
+  N: [128, 16]
+  L: [64.0, 16.0]
+  shape: cic            # ngp | cic | tsc | pqs (deposit and gather)
+  poisson: spectral     # spectral | fd2
+  gradient: spectral    # spectral | centered
+  scheme: momentum      # momentum | energy
+
+time:
+  integrator: continuous  # continuous | leapfrog
+  dt: 0.02                # used for leapfrog and for |omega| dt warnings
+
+species:
+  - {name: beam+, q: -1.0, m: 1.0, n: 0.5, drift: [0.8, 0.0], vth: 0.05}
+  - {name: beam-, q: -1.0, m: 1.0, n: 0.5, drift: [-0.8, 0.0], vth: 0.05}
+
+protected_modes:
+  - {mode: [12, 1], branch: most_unstable}
+
+tolerance: 0.05       # operating tolerance: |R_gamma - 1| <= 0.05
+acceptance: 0.10      # reported for comparison
+
+dispersion:
+  aliases: 8          # spatial aliases per axis in the response sum
+
+filter:
+  coupling: matched   # filter applied to the density and to the field (W^2)
+
+candidates:
+  gaussian: {h_max: 3.0}                         # widths in cells, optimised continuously
+  binomial: {p: [0, 1, 2, 3, 4], n: [1, 2, 3, 4, 6, 8]}
+
+objective:
+  mode: model         # reference-free; 'snapshots' uses paired reference data
+  metric: density     # density | field
+  ppc: 32
+  signal:
+    - {mode: [12, 0], amplitude: 1.0e-3}

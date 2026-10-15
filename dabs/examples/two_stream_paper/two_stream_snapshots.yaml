@@ -1,0 +1,27 @@
+# The paper's reference-assisted selection: paired production (PPC 32) and
+# reference (PPC 1024) CIC densities from the oblique two-stream run.
+# The compact spectral statistics of the paper's ten seeds are in
+# examples/two_stream_paper/paper_spectral_stats.npz; the full snapshots can
+# be regenerated with examples/two_stream_paper/make_snapshots.py.
+title: two-stream (12,1), reference-assisted
+
+grid: {N: [128, 16], L: [64.0, 16.0], shape: cic}
+time: {integrator: continuous, dt: 0.02}
+species:
+  - {name: beam+, q: -1.0, m: 1.0, n: 0.5, drift: [0.8, 0.0], vth: 0.05}
+  - {name: beam-, q: -1.0, m: 1.0, n: 0.5, drift: [-0.8, 0.0], vth: 0.05}
+protected_modes:
+  - {mode: [12, 1]}
+tolerance: 0.05
+acceptance: 0.10
+dispersion: {aliases: 8}
+candidates:
+  gaussian: {h_max: 3.0}
+  binomial: {p: [0, 1, 2, 3, 4], n: [1, 2, 3, 4, 6, 8]}
+objective:
+  mode: snapshots
+  metric: density
+  statistics: paper_spectral_stats.npz   # relative to this file
+  # snapshots: snapshots.npz             # alternative: paired meshes rho, rho_ref
+  select: [0, 1, 2, 3, 4]       # realisations used to choose
+  evaluate: [5, 6, 7, 8, 9]     # held-out realisations for the reported reductions

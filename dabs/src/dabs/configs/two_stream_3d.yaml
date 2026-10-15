@@ -1,0 +1,22 @@
+# Symmetric warm two-stream instability on a 3D mesh.  Every grid mode
+# growing at >= 30% of the fastest rate is protected (up to 8 distinct modes).
+title: two-stream, 3D
+
+grid: {N: [32, 16, 16], L: [32.0, 16.0, 16.0], shape: cic}
+time: {integrator: continuous, dt: 0.1}
+species:
+  - {name: beam+, q: -1.0, m: 1.0, n: 0.5, drift: [1.0, 0.0, 0.0], vth: 0.1}
+  - {name: beam-, q: -1.0, m: 1.0, n: 0.5, drift: [-1.0, 0.0, 0.0], vth: 0.1}
+auto_protect:
+  min_growth_fraction: 0.3
+  max_modes: 8
+tolerance: 0.05
+acceptance: 0.10
+dispersion: {aliases: 2}
+candidates:
+  gaussian: {h_max: 2.0, grid: 13}
+  binomial: {p: [0, 1, 2, 3], n: [1, 2, 4]}
+objective:
+  mode: model
+  metric: density
+  ppc: 64
