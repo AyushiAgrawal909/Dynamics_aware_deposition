@@ -84,7 +84,7 @@ The exact-width replay should recover:
 
 ## Choose a filter for your own simulation
 
-`dads/` is a pip-installable package and command-line tool built on the
+`dabs/` is a pip-installable package and command-line tool built on the
 findings of the paper. For a given PIC configuration, it selects the
 deposition/gather filter family and bandwidth with the smallest statistical
 error whose predicted change in the growth or damping rates of the protected
@@ -94,17 +94,17 @@ modes stays within a tolerance you set. The configuration covers:
 - any number of drifting Maxwellian species, in 1D, 2D or 3D.
 
 ```bash
-python3 -m pip install -e ./dads
-dads example two_stream -o case.yaml
-dads select case.yaml --tolerance 0.05 -o out/
+python3 -m pip install -e ./dabs
+dabs example two_stream -o case.yaml
+dabs select case.yaml --tolerance 0.05 -o out/
 ```
 
-See [dads/README.md](dads/README.md) for the method, the configuration
+See [dabs/README.md](dabs/README.md) for the method, the configuration
 reference and the reproduction of the paper's selection.
 
 ## Repository layout
 
-- `dads/`: dynamics-aware kernel selector (package, CLI, docs and tests);
+- `dabs/`: dynamics-aware kernel selector (package, CLI, docs and tests);
 - `pic_kde_2d/`: general current research implementation and its tests;
 - `examples/paper_results/`: paper-specific reducers, frozen configurations,
   regression tests, scientific records, required raw data, and compact final
