@@ -1,0 +1,2 @@
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend vlasov1d1v --level 2 --seed 0 --out /project/home/p201103/u103576/nta_t2/bundles
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend vlasov1d1v --level 3 --seed 0 --out /project/home/p201103/u103576/nta_t2/bundles

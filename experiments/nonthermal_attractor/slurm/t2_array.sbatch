@@ -1,33 +1,37 @@
-#!/bin/bash
-# T2 regulator scan as a SLURM array: one task per (backend, level, seed).
-# Lines marked PLACEHOLDER are environment-specific and MUST be edited.
+#!/bin/bash -l
+# T2 regulator scan as a SLURM array: one task per line of the job list $JOBS.
+# Filled in for Meluxina, project p201103, GPU partition (64 cores/node; the
+# code is CPU-only numba, the GPUs stay idle). Submit with slurm/t2_submit.sh,
+# which sets --time per group from the timings in slurm/T2_SUBMISSION.md.
 #
 #   python3 scripts/t2_scan.py configs/t2_waterbag_dv020.yaml --out $OUT --list > slurm/t2_jobs.txt
-#   sbatch --array=1-$(wc -l < slurm/t2_jobs.txt) slurm/t2_array.sbatch
-#
-# Freeze protocol/T2_PROTOCOL.yaml in its own commit BEFORE submitting.
+#   JOBS=slurm/t2_jobs.txt sbatch --array=1-$(wc -l < slurm/t2_jobs.txt) --time=HH:MM:SS slurm/t2_array.sbatch
 #SBATCH --job-name=nta-t2
-#SBATCH --account=PLACEHOLDER_ACCOUNT
-#SBATCH --partition=cpu
+#SBATCH --account=p201103
+#SBATCH --partition=gpu
 #SBATCH --qos=default
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=128
-#SBATCH --time=48:00:00           # PLACEHOLDER: finest PIC (16384 ppc) and finest Vlasov runs; see reports/COST_ESTIMATE.md
-#SBATCH --output=logs/%x_%A_%a.out
+#SBATCH --cpus-per-task=64
+#SBATCH --time=02:00:00
+#SBATCH --mail-user=ayushi.ph@sric.iitr.ac.in
+#SBATCH --mail-type=ALL
+#SBATCH --output=/project/home/p201103/u103576/nta_t2/logs/%x_%A_%a.out
 
 set -euo pipefail
-module load env/release/2023.1     # PLACEHOLDER
-module load Python                  # PLACEHOLDER
-source "$HOME/venvs/dynamics-aware-pic/bin/activate"   # PLACEHOLDER: env with requirements-simulation.txt
+module load env/release/2024.1
+module load Python
+BASE=/project/home/p201103/u103576
+source "$BASE/venvs/nta/bin/activate"     # requirements-simulation.txt + pyyaml
 
 export NUMBA_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-REPO=${REPO:-$HOME/dynamics_aware_deposition}        # PLACEHOLDER
-OUT=${OUT:-$SCRATCH/nta_t2/bundles}                   # PLACEHOLDER: large outputs outside the repo
-mkdir -p "$OUT" logs
+REPO=${REPO:-$BASE/Dynamics_aware_deposition}
+OUT=${OUT:-$BASE/nta_t2/bundles}
+JOBS=${JOBS:-slurm/t2_jobs.txt}
+mkdir -p "$OUT"
 
 cd "$REPO/experiments/nonthermal_attractor"
-CMD=$(sed -n "${SLURM_ARRAY_TASK_ID}p" slurm/t2_jobs.txt)
-echo "task ${SLURM_ARRAY_TASK_ID}: ${CMD}"
+CMD=$(sed -n "${SLURM_ARRAY_TASK_ID}p" "$JOBS")
+echo "task ${SLURM_ARRAY_TASK_ID}: ${CMD}  (repo $(git rev-parse HEAD))"
 srun ${CMD}

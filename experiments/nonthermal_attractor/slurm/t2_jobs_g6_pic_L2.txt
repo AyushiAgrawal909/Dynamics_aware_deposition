@@ -1,0 +1,6 @@
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 0 --out /project/home/p201103/u103576/nta_t2/bundles
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 1 --out /project/home/p201103/u103576/nta_t2/bundles
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 2 --out /project/home/p201103/u103576/nta_t2/bundles
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 3 --out /project/home/p201103/u103576/nta_t2/bundles
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 0 --out /project/home/p201103/u103576/nta_t2/bundles --control
+python3 -m attractor_sim.run configs/t2_waterbag_dv020.yaml --backend pic1d1v --level 2 --seed 1 --out /project/home/p201103/u103576/nta_t2/bundles --control
