@@ -1,0 +1,56 @@
+# L-doubling check for T2 (protocol numerics: box_wavelengths 16, plus one L-doubling check (32)
+# at the 1024-ppc level, seed 0). Identical to configs/t2_waterbag_dv020.yaml except: box 32 wavelengths,
+# nx 8192 (same dx), and the seeded modes renumbered so the seed has the same wavenumbers, amplitudes
+# and phases. The modes the doubled box adds are not seeded. Run only pic1d1v --level 4 --seed 0.
+# T2 base configuration: symmetric waterbag beams, dv_b = 0.20 v_b.
+# FROZEN with protocol/T2_PROTOCOL.yaml (values set from the 128-ppc pilot, results/t2_pilot/).
+preparation:
+  v_b: 1.0
+  dv_b: 0.20
+box:
+  n_wavelengths: 32          # L-doubling check (T2_PROTOCOL.yaml numerics); base config uses 16
+grid:
+  nx: 8192                    # doubled with L so dx = 0.03996 is unchanged
+time:
+  dt: 0.05                    # omega_p dt <= 0.1; confirm with dt-halving (V4)
+  t_end: 4800.0               # 1.5 x the last time Ewart et al. (arXiv:2409.01742) follow the tail to (3200/omega_pe)
+seed_spectrum:                # deterministic, identical for all runs and both backends
+  modes: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52]   # same physical k as the base config (mode m at L -> 2m at 2L)
+  amplitudes: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001]   # per mode; 10.5x the 128-ppc floor (marginal), <= 1e-3 linear cap
+  phases: [1.124281, 4.020693, 2.935934, 2.327923, 2.230011, 4.966973, 5.687186, 1.114343, 4.101568, 1.874292, 6.075603, 5.779589, 3.995294, 4.729555, 3.236806, 5.189253, 2.817258, 2.128821, 1.746092, 1.422093, 3.303805, 2.7075, 4.166887, 0.080679, 2.812994, 2.294499]
+pic:
+  # nested, 2.1 decades. The coarsest level is set by the seed/noise rule: the
+  # free-streaming quiet-start floor per seeded mode is 2.3e-4 (64 ppc),
+  # 9.5e-5 (128), 6.0e-5 (256), 3.3e-5 (512), 1.8e-6 (8192)
+  # (scripts/t2_noise_floor.py, 2-3 seeds), so with the <= 1e-3 linear cap,
+  # 128 ppc is the lowest level that keeps the seed >= 10x the floor.
+  ppc_levels: [16384, 8192, 4096, 2048, 1024, 512, 256, 128]
+  seeds: [0, 1, 2, 3]
+vlasov:
+  v_max: 10.0                 # pilot (128 ppc): mass beyond |v| = 6.3 is 3.8e-6, none beyond 7.1 (1-particle floor 1.9e-6); 0.8 v_max = 8
+  dv_finest: 0.0015625        # dv_b/128; levels double dv: /128, /64, /32, /16
+  levels: 4
+bins:
+  eps_lo: 0.05
+  eps_hi: 50.0
+  n_log: 60
+  n_lin: 10
+  eta_lo: 1.0e-6
+  eta_hi: 10.0
+  eta_log_step: 0.25
+reconstruction:
+  nx_b: 256
+  nv_b: 800                   # dv_b = 0.02 unchanged
+  v_lim: 8.0                  # covers the pilot tail (no particle beyond |v| = 7.1); was 4.0, which cut 4e-4 of the mass
+diagnostics:
+  every_steps: 200            # every 10 / omega_p
+  n_phase: 8
+  phase_decimate: 256
+analysis:                     # frozen in T2_PROTOCOL.yaml after the 128-ppc pilot
+  q: 0.01                     # eps_q feature
+  eps_tail: 7.92              # snapped to the nearest frozen edge (7.92); 13x the initial max eps = 0.605
+  q_onset: 0.0003             # onset: fraction above eps_tail crosses this (>= 157 particles at 128 ppc)
+  # (eps_tail = 1, q = 1e-3 crossed at t = 10 in the pilot: that is beam saturation, unresolved by 10/omega_p snapshots)
+  window: [500.0, 4800.0]
+  eta_min_max_limited_fraction: 0.05   # eta_min enters the gate only at levels resolved in >= 95% of window snapshots
+  tau: 0.1
