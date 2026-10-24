@@ -33,18 +33,32 @@ Before submission, myquota showed 261 of 339 GPU node-hours used (about 78 left)
 | g5_pic_L1 | PIC 8192 ppc, the same seeds | 6 | 01:45:00 | 5382073 |
 | g6_pic_L2 | PIC 4096 ppc, the same seeds | 6 | 01:00:00 | 5382074 |
 | g7_pic_L3-7 | PIC 2048 to 128 ppc, the same seeds | 30 | 00:45:00 | 5382075 |
+| L-doubling check | PIC 1024 ppc (level 4), seed 0, 32 wavelengths, `configs/t2_waterbag_dv020_L32.yaml` | 1 | 01:00:00 | 5382085 |
 
-That covers the whole `t2_scan.py` matrix (52 runs).
+That covers the whole `t2_scan.py` matrix (52 runs) and the protocol's L-doubling check.
+
+The L-doubling check runs from a separate worktree at commit `9d48383`
+(`/project/home/p201103/u103576/nta_t2/repo_L32`) and writes to `nta_t2/bundles_L32`, so its bundle doesn't collide with
+`pic1d1v_L4_s0.npz` from the main scan. Its config only doubles the box and nx (same dx), and keeps the seeded wavenumbers,
+amplitudes and phases, renumbered as modes 2, 4, ..., 52. The extra modes in the doubled box are not seeded.
+
+## GPU budget
+
+| | node-hours |
+|---|---|
+| Left at submission (myquota: 261 of 339 used) | about 78 |
+| Test jobs (5382021, 5382027, 5382049) | about 0.3 |
+| Expected for the scan and the L-doubling check | about 50.5 |
+| Worst case if every task ran to its wall limit | about 98 |
+
+The worst case is above the quota, but the wall limits are 1.3-1.6x the measured estimates. Only a job that hangs would get close.
+Check with `myquota` (it lags by about a day) and `sacct -u $USER -S 2026-10-24 -o jobid,jobname,elapsed,state`.
 
 ## Not submitted (for November or a later decision)
 
-1. **L-doubling check** (T2_PROTOCOL.yaml `numerics`): 32 wavelengths, 1024 ppc (level 4), seed 0. `t2_scan.py` does not generate
-   it and the frozen config can't express it, so it needs a new config file (e.g. `configs/t2_waterbag_dv020_L32.yaml`, with
-   `box.n_wavelengths: 32` and everything else the same). Cost is about 0.3 node-hours. The command would be:
-   `python3 -m attractor_sim.run configs/t2_waterbag_dv020_L32.yaml --backend pic1d1v --level 4 --seed 0 --out <dir>`
-2. **Conditional seeds 4-7** (`conditional_rules.onset_scatter`): if sigma(t_on) from the 4 finest-PIC seeds is > 0.1 of
+1. **Conditional seeds 4-7** (`conditional_rules.onset_scatter`): if sigma(t_on) from the 4 finest-PIC seeds is > 0.1 of
    the S6 effect size, run seeds 4-7 at every PIC level before the analysis. To do that, add the seeds to a job list and submit with `t2_array.sbatch`.
-3. **Analysis**, after every bundle is in: `sbatch slurm/t2_analyze.sbatch`.
+2. **Analysis**, after every bundle is in: `sbatch slurm/t2_analyze.sbatch`.
 
 ## Re-submitting a group (for example after a failure, or in November)
 
