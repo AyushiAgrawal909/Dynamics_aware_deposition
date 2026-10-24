@@ -1,6 +1,6 @@
 # T2 status: code and validations done; production scan not run
 
-**Gate outcome: `NOT_TESTED`.** The regulator scan has not been run. It needs about 500 wall-hours on this 4-core container, against an 8-hour local budget (`COST_ESTIMATE.md`), so it is prepared as SLURM jobs for Meluxina. The T2 spec says never to launch an underpowered run and interpret it, so none was. The smoke ladder below exercises the pipeline only.
+**Gate outcome: `NOT_TESTED`.** The regulator scan has not been run. It needs about 830 wall-hours on this 4-core container, against an 8-hour local budget (`COST_ESTIMATE.md`), so it is prepared as SLURM jobs for Meluxina. The T2 spec says never to launch an underpowered run and interpret it, so none was. The smoke ladder below exercises the pipeline only.
 
 ## What exists
 
@@ -14,7 +14,7 @@
 | Cost estimate | `scripts/t2_cost_estimate.py` → `COST_ESTIMATE.md` | Does not fit locally. |
 | Runner, scan, analysis | `attractor_sim/run.py`, `scripts/t2_scan.py`, `scripts/t2_analyze.py` | Writes T1-contract bundles; applies the frozen T1 gate; writes `T2_DECISION.json` |
 | SLURM | `slurm/t2_array.sbatch`, `slurm/t2_analyze.sbatch` | `# PLACEHOLDER` lines must be edited |
-| Protocol | `protocol/T2_PROTOCOL.yaml` | **DRAFT**, with open items listed in the file |
+| Protocol | `protocol/T2_PROTOCOL.yaml` | **FROZEN** after a 128-ppc pilot (`results/t2_pilot/PILOT.md`) |
 | Configs | `configs/t2_waterbag_dv020.yaml` (production), `configs/t2_smoke.yaml` (pipeline smoke only) | |
 
 ## Finding from the noise-floor measurement (changes the ladder)
@@ -31,7 +31,16 @@ A Halton quiet start is near-exact at t = 0. After one plasma period of free str
 
 The spec needs the seed to be at least 10× the floor and also at most 1e-3. With both constraints, **64 ppc cannot be the coarsest level**. The ladder is therefore 16384 → 128 ppc: 8 nested levels, 2.1 decades, and the seed ratio is 10.5× (marginal) at 128 ppc.
 
-The alternative is to raise the seed to about 2.5e-3 per mode and keep 64 ppc. That is your call before the freeze; it is listed in `T2_PROTOCOL.yaml`.
+The 128-ppc ladder with the 1e-3 seed is the frozen choice (the 2.5e-3 seed with 64 ppc was the alternative).
+
+## Pre-freeze pilot (changes four settings)
+
+A full-length 128-ppc run (one level, one seed, so no regulator comparison) closed the protocol's open items (`results/t2_pilot/PILOT.md`):
+
+- **Vlasov v_max 4 → 10.** 2.9e-3 of the mass lies beyond 0.8 × 4. The Vlasov arm now costs 2.5× more.
+- **Onset redefined** as eps_tail = 7.92, q = 3e-4 (pilot t_on = 294). The old definition (eps_tail = 1, q = 1e-3) fired at t = 10, which is beam saturation.
+- **eta_min is floor-limited at 128 ppc.** It now enters the gate only at levels where it is resolved; the new outcome `REGULATOR_RESULT_EPS_Q_ONLY` covers an eps_q failure with eta_min unresolved.
+- **Reconstruction box v_lim 4 → 8**, so ρ(η) includes the tail particles.
 
 ## Commands
 
@@ -40,7 +49,8 @@ cd experiments/nonthermal_attractor
 python3 scripts/t2_validate.py                                   # V1-V4 (~1 min)
 python3 scripts/t2_noise_floor.py configs/t2_waterbag_dv020.yaml --ppc 128
 python3 scripts/t2_cost_estimate.py configs/t2_waterbag_dv020.yaml
-# after freezing protocol/T2_PROTOCOL.yaml:
+# protocol/T2_PROTOCOL.yaml is frozen; the pilot check:
+python3 scripts/t2_pilot_check.py configs/t2_waterbag_dv020.yaml BUNDLE.npz
 python3 scripts/t2_scan.py configs/t2_waterbag_dv020.yaml --out $OUT --list > slurm/t2_jobs.txt   # 52 runs
 sbatch --array=1-52 slurm/t2_array.sbatch
 sbatch slurm/t2_analyze.sbatch

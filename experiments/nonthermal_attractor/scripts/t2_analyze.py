@@ -45,7 +45,7 @@ def eta_min_series(arr):
                              arr["rho_bin_mass"][i], dxb, dvb, floor)
         r = eta_minus1_range(wc)
         vals.append(r["eta_min"] if r["found"] and not r["resolution_limited"] else np.nan)
-        flags.append(bool(r["resolution_limited"]))
+        flags.append(bool(r["resolution_limited"]) or not r["found"])
     return np.array(vals), np.array(flags)
 
 
@@ -88,7 +88,8 @@ def main():
             eq.append([quantile_feature(h, an["q"]) for h in H])
             e, f = eta_min_series(arr)
             em.append(e)
-            fl.append(f.mean())
+            win_t = (arr["times"] >= an["window"][0]) & (arr["times"] <= an["window"][1])
+            fl.append(f[win_t].mean())
             qn = np.array([tail_moments(h, eps_tail)["Q_N"] for h in H]) / n0
             on.append(convergence.onset_time(times, qn, an["q_onset"]))
         feats["eps_q"][l] = np.array(eq)
@@ -105,10 +106,23 @@ def main():
     window = tuple(an["window"])
     decision = {"label": a.label, "levels": levels, "ppc": ppc, "seeds": seeds, "eps_tail": eps_tail,
                 "resolution_limited_fraction_eta": flags_frac, "features": {}}
+    # eta_min enters the gate only at levels where it is resolved (not within
+    # floor_factor of the one-particle floor) in all but max_limited_fraction of
+    # the window snapshots; this is decided per level from the flags alone.
+    lim_max = float(an.get("eta_min_max_limited_fraction", 0.05))
+    level_sets = {"eps_q": levels,
+                  "eta_min": [l for l in levels if flags_frac[l] <= lim_max]}
+    decision["feature_levels"] = level_sets
     for name, F in feats.items():
-        g = convergence.convergence_gate(times, F, window, tau=an["tau"],
-                                         reference=None if ref is None else ref[name],
-                                         onset_by_level=onsets, regulator_by_level=ppc)
+        ls = level_sets[name]
+        if name == "eta_min" and len(ls) < 3:
+            g = {"verdict": convergence.INCONCLUSIVE, "unresolved": True, "n_levels": len(ls),
+                 "reason": f"floor-limited: only {len(ls)} level(s) resolve eta_min"}
+        else:
+            g = convergence.convergence_gate(times, {l: F[l] for l in ls}, window, tau=an["tau"],
+                                             reference=None if ref is None else ref[name],
+                                             onset_by_level={l: onsets[l] for l in ls},
+                                             regulator_by_level={l: ppc[l] for l in ls})
         decision["features"][name] = g
     decision["onsets"] = {str(l): onsets[l].tolist() for l in levels}
     # frozen quality gate: |dE|/K + control dK/K < 0.1 f_tail, per PIC level (end of window)
@@ -129,10 +143,14 @@ def main():
         qg[l] = rows
     decision["quality_gate"] = {str(k): v for k, v in qg.items()}
     verdicts = [g["verdict"] for g in decision["features"].values()]
+    resolved = [g["verdict"] for g in decision["features"].values() if not g.get("unresolved")]
     if any(v.startswith("PASS") for v in verdicts):
         decision["gate_outcome"] = "GO_T3"
     elif all(v == convergence.FAIL for v in verdicts):
         decision["gate_outcome"] = "REGULATOR_RESULT"
+    elif resolved and len(resolved) < len(verdicts) and all(v == convergence.FAIL for v in resolved):
+        # pre-registered: the energy-tail feature fails and eta_min is floor-limited
+        decision["gate_outcome"] = "REGULATOR_RESULT_EPS_Q_ONLY"
     else:
         decision["gate_outcome"] = "INCONCLUSIVE"
     (out / "T2_DECISION.json").write_text(json.dumps(decision, indent=1, default=lambda o: o.tolist() if hasattr(o, "tolist") else str(o)))

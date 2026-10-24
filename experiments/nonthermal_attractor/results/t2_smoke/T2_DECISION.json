@@ -19,10 +19,10 @@
  ],
  "eps_tail": 0.9976311574844398,
  "resolution_limited_fraction_eta": {
-  "0": 0.2745098039215686,
-  "1": 0.6209150326797386,
-  "2": 0.7124183006535948,
-  "3": 0.8431372549019608
+  "0": 0.30894308943089427,
+  "1": 0.6991869918699187,
+  "2": 0.7723577235772359,
+  "3": 0.910569105691057
  },
  "features": {
   "eps_q": {
@@ -111,90 +111,20 @@
    }
   },
   "eta_min": {
-   "n_levels": 4,
-   "n_seeds": 3,
-   "raw": {
-    "D": {
-     "1": 0.08250984257523288,
-     "2": 0.06384580939216562,
-     "3": 0.027108742475659194
-    },
-    "ratios": [
-     1.292329807715735,
-     2.355174145369984
-    ],
-    "shrink_slope": -0.8029040187600774,
-    "shrink_slope_lo90": -0.9986940300041539,
-    "motion": 0.281772344010952,
-    "finest_rel_diff": 0.2928244887369992,
-    "finest_rel_diff_ci": [
-     0.1717577188834367,
-     0.44024165195353027
-    ],
-    "reference_max_z": 11.142249615787652,
-    "reference_ok": false,
-    "verdict": "FAIL_REGULATOR_DEPENDENT",
-    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
-   },
-   "aligned": {
-    "D": {
-     "1": 0.08608348781891483,
-     "2": 0.07263129285312536,
-     "3": 0.018840578725061216
-    },
-    "ratios": [
-     1.1852121095103239,
-     3.855045745304693
-    ],
-    "shrink_slope": NaN,
-    "shrink_slope_lo90": NaN,
-    "motion": 0.2848708172712555,
-    "finest_rel_diff": 0.3021842975826677,
-    "finest_rel_diff_ci": [
-     0.18067698503808524,
-     0.45278242144963204
-    ],
-    "reference_ok": null,
-    "verdict": "FAIL_REGULATOR_DEPENDENT",
-    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
-   },
-   "verdict": "FAIL_REGULATOR_DEPENDENT",
-   "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)",
-   "onset_scaling": {
-    "preferred": "INCONCLUSIVE",
-    "delta_aic": 1.2890785473710764,
-    "models": {
-     "const": {
-      "coef": [
-       16.44067955250413
-      ],
-      "rss": 0.3117095985647744,
-      "aic": -39.80707937876534
-     },
-     "lnN": {
-      "coef": [
-       16.734558211530764,
-       -0.04987968047068619
-      ],
-      "rss": 0.2937792180323255,
-      "aic": -38.51800083139426
-     },
-     "N": {
-      "coef": [
-       16.48301061719502,
-       -8.818971810603769e-05
-      ],
-      "rss": 0.30071916179920416,
-      "aic": -38.23782140197441
-     }
-    },
-    "ranking": [
-     "const",
-     "lnN",
-     "N"
-    ]
-   }
+   "verdict": "INCONCLUSIVE",
+   "unresolved": true,
+   "n_levels": 0,
+   "reason": "floor-limited: only 0 level(s) resolve eta_min"
   }
+ },
+ "feature_levels": {
+  "eps_q": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "eta_min": []
  },
  "onsets": {
   "0": [
@@ -312,5 +242,5 @@
    }
   ]
  },
- "gate_outcome": "REGULATOR_RESULT"
+ "gate_outcome": "REGULATOR_RESULT_EPS_Q_ONLY"
 }

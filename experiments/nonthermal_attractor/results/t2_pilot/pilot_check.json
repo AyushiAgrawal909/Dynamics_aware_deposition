@@ -1,0 +1,44 @@
+{
+ "bundle": "/tmp/claude-0/pilot/pic1d1v_L7_s0.npz",
+ "backend": "pic1d1v",
+ "ppc": 128.0,
+ "seed": 0,
+ "t_end": 4800.0,
+ "window": [
+  500.0,
+  4800.0
+ ],
+ "eps_q": {
+  "q": 0.01,
+  "min_neff_above_in_window": 5882.999999999739,
+  "required": 100.0,
+  "range_in_window": [
+   3.621736990190712,
+   3.8505550398822264
+  ],
+  "pass": true
+ },
+ "eta_min": {
+  "floor_factor": 10.0,
+  "resolution_limited_fraction_in_window": 1.0,
+  "min_ratio_to_floor_in_window": 1.770131419535065,
+  "pass": false
+ },
+ "vlasov_vmax": {
+  "v_max": 10.0,
+  "eps_cut_edge": 31.54786722400968,
+  "max_fraction_beyond_0p8_vmax": 0.0,
+  "required_below": 1e-06,
+  "pass": true
+ },
+ "onset": {
+  "eps_tail": 7.924465962305569,
+  "q_onset": 0.0003,
+  "t_on": 294.0308571428572
+ },
+ "quality": {
+  "dE_over_K_end_window": 0.00012963488422878516,
+  "f_tail_end_window": 0.007975404753327652,
+  "max_dE_over_K": 0.00013257567184251628
+ }
+}
