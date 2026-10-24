@@ -1,0 +1,74 @@
+# Pre-registration template for T2 and T3.
+# Copy to T2_PROTOCOL.yaml / T3_PROTOCOL.yaml, fill every field, and commit it
+# in its own commit BEFORE the scan (T2) or the fit (T3) runs. After that
+# commit no held-out data may be used for tuning; a failed prediction is
+# reported, not rescued.
+
+protocol_version: 1
+task: T2            # T2 | T3
+frozen_commit: null # filled by the commit that freezes this file
+
+preparation:
+  name: waterbag_beams
+  v_b: 1.0
+  dv_b: 0.20              # full width, units of v_b
+  second_moment: null     # v_b^2 + dv_b^2/12, recorded for checking
+  seed_spectrum:
+    modes: []             # mode indices in the unstable band
+    amplitudes: []        # delta n / n per mode (<= 1e-3; >= 10x lowest-N shot noise)
+    phases: []
+
+regulator_scan:
+  pic_ppc_levels: []      # finest first, factor-2 nested (T1: nested_load_indices)
+  pic_seeds: []
+  vlasov_dv: []           # e.g. [dv_b/16, dv_b/32, dv_b/64, dv_b/128]
+  stable_control: true
+
+bins:
+  eps_lo: null            # linear below, logarithmic above
+  eps_hi: null
+  n_log: null
+  n_lin: null
+  eta_edges_log_step: 0.25
+  reconstruction: {nx_b: null, nv_b: null, v_lim: null}
+
+features:                 # each must be supported by >= 100 effective counts
+  - {name: eps_q, q: 0.01}
+  - {name: eta_min, floor_factor: 10.0}
+tail_threshold_eps: null  # must be one of the frozen eps edges
+onset:
+  signal: Q_N
+  threshold: null
+
+gate:
+  analysis_window: [null, null]
+  tau: 0.1                # finest paired difference / feature motion
+  shrink_slope: 0.25      # slope of log2(paired difference) vs level
+  min_levels: 3
+  min_seeds: 3            # T1 power analysis may raise this
+  onset_model_delta_aic: 4.0
+
+quality_gates:
+  energy_budget: "|dE_total|/K + control dK/K < 0.1 * f_tail"
+  momentum_pic: roundoff
+  vlasov_velocity_boundary_mass_fraction: 1.0e-6
+
+# T3 only
+scaling_fit:
+  training_window: [null, null]
+  heldout_window: [null, null]
+  t0_bounds: [null, null]
+  alpha_bounds: [-2.0, 2.0]
+  beta_bounds: [-2.0, 2.0]
+  fit_eps_window: [null, null]
+  chi2_red_max: 3.0
+  valley_span: 0.4
+  valley_k: 5.0
+forecast:
+  baselines: [stationary, maxwellian_matched, heating_one_scale]   # quasilinear only if justified
+  metric: rms_ln
+  margin: 0.8
+attraction:
+  preparations: []
+  untouched_test_preparation: null
+  allowed_normalizations: []

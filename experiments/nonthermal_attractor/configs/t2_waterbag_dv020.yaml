@@ -1,0 +1,50 @@
+# T2 base configuration: symmetric waterbag beams, dv_b = 0.20 v_b.
+# DRAFT - values marked VERIFY must be checked before T2_PROTOCOL.yaml is frozen.
+preparation:
+  v_b: 1.0
+  dv_b: 0.20
+box:
+  n_wavelengths: 16          # L = n * lambda* (lambda* = 10.230368); L-doubling check uses 32
+grid:
+  nx: 4096                    # dx = L/nx = 0.03996 <= lambda_Db = 0.05774
+time:
+  dt: 0.05                    # omega_p dt <= 0.1; confirm with dt-halving (V4)
+  t_end: 4800.0               # VERIFY: 1.5 x Ewart et al. tail-formation time (~3200/omega_p per the review), rescaled by 1/gamma_max
+seed_spectrum:                # deterministic, identical for all runs and both backends
+  modes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+  amplitudes: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001]   # per mode; 10.5x the 128-ppc floor (marginal), <= 1e-3 linear cap
+  phases: [1.124281, 4.020693, 2.935934, 2.327923, 2.230011, 4.966973, 5.687186, 1.114343, 4.101568, 1.874292, 6.075603, 5.779589, 3.995294, 4.729555, 3.236806, 5.189253, 2.817258, 2.128821, 1.746092, 1.422093, 3.303805, 2.7075, 4.166887, 0.080679, 2.812994, 2.294499]
+pic:
+  # nested, 2.1 decades. The coarsest level is set by the seed/noise rule: the
+  # free-streaming quiet-start floor per seeded mode is 2.3e-4 (64 ppc),
+  # 9.5e-5 (128), 6.0e-5 (256), 3.3e-5 (512), 1.8e-6 (8192)
+  # (scripts/t2_noise_floor.py, 2-3 seeds), so with the <= 1e-3 linear cap,
+  # 128 ppc is the lowest level that keeps the seed >= 10x the floor.
+  ppc_levels: [16384, 8192, 4096, 2048, 1024, 512, 256, 128]
+  seeds: [0, 1, 2, 3]
+vlasov:
+  v_max: 4.0                  # VERIFY against the finest PIC tail (mass beyond 0.8 v_max < 1e-6)
+  dv_finest: 0.0015625        # dv_b/128; levels double dv: /128, /64, /32, /16
+  levels: 4
+bins:
+  eps_lo: 0.05
+  eps_hi: 50.0
+  n_log: 60
+  n_lin: 10
+  eta_lo: 1.0e-6
+  eta_hi: 10.0
+  eta_log_step: 0.25
+reconstruction:
+  nx_b: 256
+  nv_b: 400
+  v_lim: 4.0
+diagnostics:
+  every_steps: 200            # every 10 / omega_p
+  n_phase: 8
+  phase_decimate: 256
+analysis:                     # VERIFY on the first coarse run, then freeze in T2_PROTOCOL.yaml
+  q: 0.01                     # eps_q feature
+  eps_tail: 1.0               # snapped to the nearest frozen edge; initial max eps = (v_b + dv_b/2)^2/2 = 0.605
+  q_onset: 0.001              # onset: tail fraction above eps_tail crosses this
+  window: [500.0, 4800.0]     # VERIFY
+  tau: 0.1

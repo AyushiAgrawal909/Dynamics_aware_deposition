@@ -1,0 +1,24 @@
+# SMOKE configuration: exercises the full T2 pipeline end to end on a 4-wavelength box to t = 100.
+# Its output is NOT interpretable physics (too short, too small, too few levels).
+preparation: {v_b: 1.0, dv_b: 0.2}
+box: {n_wavelengths: 4}
+grid: {nx: 1024}
+time: {dt: 0.05, t_end: 100.0}
+seed_spectrum:
+  modes: [1, 2, 3, 4, 5, 6]
+  amplitudes: [0.001, 0.001, 0.001, 0.001, 0.001, 0.001]
+  phases: [1.124281, 4.020693, 2.935934, 2.327923, 2.230011, 4.966973]
+pic:
+  ppc_levels: [1024, 512, 256, 128]
+  seeds: [0, 1, 2]
+vlasov: {v_max: 3.0, dv_finest: 0.0125, levels: 2}
+bins: {eps_lo: 0.05, eps_hi: 50.0, n_log: 60, n_lin: 10, eta_lo: 1.0e-06, eta_hi: 10.0,
+  eta_log_step: 0.25}
+reconstruction: {nx_b: 64, nv_b: 300, v_lim: 3.0}
+diagnostics: {every_steps: 40, n_phase: 0, phase_decimate: 256}
+analysis:
+  q: 0.01
+  eps_tail: 1.0
+  q_onset: 0.001
+  window: [20.0, 100.0]
+  tau: 0.1

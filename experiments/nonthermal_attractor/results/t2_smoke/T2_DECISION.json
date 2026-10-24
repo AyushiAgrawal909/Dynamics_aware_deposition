@@ -1,0 +1,316 @@
+{
+ "label": "SMOKE",
+ "levels": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "ppc": {
+  "0": 1024.0,
+  "1": 512.0,
+  "2": 256.0,
+  "3": 128.0
+ },
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "eps_tail": 0.9976311574844398,
+ "resolution_limited_fraction_eta": {
+  "0": 0.2745098039215686,
+  "1": 0.6209150326797386,
+  "2": 0.7124183006535948,
+  "3": 0.8431372549019608
+ },
+ "features": {
+  "eps_q": {
+   "n_levels": 4,
+   "n_seeds": 3,
+   "raw": {
+    "D": {
+     "1": 0.459514455315786,
+     "2": 0.5384729638908516,
+     "3": 0.5990213272868744
+    },
+    "ratios": [
+     0.8533658811678603,
+     0.8989211892166473
+    ],
+    "shrink_slope": 0.191248561374891,
+    "shrink_slope_lo90": -0.12782650693268086,
+    "motion": 2.0752606797811346,
+    "finest_rel_diff": 0.22142493219899886,
+    "finest_rel_diff_ci": [
+     0.1539036771509621,
+     0.3328247436837524
+    ],
+    "reference_max_z": 2.8113771038476694,
+    "reference_ok": true,
+    "verdict": "FAIL_REGULATOR_DEPENDENT",
+    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
+   },
+   "aligned": {
+    "D": {
+     "1": 0.45316776165771283,
+     "2": 0.5410046948310984,
+     "3": 0.5931816872851248
+    },
+    "ratios": [
+     0.8376410888618846,
+     0.912038767257246
+    ],
+    "shrink_slope": 0.1942144140260187,
+    "shrink_slope_lo90": -0.12555562864172987,
+    "motion": 2.061974589347524,
+    "finest_rel_diff": 0.21977368877329856,
+    "finest_rel_diff_ci": [
+     0.1472359521812757,
+     0.3323471757130154
+    ],
+    "reference_ok": null,
+    "verdict": "FAIL_REGULATOR_DEPENDENT",
+    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
+   },
+   "verdict": "FAIL_REGULATOR_DEPENDENT",
+   "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)",
+   "onset_scaling": {
+    "preferred": "INCONCLUSIVE",
+    "delta_aic": 1.2890785473710764,
+    "models": {
+     "const": {
+      "coef": [
+       16.44067955250413
+      ],
+      "rss": 0.3117095985647744,
+      "aic": -39.80707937876534
+     },
+     "lnN": {
+      "coef": [
+       16.734558211530764,
+       -0.04987968047068619
+      ],
+      "rss": 0.2937792180323255,
+      "aic": -38.51800083139426
+     },
+     "N": {
+      "coef": [
+       16.48301061719502,
+       -8.818971810603769e-05
+      ],
+      "rss": 0.30071916179920416,
+      "aic": -38.23782140197441
+     }
+    },
+    "ranking": [
+     "const",
+     "lnN",
+     "N"
+    ]
+   }
+  },
+  "eta_min": {
+   "n_levels": 4,
+   "n_seeds": 3,
+   "raw": {
+    "D": {
+     "1": 0.08250984257523288,
+     "2": 0.06384580939216562,
+     "3": 0.027108742475659194
+    },
+    "ratios": [
+     1.292329807715735,
+     2.355174145369984
+    ],
+    "shrink_slope": -0.8029040187600774,
+    "shrink_slope_lo90": -0.9986940300041539,
+    "motion": 0.281772344010952,
+    "finest_rel_diff": 0.2928244887369992,
+    "finest_rel_diff_ci": [
+     0.1717577188834367,
+     0.44024165195353027
+    ],
+    "reference_max_z": 11.142249615787652,
+    "reference_ok": false,
+    "verdict": "FAIL_REGULATOR_DEPENDENT",
+    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
+   },
+   "aligned": {
+    "D": {
+     "1": 0.08608348781891483,
+     "2": 0.07263129285312536,
+     "3": 0.018840578725061216
+    },
+    "ratios": [
+     1.1852121095103239,
+     3.855045745304693
+    ],
+    "shrink_slope": NaN,
+    "shrink_slope_lo90": NaN,
+    "motion": 0.2848708172712555,
+    "finest_rel_diff": 0.3021842975826677,
+    "finest_rel_diff_ci": [
+     0.18067698503808524,
+     0.45278242144963204
+    ],
+    "reference_ok": null,
+    "verdict": "FAIL_REGULATOR_DEPENDENT",
+    "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)"
+   },
+   "verdict": "FAIL_REGULATOR_DEPENDENT",
+   "reason": "paired differences do not shrink and exceed tau x motion (includes features that differ between levels but barely move in time)",
+   "onset_scaling": {
+    "preferred": "INCONCLUSIVE",
+    "delta_aic": 1.2890785473710764,
+    "models": {
+     "const": {
+      "coef": [
+       16.44067955250413
+      ],
+      "rss": 0.3117095985647744,
+      "aic": -39.80707937876534
+     },
+     "lnN": {
+      "coef": [
+       16.734558211530764,
+       -0.04987968047068619
+      ],
+      "rss": 0.2937792180323255,
+      "aic": -38.51800083139426
+     },
+     "N": {
+      "coef": [
+       16.48301061719502,
+       -8.818971810603769e-05
+      ],
+      "rss": 0.30071916179920416,
+      "aic": -38.23782140197441
+     }
+    },
+    "ranking": [
+     "const",
+     "lnN",
+     "N"
+    ]
+   }
+  }
+ },
+ "onsets": {
+  "0": [
+   16.39412741965791,
+   16.3428960104643,
+   16.468114285714243
+  ],
+  "1": [
+   16.526393574297195,
+   16.41120627450981,
+   16.397037485800837
+  ],
+  "2": [
+   16.538836587872563,
+   16.317173623714464,
+   16.27292451847996
+  ],
+  "3": [
+   16.675628865979384,
+   16.172804218853003,
+   16.771011764705886
+  ]
+ },
+ "quality_gate": {
+  "0": [
+   {
+    "seed": 0,
+    "dE_over_K": 4.695046811827178e-06,
+    "control_dK_over_K": 0.0036383080044193328,
+    "f_tail": 0.6183201220616111,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "dE_over_K": 1.206673492514859e-05,
+    "control_dK_over_K": 0.0036383080044193328,
+    "f_tail": 0.5630804654349177,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "dE_over_K": 1.2784325429791698e-05,
+    "control_dK_over_K": 0.0036383080044193328,
+    "f_tail": 0.5793005851624672,
+    "pass": true
+   }
+  ],
+  "1": [
+   {
+    "seed": 0,
+    "dE_over_K": 7.814658602036384e-06,
+    "control_dK_over_K": 0.00360572714727847,
+    "f_tail": 0.533778590025858,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "dE_over_K": 8.016666204367835e-06,
+    "control_dK_over_K": 0.00360572714727847,
+    "f_tail": 0.5450071601710907,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "dE_over_K": 1.1747588879310552e-05,
+    "control_dK_over_K": 0.00360572714727847,
+    "f_tail": 0.588809620176291,
+    "pass": true
+   }
+  ],
+  "2": [
+   {
+    "seed": 0,
+    "dE_over_K": 4.0470790696787275e-06,
+    "control_dK_over_K": 0.003500201346486209,
+    "f_tail": 0.6107246668718207,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "dE_over_K": 2.903775813394665e-06,
+    "control_dK_over_K": 0.003500201346486209,
+    "f_tail": 0.510292076767275,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "dE_over_K": 1.632284788417587e-07,
+    "control_dK_over_K": 0.003500201346486209,
+    "f_tail": 0.564190554669431,
+    "pass": true
+   }
+  ],
+  "3": [
+   {
+    "seed": 0,
+    "dE_over_K": 8.814803237593976e-07,
+    "control_dK_over_K": 0.003247202365113111,
+    "f_tail": 0.5616254619609543,
+    "pass": true
+   },
+   {
+    "seed": 1,
+    "dE_over_K": 1.2540772215785177e-05,
+    "control_dK_over_K": 0.003247202365113111,
+    "f_tail": 0.5848257415534667,
+    "pass": true
+   },
+   {
+    "seed": 2,
+    "dE_over_K": 3.0500783157811113e-05,
+    "control_dK_over_K": 0.003247202365113111,
+    "f_tail": 0.6280040349565874,
+    "pass": true
+   }
+  ]
+ },
+ "gate_outcome": "REGULATOR_RESULT"
+}

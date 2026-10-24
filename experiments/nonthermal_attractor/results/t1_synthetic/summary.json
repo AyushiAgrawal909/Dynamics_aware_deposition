@@ -1,0 +1,2785 @@
+{
+ "git_revision": "5b94bd7ab7be01bcad4f84dca488c87bf283fbbc",
+ "quick": false,
+ "n_seeds": 5,
+ "ppcs": [
+  512,
+  2048,
+  8192
+ ],
+ "matches": 19,
+ "total": 25,
+ "outcome_counts": {
+  "match": 19,
+  "conservative miss": 5,
+  "**wrong**": 1
+ },
+ "results": [
+  {
+   "case": "S1",
+   "ppc": 512,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": 0.004208740234374996,
+    "beta": 0.004195983886718758,
+    "t0": 0.5,
+    "chi2_red": 1.5130128710986641,
+    "overlap": 3.9272252343526204,
+    "hessian": [
+     [
+      2907.418089674534,
+      -3645.344006511434
+     ],
+     [
+      -3645.344006511434,
+      7001.298800812356
+     ]
+    ],
+    "cov": [
+     [
+      2.7502945196270345e-05,
+      1.4319871110343659e-05
+     ],
+     [
+      1.4319871110343655e-05,
+      1.1421103806294586e-05
+     ]
+    ],
+    "alpha_err": 0.005244325046778693,
+    "beta_err": 0.0033795123622047288,
+    "condition_number": 11.808097209913964,
+    "soft_direction": [
+     0.863021790373851,
+     0.5051666946067535
+    ],
+    "powerlaw_index_p": 1.9114758308431088,
+    "soft_vs_powerlaw_angle_deg": 2.7258345824592407,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 20239.79207034285,
+     "n_points": 9,
+     "threshold": 111.6968366481375
+    },
+    "status": "STATIONARY"
+   },
+   "tail": {
+    "excess": 0.5857090825376012,
+    "T_core": 0.9935521340676499,
+    "eps_threshold": 9.935521340676498,
+    "Q_N": 4.535857900799449e-06,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 0.7431549584669818,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.03214813123209972,
+      "chi2_red": 3.313063327233622,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.02613236860814866,
+      "chi2_red": 1.601583000577427,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.026477338150550072,
+      "chi2_red": 3.4317190694518716,
+      "coverage": 0.9473684210526315
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.025167936221028524,
+      "chi2_red": 1.4380658754617095,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "maxwellian_matched",
+     "heating_one_scale",
+     "stationary"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status STATIONARY",
+     "no scaling forecast",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.5021940568373501,
+    "energy_midpoint": 0.5067868319841875,
+    "finite_bin_energy_error": 0.0045927751468374245
+   },
+   "energy_bias_sigma": 0.9335965909655309,
+   "verdict": "NO_TAIL",
+   "outcome": "match"
+  },
+  {
+   "case": "S2",
+   "ppc": 512,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.17489013671874992,
+    "beta": -0.4108886718750001,
+    "t0": 0.2060113295832982,
+    "chi2_red": 1.445604641312384,
+    "overlap": 2.1437257443766176,
+    "hessian": [
+     [
+      15.193514093560086,
+      -19.489383051944916
+     ],
+     [
+      -19.489383051944916,
+      31.622908739260495
+     ]
+    ],
+    "cov": [
+     [
+      0.017143152943528934,
+      0.010565425122316742
+     ],
+     [
+      0.010565425122316742,
+      0.008236583737541847
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 19.73051085526447,
+    "soft_direction": [
+     0.8331878601350162,
+     0.5529900448684703
+    ],
+    "powerlaw_index_p": 2.290548038006537,
+    "soft_vs_powerlaw_angle_deg": 9.987422963230916,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 42.78333376833743,
+     "n_points": 9,
+     "threshold": 74.41705358523241
+    },
+    "status": "UNIDENTIFIABLE_DEGENERATE",
+    "identified_combination": {
+     "expr": "alpha - 2.291 beta",
+     "value": 0.7662701044836433,
+     "err": 0.10934381814811742
+    }
+   },
+   "tail": {
+    "excess": 2564.6813288147287,
+    "T_core": 1.3157645286883797,
+    "eps_threshold": 13.157645286883797,
+    "Q_N": 0.019861447286999005,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 3254.0995235019172,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.30868206786508146,
+      "chi2_red": 86.17589950363681,
+      "coverage": 0.9051282051282051
+     },
+     "maxwellian_matched": {
+      "rms_ln": 12.593527671945228,
+      "chi2_red": 35798.49606088114,
+      "coverage": 0.9692307692307693
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.13998294654432558,
+      "chi2_red": 17.061656284573463,
+      "coverage": 0.8228438228438228
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 10.642673200745984,
+      "chi2_red": 21577.77691529662,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status UNIDENTIFIABLE_DEGENERATE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.8621389613353297,
+    "energy_midpoint": 0.867571751765974,
+    "finite_bin_energy_error": 0.005432790430644263
+   },
+   "verdict": "S2_UNIDENTIFIABLE_DEGENERATE",
+   "outcome": "conservative miss"
+  },
+  {
+   "case": "S3",
+   "ppc": 512,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -1.3713786475360408,
+    "beta": -0.6867001600190994,
+    "t0": 0.5,
+    "chi2_red": 0.9250247383117848,
+    "overlap": 2.8088728217609598,
+    "hessian": [
+     [
+      165.11462403325498,
+      -144.94541970810945
+     ],
+     [
+      -144.94541970810945,
+      428.30178338637444
+     ]
+    ],
+    "cov": [
+     [
+      0.00029206977016377054,
+      9.884193123298014e-05
+     ],
+     [
+      9.884193123298014e-05,
+      0.00011259581949619392
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 4.879029624127068,
+    "soft_direction": [
+     0.9143804650527546,
+     0.4048559807263665
+    ],
+    "powerlaw_index_p": 2.009506045869726,
+    "soft_vs_powerlaw_angle_deg": 2.574430210215807,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 12.96633940127186,
+     "n_points": 8,
+     "threshold": 54.313902456001074
+    },
+    "status": "UNIDENTIFIABLE_DEGENERATE",
+    "identified_combination": {
+     "expr": "alpha - 2.010 beta",
+     "value": 0.008549475722047672,
+     "err": 0.018694856783689977
+    }
+   },
+   "tail": {
+    "excess": 2000.26274094594,
+    "T_core": 1.2857350656315583,
+    "eps_threshold": 12.857350656315582,
+    "Q_N": 0.015490467584838836,
+    "Q_N_maxwell": 7.74421643104409e-06,
+    "neff_tail": 2533.958209099995,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.08817249531286829,
+      "chi2_red": 2.4874102824687596,
+      "coverage": 0.9025641025641026
+     },
+     "maxwellian_matched": {
+      "rms_ln": 7.215236589803856,
+      "chi2_red": 7156.517698464886,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.17519341060290544,
+      "chi2_red": 7.407009789981683,
+      "coverage": 0.8205128205128206
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 8.142447616817755,
+      "chi2_red": 9306.793155397125,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "stationary",
+     "heating_one_scale",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status UNIDENTIFIABLE_DEGENERATE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 1.8703471432968422,
+    "energy_midpoint": 1.892680932174871,
+    "finite_bin_energy_error": 0.022333788878028837
+   },
+   "verdict": "UNIDENTIFIABLE_DEGENERATE",
+   "outcome": "match"
+  },
+  {
+   "case": "S4",
+   "ppc": 512,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.4305172986350948,
+    "beta": -0.4428555267397323,
+    "t0": -0.011501015609508352,
+    "chi2_red": 10.55845191430932,
+    "overlap": 5.754415576010182,
+    "hessian": [
+     [
+      2440.145188116149,
+      -2527.921410309894
+     ],
+     [
+      -2527.921410309894,
+      2534.367676593184
+     ]
+    ],
+    "cov": [
+     [
+      -0.001719155700989996,
+      -0.0017147829592077482
+     ],
+     [
+      -0.0017147829592077482,
+      -0.0016552410883934117
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 5015616795522240.0,
+    "soft_direction": [
+     0.7136641790315422,
+     0.7004880010158883
+    ],
+    "powerlaw_index_p": 1.7312362744259806,
+    "soft_vs_powerlaw_angle_deg": 14.454498069964838,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 16143.712655661779,
+     "n_points": 9,
+     "threshold": 917.4316576956592
+    },
+    "status": "NO_COLLAPSE"
+   },
+   "tail": {
+    "excess": 283.0206255745302,
+    "T_core": 2.1130566407260165,
+    "eps_threshold": 21.130566407260165,
+    "Q_N": 0.0021917729788986525,
+    "Q_N_maxwell": 7.744216431044086e-06,
+    "neff_tail": 359.10008486275524,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.13840282506418813,
+      "chi2_red": 137.12549676656766,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 1.483719616227331,
+      "chi2_red": 663.604683022316,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.08566976994141298,
+      "chi2_red": 21.53724782710625,
+      "coverage": 0.9615384615384615
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 1.095426678960767,
+      "chi2_red": 380.1229158525275,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status NO_COLLAPSE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.8419023508104948,
+    "energy_midpoint": 0.8492090583182461,
+    "finite_bin_energy_error": 0.007306707507751309
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S4b",
+   "ppc": 512,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.4742297524237077,
+    "beta": -0.47583992446889123,
+    "t0": 0.07658462535835579,
+    "chi2_red": 1.2635771545133263,
+    "overlap": 4.483804931375812,
+    "hessian": [
+     [
+      3402.865016887059,
+      -3477.2244252769697
+     ],
+     [
+      -3477.2244252769697,
+      3690.6759038999303
+     ]
+    ],
+    "cov": [
+     [
+      0.00016897091425546835,
+      0.00015919842476269246
+     ],
+     [
+      0.00015919842476269248,
+      0.00015579401387799194
+     ]
+    ],
+    "alpha_err": 0.01299888126938116,
+    "beta_err": 0.012481747228573087,
+    "condition_number": 105.55836652800245,
+    "soft_direction": [
+     0.7215780455091771,
+     0.6923331020824844
+    ],
+    "powerlaw_index_p": 1.6936265529862213,
+    "soft_vs_powerlaw_angle_deg": 13.25539756414154,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 18570.679680304474,
+     "n_points": 9,
+     "threshold": 97.05720287493952
+    },
+    "status": "IDENTIFIED"
+   },
+   "tail": {
+    "excess": 0.0,
+    "T_core": 1.8647505043842496,
+    "eps_threshold": 18.647505043842497,
+    "Q_N": 0.0,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 0.0,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.32679450839284446,
+      "chi2_red": 251.8046725564286,
+      "coverage": 0.9826086956521738
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.39761645210501473,
+      "chi2_red": 251.48619015951417,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.029871340976833655,
+      "chi2_red": 2.445254912492296,
+      "coverage": 0.9379446640316205
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.023792160389598367,
+      "chi2_red": 1.4117774781741483,
+      "coverage": 1.0
+     },
+     "scaling": {
+      "rms_ln": 0.03167374790290374,
+      "chi2_red": 2.8360621702611364,
+      "coverage": 0.9379446640316205
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "scaling",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "scaling forecast does not beat baselines by the margin",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.49767645559117507,
+    "energy_midpoint": 0.5017273589494479,
+    "finite_bin_energy_error": 0.004050903358272795
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S2-gate",
+   "ppc_levels": [
+    512,
+    256,
+    128
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.9196286368454987,
+      "2": NaN
+     },
+     "ratios": [
+      Infinity
+     ],
+     "shrink_slope": NaN,
+     "shrink_slope_lo90": NaN,
+     "motion": 22.886993734199287,
+     "finest_rel_diff": 0.04018127708364457,
+     "finest_rel_diff_ci": [
+      0.03344808021246995,
+      0.04489215061273504
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "verdict": "INCONCLUSIVE",
+    "reason": "shrinkage or tolerance not established within CI"
+   },
+   "verdict": "INCONCLUSIVE",
+   "outcome": "conservative miss"
+  },
+  {
+   "case": "S5",
+   "ppc_levels": [
+    512,
+    256,
+    128
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": NaN,
+      "2": NaN
+     },
+     "ratios": [
+      Infinity
+     ],
+     "shrink_slope": NaN,
+     "shrink_slope_lo90": NaN,
+     "motion": 0.8123479934613638,
+     "finest_rel_diff": NaN,
+     "finest_rel_diff_ci": [
+      NaN,
+      NaN
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "verdict": "INCONCLUSIVE",
+    "reason": "shrinkage or tolerance not established within CI"
+   },
+   "verdict": "INCONCLUSIVE",
+   "outcome": "conservative miss"
+  },
+  {
+   "case": "S6",
+   "ppc_levels": [
+    512,
+    256,
+    128
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 1.2035294827313758,
+      "2": NaN
+     },
+     "ratios": [
+      Infinity
+     ],
+     "shrink_slope": NaN,
+     "shrink_slope_lo90": NaN,
+     "motion": 23.304903722982136,
+     "finest_rel_diff": 0.05164275712259283,
+     "finest_rel_diff_ci": [
+      0.04681209228928259,
+      0.05909676242810703
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "aligned": {
+     "D": {
+      "1": 0.8259149279501358,
+      "2": NaN
+     },
+     "ratios": [
+      Infinity
+     ],
+     "shrink_slope": NaN,
+     "shrink_slope_lo90": NaN,
+     "motion": 20.31549850669656,
+     "finest_rel_diff": 0.040654425864956795,
+     "finest_rel_diff_ci": [
+      0.03886621977067196,
+      0.0436620322031685
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "verdict": "INCONCLUSIVE",
+    "reason": "shrinkage or tolerance not established within CI",
+    "onset_scaling": {
+     "preferred": "lnN",
+     "delta_aic": 5.320827986317198,
+     "models": {
+      "const": {
+       "coef": [
+        1.7356560569243749
+       ],
+       "rss": 0.3332616615123508,
+       "aic": -53.103162925286085
+      },
+      "lnN": {
+       "coef": [
+        0.38599391605498945,
+        0.24339385968848046
+       ],
+       "rss": 0.048638552997330525,
+       "aic": -79.970834881522
+      },
+      "N": {
+       "coef": [
+        1.4875032060090427,
+        0.0008308689204754444
+       ],
+       "rss": 0.06934807258060618,
+       "aic": -74.6500068952048
+      }
+     },
+     "ranking": [
+      "lnN",
+      "N",
+      "const"
+     ]
+    }
+   },
+   "fit": {
+    "alpha": 0.06848300457000739,
+    "beta": -0.2827636063098905,
+    "t0": 0.8192082746452026,
+    "chi2_red": 0.9079190604018742,
+    "overlap": 2.1312981729644567,
+    "hessian": [
+     [
+      40.47334074195023,
+      -28.53649430715212
+     ],
+     [
+      -28.53649430715212,
+      68.14422003456929
+     ]
+    ],
+    "cov": [
+     [
+      0.001348428946472545,
+      0.0005646764308857368
+     ],
+     [
+      0.0005646764308857368,
+      0.0008008811926999293
+     ]
+    ],
+    "alpha_err": 0.03672096058755197,
+    "beta_err": 0.028299844393563884,
+    "condition_number": 3.807106787755381,
+    "soft_direction": [
+     0.8474262107768942,
+     0.5309131918574966
+    ],
+    "powerlaw_index_p": 2.291397455523417,
+    "soft_vs_powerlaw_angle_deg": 8.490002601220072,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 67.09657041286026,
+     "n_points": 9,
+     "threshold": 50.99019513592785
+    },
+    "status": "IDENTIFIED"
+   },
+   "t0_true_finest": 0.5,
+   "verdict": "INCONCLUSIVE+lnN+IDENTIFIED",
+   "outcome": "conservative miss"
+  },
+  {
+   "case": "S1",
+   "ppc": 2048,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": 0.002365249633789062,
+    "beta": 0.002068710327148439,
+    "t0": 0.5,
+    "chi2_red": 1.423134958649882,
+    "overlap": 4.142779996892681,
+    "hessian": [
+     [
+      7600.47796814316,
+      -9416.136396262169
+     ],
+     [
+      -9416.136396262169,
+      16939.751900590934
+     ]
+    ],
+    "cov": [
+     [
+      1.0644018202982146e-05,
+      5.916587668564432e-06
+     ],
+     [
+      5.916587668564432e-06,
+      4.7757267236870466e-06
+     ]
+    ],
+    "alpha_err": 0.0032625171575000407,
+    "beta_err": 0.0021853436168454256,
+    "condition_number": 12.945807135407708,
+    "soft_direction": [
+     0.8497899786359678,
+     0.5271214207465691
+    ],
+    "powerlaw_index_p": 2.1221017914406253,
+    "soft_vs_powerlaw_angle_deg": 6.579902745176924,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 87861.63803356909,
+     "n_points": 9,
+     "threshold": 106.97204809903575
+    },
+    "status": "STATIONARY"
+   },
+   "tail": {
+    "excess": 1.3964832556839437,
+    "T_core": 0.9972798430947543,
+    "eps_threshold": 9.972798430947542,
+    "Q_N": 1.081466857434554e-05,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 7.0875011968830925,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.030774775631287842,
+      "chi2_red": 2.640958559008469,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.027009959955480927,
+      "chi2_red": 2.1548233225617683,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.018069702144695575,
+      "chi2_red": 2.5610841528935815,
+      "coverage": 0.95
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.02716193970509335,
+      "chi2_red": 2.1179984090508976,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "maxwellian_matched",
+     "stationary"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status STATIONARY",
+     "no scaling forecast",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.5032087076143891,
+    "energy_midpoint": 0.5076021407020868,
+    "finite_bin_energy_error": 0.004393433087697685
+   },
+   "energy_bias_sigma": 2.4471188158460824,
+   "verdict": "NO_TAIL",
+   "outcome": "match"
+  },
+  {
+   "case": "S2",
+   "ppc": 2048,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.2333062982559199,
+    "beta": -0.5165202856063832,
+    "t0": -0.13153576905086367,
+    "chi2_red": 1.929555139667517,
+    "overlap": 2.7570393487741054,
+    "hessian": [
+     [
+      53.30886979468978,
+      -55.27160289564473
+     ],
+     [
+      -55.27160289564473,
+      100.56001840949251
+     ]
+    ],
+    "cov": [
+     [
+      0.0024043328139931775,
+      0.0013215125715555205
+     ],
+     [
+      0.0013215125715555205,
+      0.0012745847400537403
+     ]
+    ],
+    "alpha_err": 0.0490339965125542,
+    "beta_err": 0.03570132686685105,
+    "condition_number": 8.14512940097692,
+    "soft_direction": [
+     0.8345789736970937,
+     0.550888315961326
+    ],
+    "powerlaw_index_p": 2.475779053337842,
+    "soft_vs_powerlaw_angle_deg": 11.433540693333283,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 294.2972011124837,
+     "n_points": 9,
+     "threshold": 114.15402152162953
+    },
+    "status": "IDENTIFIED"
+   },
+   "tail": {
+    "excess": 2581.1799228331784,
+    "T_core": 1.3210889369658538,
+    "eps_threshold": 13.210889369658538,
+    "Q_N": 0.019989215969885808,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 13100.13257802436,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.37185530255780763,
+      "chi2_red": 263.5438378952983,
+      "coverage": 0.9466666666666667
+     },
+     "maxwellian_matched": {
+      "rms_ln": 13.022822197330251,
+      "chi2_red": 168004.99704814743,
+      "coverage": 0.8114285714285714
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.1565441855957908,
+      "chi2_red": 41.57254705010388,
+      "coverage": 0.8790476190476191
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 11.119665534664367,
+      "chi2_red": 99074.83441684066,
+      "coverage": 0.8380952380952381
+     },
+     "scaling": {
+      "rms_ln": 0.06930314303744645,
+      "chi2_red": 3.60384383560872,
+      "coverage": 0.8790476190476191
+     }
+    },
+    "ranking": [
+     "scaling",
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": true,
+    "reasons": []
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.8776641247022223,
+    "energy_midpoint": 0.8857201780730277,
+    "finite_bin_energy_error": 0.008056053370805394
+   },
+   "verdict": "IDENTIFIED_AND_FORECAST_WINS",
+   "outcome": "match"
+  },
+  {
+   "case": "S3",
+   "ppc": 2048,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": 0.6013478851318361,
+    "beta": 0.2975374603271489,
+    "t0": 0.5,
+    "chi2_red": 1.2543788560611486,
+    "overlap": 3.978045727533373,
+    "hessian": [
+     [
+      390.04960732900093,
+      -481.1670929990895
+     ],
+     [
+      -481.1670929990895,
+      1107.0650568812712
+     ]
+    ],
+    "cov": [
+     [
+      0.00013462898851427114,
+      5.851421163929574e-05
+     ],
+     [
+      5.851421163929572e-05,
+      4.743351240172307e-05
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 9.080491847112558,
+    "soft_direction": [
+     0.8937202442541374,
+     0.4486247039679433
+    ],
+    "powerlaw_index_p": 1.9887346210397048,
+    "soft_vs_powerlaw_angle_deg": 0.03924646023979464,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 62.665254389646066,
+     "n_points": 9,
+     "threshold": 90.01861762905699
+    },
+    "status": "UNIDENTIFIABLE_DEGENERATE",
+    "identified_combination": {
+     "expr": "alpha - 1.989 beta",
+     "value": 0.009624836723007513,
+     "err": 0.009460082180363755
+    }
+   },
+   "tail": {
+    "excess": 1988.2559859504781,
+    "T_core": 1.2877215406850056,
+    "eps_threshold": 12.877215406850056,
+    "Q_N": 0.015397484675519456,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 10072.895556948431,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.09288639536410337,
+      "chi2_red": 3.714440432311138,
+      "coverage": 0.9555555555555555
+     },
+     "maxwellian_matched": {
+      "rms_ln": 9.764755799884657,
+      "chi2_red": 18986.891063863288,
+      "coverage": 0.9555555555555555
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.1501324811402911,
+      "chi2_red": 13.65643340986215,
+      "coverage": 0.9437908496732026
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 9.825267296526206,
+      "chi2_red": 36923.7288450692,
+      "coverage": 0.7758169934640524
+     }
+    },
+    "ranking": [
+     "stationary",
+     "heating_one_scale",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status UNIDENTIFIABLE_DEGENERATE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 2.908145414696311,
+    "energy_midpoint": 2.8964908529778204,
+    "finite_bin_energy_error": -0.011654561718490442
+   },
+   "verdict": "UNIDENTIFIABLE_DEGENERATE",
+   "outcome": "match"
+  },
+  {
+   "case": "S4",
+   "ppc": 2048,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.44468015570193453,
+    "beta": -0.46802359081804834,
+    "t0": -0.10166085835699153,
+    "chi2_red": 49.96487209925815,
+    "overlap": 6.194385940379885,
+    "hessian": [
+     [
+      9240.07047849645,
+      -10560.928642202336
+     ],
+     [
+      -10560.928642202336,
+      8913.419657107213
+     ]
+    ],
+    "cov": [
+     [
+      -0.00018847300612603778,
+      -0.00022330935210610682
+     ],
+     [
+      -0.0002233093521061068,
+      -0.0001953799918429819
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 1.9638936553259204e+16,
+    "soft_direction": [
+     0.7016184103796334,
+     0.7125528795930562
+    ],
+    "powerlaw_index_p": 1.8790322837099174,
+    "soft_vs_powerlaw_angle_deg": 17.421596573742427,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 82074.14253072349,
+     "n_points": 9,
+     "threshold": 4496.838488933234
+    },
+    "status": "NO_COLLAPSE"
+   },
+   "tail": {
+    "excess": 287.8041239592206,
+    "T_core": 2.1106024160410084,
+    "eps_threshold": 21.106024160410083,
+    "Q_N": 0.0022288174256872456,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 1460.6777880983932,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.13314873286920595,
+      "chi2_red": 371.6896420814609,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 2.4766831778903997,
+      "chi2_red": 5070.737493207818,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.1306466342744629,
+      "chi2_red": 75.46205777776527,
+      "coverage": 0.9637566137566138
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 1.9262128468190418,
+      "chi2_red": 2818.7942154367283,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status NO_COLLAPSE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.84792580189822,
+    "energy_midpoint": 0.8541968861320599,
+    "finite_bin_energy_error": 0.00627108423383993
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S4b",
+   "ppc": 2048,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.4904246345162389,
+    "beta": -0.48955471813678775,
+    "t0": 0.03610532196919479,
+    "chi2_red": 1.2484221865667517,
+    "overlap": 4.704645369309502,
+    "hessian": [
+     [
+      12610.320001768298,
+      -13041.299182157625
+     ],
+     [
+      -13041.299182157625,
+      13984.267151419457
+     ]
+    ],
+    "cov": [
+     [
+      4.4905593780637226e-05,
+      4.1877581220713694e-05
+     ],
+     [
+      4.1877581220713694e-05,
+      4.049364198436188e-05
+     ]
+    ],
+    "alpha_err": 0.006701163613928347,
+    "beta_err": 0.0063634614781863715,
+    "condition_number": 110.78275278302098,
+    "soft_direction": [
+     0.7254666916078323,
+     0.688257277017531
+    ],
+    "powerlaw_index_p": 1.8912491198855639,
+    "soft_vs_powerlaw_angle_deg": 15.62461985874177,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 102085.67800634485,
+     "n_points": 9,
+     "threshold": 98.30086127117644
+    },
+    "status": "IDENTIFIED"
+   },
+   "tail": {
+    "excess": 1.0242438955137736,
+    "T_core": 1.8683588105204383,
+    "eps_threshold": 18.683588105204382,
+    "Q_N": 7.931966405034369e-06,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 5.198293503203324,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.3992378738748764,
+      "chi2_red": 855.3382986290948,
+      "coverage": 0.9916666666666666
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.4538695724866691,
+      "chi2_red": 856.5564292836764,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.030243483633685377,
+      "chi2_red": 4.439317443468678,
+      "coverage": 0.9398550724637682
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.02357465626174162,
+      "chi2_red": 1.398080372207819,
+      "coverage": 1.0
+     },
+     "scaling": {
+      "rms_ln": 0.03147597772170692,
+      "chi2_red": 4.952014092553296,
+      "coverage": 0.9398550724637682
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "scaling",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "scaling forecast does not beat baselines by the margin",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.5011306871925598,
+    "energy_midpoint": 0.5050613403182607,
+    "finite_bin_energy_error": 0.003930653125700845
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S2-gate",
+   "ppc_levels": [
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.41307876189651527,
+      "2": 0.6300136374802653
+     },
+     "ratios": [
+      0.6556663813637759
+     ],
+     "shrink_slope": 0.6089661708705828,
+     "shrink_slope_lo90": 0.4591326848857791,
+     "motion": 22.452767549872895,
+     "finest_rel_diff": 0.018397676855602316,
+     "finest_rel_diff_ci": [
+      0.015328595962666043,
+      0.02170934647512627
+     ],
+     "reference_ok": null,
+     "verdict": "PASS",
+     "reason": "paired differences shrink and the finest is below tau x motion"
+    },
+    "verdict": "PASS",
+    "reason": "paired differences shrink and the finest is below tau x motion"
+   },
+   "verdict": "PASS",
+   "outcome": "match"
+  },
+  {
+   "case": "S5",
+   "ppc_levels": [
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.6003502390652716,
+      "2": 0.8203559639939882
+     },
+     "ratios": [
+      0.7318167544518164
+     ],
+     "shrink_slope": 0.450445649300755,
+     "shrink_slope_lo90": 0.30949148562345047,
+     "motion": 0.5478809844011465,
+     "finest_rel_diff": 1.0957676140585093,
+     "finest_rel_diff_ci": [
+      0.9808771557035135,
+      1.2106580724135052
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "verdict": "INCONCLUSIVE",
+    "reason": "shrinkage or tolerance not established within CI"
+   },
+   "verdict": "INCONCLUSIVE",
+   "outcome": "conservative miss"
+  },
+  {
+   "case": "S6",
+   "ppc_levels": [
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 3,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.9957473985548478,
+      "2": 1.1926678085504687
+     },
+     "ratios": [
+      0.8348908148741334
+     ],
+     "shrink_slope": 0.260340557347722,
+     "shrink_slope_lo90": 0.01090474205922311,
+     "motion": 23.772610093345122,
+     "finest_rel_diff": 0.04188633030386496,
+     "finest_rel_diff_ci": [
+      0.039598323779225744,
+      0.044274040945060336
+     ],
+     "reference_ok": null,
+     "verdict": "PASS",
+     "reason": "paired differences shrink and the finest is below tau x motion"
+    },
+    "verdict": "PASS",
+    "reason": "paired differences shrink and the finest is below tau x motion",
+    "onset_scaling": {
+     "preferred": "lnN",
+     "delta_aic": 9.088651541123795,
+     "models": {
+      "const": {
+       "coef": [
+        2.108902197684325
+       ],
+       "rss": 0.35955419402352473,
+       "aic": -51.96410848936582
+      },
+      "lnN": {
+       "coef": [
+        0.25121447611333586,
+        0.26800768634307826
+       ],
+       "rss": 0.014453826935963067,
+       "aic": -98.17269391096133
+      },
+      "N": {
+       "coef": [
+        1.8301292650042489,
+        0.00023334787891747449
+       ],
+       "rss": 0.0264927026161652,
+       "aic": -89.08404236983753
+      }
+     },
+     "ranking": [
+      "lnN",
+      "N",
+      "const"
+     ]
+    }
+   },
+   "fit": {
+    "alpha": -0.18399673461914046,
+    "beta": -0.4776924133300775,
+    "t0": 0.8176460956596324,
+    "chi2_red": 1.0814760138636643,
+    "overlap": 2.620465298445548,
+    "hessian": [
+     [
+      64.31904614649645,
+      -109.79125946636749
+     ],
+     [
+      -109.79125946636749,
+      176.486062889315
+     ]
+    ],
+    "cov": [
+     [
+      -0.00810791503038847,
+      -0.005043900851201636
+     ],
+     [
+      -0.005043900851201636,
+      -0.0029548699339419678
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 243688727978100.25,
+    "soft_direction": [
+     0.8529082876727584,
+     0.5220607750244441
+    ],
+    "powerlaw_index_p": 2.542174090089285,
+    "soft_vs_powerlaw_angle_deg": 9.997691525091804,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 346.1839019265384,
+     "n_points": 9,
+     "threshold": 62.5949497538274
+    },
+    "status": "IDENTIFIED"
+   },
+   "t0_true_finest": 0.8465735902799727,
+   "verdict": "PASS+lnN+IDENTIFIED",
+   "outcome": "**wrong**"
+  },
+  {
+   "case": "S1",
+   "ppc": 8192,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": 0.0013749999999999995,
+    "beta": 0.0013749999999999995,
+    "t0": 0.5,
+    "chi2_red": 1.1872949910430965,
+    "overlap": 4.14260597591835,
+    "hessian": [
+     [
+      32495.068955379797,
+      -42102.55571879165
+     ],
+     [
+      -42102.55571879165,
+      76019.52356447776
+     ]
+    ],
+    "cov": [
+     [
+      2.250028444238641e-06,
+      1.246152876268349e-06
+     ],
+     [
+      1.2461528762683487e-06,
+      9.61790156249618e-07
+     ]
+    ],
+    "alpha_err": 0.0015000094813829147,
+    "beta_err": 0.0009807090069177595,
+    "condition_number": 14.811549196399945,
+    "soft_direction": [
+     0.8541586299404459,
+     0.5200125334049752
+    ],
+    "powerlaw_index_p": 2.135916164403323,
+    "soft_vs_powerlaw_angle_deg": 6.24488957850308,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 349602.20457416715,
+     "n_points": 9,
+     "threshold": 90.03110032426103
+    },
+    "status": "STATIONARY"
+   },
+   "tail": {
+    "excess": 1.2506540081793827,
+    "T_core": 1.0004228884068747,
+    "eps_threshold": 10.004228884068747,
+    "Q_N": 9.68533531969392e-06,
+    "Q_N_maxwell": 7.744216431044086e-06,
+    "neff_tail": 25.38952542045843,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.020713981482356557,
+      "chi2_red": 3.0493472168922637,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.013550220624105536,
+      "chi2_red": 1.5335578000683516,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.009560688770182414,
+      "chi2_red": 2.778036729131345,
+      "coverage": 0.95
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.014817489427774885,
+      "chi2_red": 1.3290751083017098,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "maxwellian_matched",
+     "stationary"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status STATIONARY",
+     "no scaling forecast",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.5006348975835295,
+    "energy_midpoint": 0.5048912605831883,
+    "finite_bin_energy_error": 0.004256362999658814
+   },
+   "energy_bias_sigma": 1.3907404923051399,
+   "verdict": "NO_TAIL",
+   "outcome": "match"
+  },
+  {
+   "case": "S2",
+   "ppc": 8192,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.2136467128992081,
+    "beta": -0.5040230110287668,
+    "t0": -0.1324911747899541,
+    "chi2_red": 1.489066790599759,
+    "overlap": 3.162035168000229,
+    "hessian": [
+     [
+      103.72487459434454,
+      -150.77541410231137
+     ],
+     [
+      -150.77541410231137,
+      280.279828019577
+     ]
+    ],
+    "cov": [
+     [
+      0.0016257223604193675,
+      0.0008745508509820269
+     ],
+     [
+      0.000874550850982027,
+      0.0006016410426366551
+     ]
+    ],
+    "alpha_err": 0.04032024752428198,
+    "beta_err": 0.024528372197042656,
+    "condition_number": 21.216012935624388,
+    "soft_direction": [
+     0.8675421906300061,
+     0.4973635968553488
+    ],
+    "powerlaw_index_p": 2.667152455420826,
+    "soft_vs_powerlaw_angle_deg": 9.273115495694189,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 1893.277527350719,
+     "n_points": 9,
+     "threshold": 94.76363027455005
+    },
+    "status": "IDENTIFIED"
+   },
+   "tail": {
+    "excess": 2564.3047131047865,
+    "T_core": 1.3222528545137806,
+    "eps_threshold": 13.222528545137806,
+    "Q_N": 0.019858530693429882,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 52057.94670098483,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.41652272832800163,
+      "chi2_red": 1565.2180120862995,
+      "coverage": 0.9764705882352942
+     },
+     "maxwellian_matched": {
+      "rms_ln": 13.015073528167736,
+      "chi2_red": 1061070.3297685958,
+      "coverage": 0.7323529411764707
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.1523789006596634,
+      "chi2_red": 178.51254116119884,
+      "coverage": 0.9154411764705882
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 11.153367132618337,
+      "chi2_red": 622244.6481990959,
+      "coverage": 0.7558823529411764
+     },
+     "scaling": {
+      "rms_ln": 0.0548476740560376,
+      "chi2_red": 4.088868563589948,
+      "coverage": 0.9154411764705882
+     }
+    },
+    "ranking": [
+     "scaling",
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": true,
+    "reasons": []
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.8684894401996279,
+    "energy_midpoint": 0.8756174390825503,
+    "finite_bin_energy_error": 0.007127998882922371
+   },
+   "verdict": "IDENTIFIED_AND_FORECAST_WINS",
+   "outcome": "match"
+  },
+  {
+   "case": "S3",
+   "ppc": 8192,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": 1.8013184103369715,
+    "beta": 0.90589277766645,
+    "t0": 0.3820037421420833,
+    "chi2_red": 1.4468413761114753,
+    "overlap": 4.912144160519162,
+    "hessian": [
+     [
+      1055.9548883578968,
+      -1832.040152060465
+     ],
+     [
+      -1832.040152060465,
+      3804.0827593864456
+     ]
+    ],
+    "cov": [
+     [
+      0.00014747026450683538,
+      7.102144272357397e-05
+     ],
+     [
+      7.102144272357397e-05,
+      4.093547815414536e-05
+     ]
+    ],
+    "alpha_err": Infinity,
+    "beta_err": Infinity,
+    "condition_number": 33.72736883846916,
+    "soft_direction": [
+     0.8944298328978805,
+     0.44720831166501107
+    ],
+    "powerlaw_index_p": 1.9961311386215914,
+    "soft_vs_powerlaw_angle_deg": 0.04474106653520976,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 14.698517858120852,
+     "n_points": 5,
+     "threshold": 108.75397609788358
+    },
+    "status": "UNIDENTIFIABLE_DEGENERATE",
+    "identified_combination": {
+     "expr": "alpha - 1.996 beta",
+     "value": -0.006962371415435653,
+     "err": 0.005200295032669816
+    }
+   },
+   "tail": {
+    "excess": 2014.9315738074952,
+    "T_core": 1.2862824491141918,
+    "eps_threshold": 12.862824491141918,
+    "Q_N": 0.015604066201309523,
+    "Q_N_maxwell": 7.744216431044086e-06,
+    "neff_tail": 40856.12330276083,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.059245744225310815,
+      "chi2_red": 3.7886860528766193,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 9.307902468439439,
+      "chi2_red": 86200.04397056936,
+      "coverage": 0.75
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.0580942693398774,
+      "chi2_red": 12.623639462200362,
+      "coverage": 0.95
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 10.11650670375576,
+      "chi2_red": 133710.05620324748,
+      "coverage": 0.71
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status UNIDENTIFIABLE_DEGENERATE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 4.697618155078869,
+    "energy_midpoint": 4.715012306397625,
+    "finite_bin_energy_error": 0.0173941513187561
+   },
+   "verdict": "UNIDENTIFIABLE_DEGENERATE",
+   "outcome": "match"
+  },
+  {
+   "case": "S4",
+   "ppc": 8192,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.515690739871934,
+    "beta": -0.5252626637695353,
+    "t0": -0.5,
+    "chi2_red": 232.6860367734628,
+    "overlap": 6.279772626057238,
+    "hessian": [
+     [
+      19489.654168172474,
+      -23835.854356773194
+     ],
+     [
+      -23835.854356773194,
+      31468.46902876352
+     ]
+    ],
+    "cov": [
+     [
+      0.0019417347147018824,
+      0.0014707708156002147
+     ],
+     [
+      0.0014707708156002151,
+      0.0012025922850356636
+     ]
+    ],
+    "alpha_err": 0.044065119025164134,
+    "beta_err": 0.03467841237766896,
+    "condition_number": 55.4805772432114,
+    "soft_direction": [
+     0.788575077216127,
+     0.61493849090261
+    ],
+    "powerlaw_index_p": 1.990792237950778,
+    "soft_vs_powerlaw_angle_deg": 11.276496774957,
+    "boundary_hit": true,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 259104.07197699335,
+     "n_points": 9,
+     "threshold": 21262.462481401344
+    },
+    "status": "NO_COLLAPSE"
+   },
+   "tail": {
+    "excess": 292.74400150312056,
+    "T_core": 2.113575069833073,
+    "eps_threshold": 21.13575069833073,
+    "Q_N": 0.0022670729065300613,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 5942.995600094164,
+    "tail": true
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.13380999631602625,
+      "chi2_red": 1308.8550194597035,
+      "coverage": 1.0
+     },
+     "maxwellian_matched": {
+      "rms_ln": 3.0977305971118896,
+      "chi2_red": 14547.43375200722,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.16367896831255943,
+      "chi2_red": 229.88231239195176,
+      "coverage": 0.9647783251231526
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 2.416609114024246,
+      "chi2_red": 9177.340945906286,
+      "coverage": 1.0
+     }
+    },
+    "ranking": [
+     "stationary",
+     "heating_one_scale",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "fit status NO_COLLAPSE",
+     "no scaling forecast"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.8470496044144012,
+    "energy_midpoint": 0.8541801504235846,
+    "finite_bin_energy_error": 0.007130546009183392
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S4b",
+   "ppc": 8192,
+   "n_seeds": 5,
+   "fit": {
+    "alpha": -0.4876810967922208,
+    "beta": -0.4866997599601749,
+    "t0": 0.05004161699479556,
+    "chi2_red": 2.9899570066037913,
+    "overlap": 4.778762684617718,
+    "hessian": [
+     [
+      50000.020536037635,
+      -50751.14224185866
+     ],
+     [
+      -50751.14224185866,
+      54317.85110554212
+     ]
+    ],
+    "cov": [
+     [
+      1.838534482991617e-05,
+      1.7178095812658047e-05
+     ],
+     [
+      1.717809581265804e-05,
+      1.692385836972383e-05
+     ]
+    ],
+    "alpha_err": 0.004287813525553108,
+    "beta_err": 0.004113861734395534,
+    "condition_number": 75.59758650016988,
+    "soft_direction": [
+     0.7219767337430473,
+     0.6919173331646787
+    ],
+    "powerlaw_index_p": 2.020177443231562,
+    "soft_vs_powerlaw_angle_deg": 17.446387549578404,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 512087.2976404154,
+     "n_points": 9,
+     "threshold": 237.32048010746217
+    },
+    "status": "IDENTIFIED"
+   },
+   "tail": {
+    "excess": 1.3932183539770202,
+    "T_core": 1.871904761207627,
+    "eps_threshold": 18.71904761207627,
+    "Q_N": 1.0789384468901038e-05,
+    "Q_N_maxwell": 7.744216431044088e-06,
+    "neff_tail": 28.283724022155937,
+    "tail": false
+   },
+   "forecast": {
+    "errors": {
+     "stationary": {
+      "rms_ln": 0.420501876082513,
+      "chi2_red": 5741.07861211282,
+      "coverage": 0.9583333333333334
+     },
+     "maxwellian_matched": {
+      "rms_ln": 0.524087892957873,
+      "chi2_red": 5578.506082921596,
+      "coverage": 1.0
+     },
+     "heating_one_scale": {
+      "rms_ln": 0.02108889720492023,
+      "chi2_red": 6.06838502467027,
+      "coverage": 0.9166666666666666
+     },
+     "ORACLE_maxwellian": {
+      "rms_ln": 0.013307541722066404,
+      "chi2_red": 1.1849384210523242,
+      "coverage": 1.0
+     },
+     "scaling": {
+      "rms_ln": 0.024456760075898344,
+      "chi2_red": 9.384820718243594,
+      "coverage": 0.9166666666666666
+     }
+    },
+    "ranking": [
+     "heating_one_scale",
+     "scaling",
+     "stationary",
+     "maxwellian_matched"
+    ]
+   },
+   "claim": {
+    "claim": false,
+    "reasons": [
+     "scaling forecast does not beat baselines by the margin",
+     "no nonthermal tail (Maxwellian-equivalent excess below threshold)"
+    ]
+   },
+   "moments_first_snapshot": {
+    "number": 1.0,
+    "energy_exact": 0.4999488772808516,
+    "energy_midpoint": 0.5042223063151858,
+    "finite_bin_energy_error": 0.004273429034334253
+   },
+   "verdict": "NO_CLAIM",
+   "outcome": "match"
+  },
+  {
+   "case": "S2-gate",
+   "ppc_levels": [
+    8192,
+    4096,
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 5,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.22838405922576888,
+      "2": 0.2942667897203576,
+      "3": 0.45988929496072795,
+      "4": 0.5909215005245528
+     },
+     "ratios": [
+      0.7761122464509257,
+      0.6398644042051171,
+      0.7782578473663432
+     ],
+     "shrink_slope": 0.47586754890299465,
+     "shrink_slope_lo90": 0.3781230212928043,
+     "motion": 22.393881028326497,
+     "finest_rel_diff": 0.010198502838203035,
+     "finest_rel_diff_ci": [
+      0.00881812674583787,
+      0.012028317379259457
+     ],
+     "reference_ok": null,
+     "verdict": "PASS",
+     "reason": "paired differences shrink and the finest is below tau x motion"
+    },
+    "verdict": "PASS",
+    "reason": "paired differences shrink and the finest is below tau x motion"
+   },
+   "verdict": "PASS",
+   "outcome": "match"
+  },
+  {
+   "case": "S5",
+   "ppc_levels": [
+    8192,
+    4096,
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 5,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.5331599696914306,
+      "2": 0.5615443296854072,
+      "3": 0.6932255387747446,
+      "4": 0.8428544711559931
+     },
+     "ratios": [
+      0.9494530378218256,
+      0.8100456464398587,
+      0.8224735852963688
+     ],
+     "shrink_slope": 0.22860701552349402,
+     "shrink_slope_lo90": 0.1774437519718773,
+     "motion": 0.17922854878397487,
+     "finest_rel_diff": 2.9747491306982083,
+     "finest_rel_diff_ci": [
+      2.649917911661031,
+      3.25561486767583
+     ],
+     "reference_ok": null,
+     "verdict": "FAIL_REGULATOR_DEPENDENT",
+     "reason": "finest paired difference exceeds the feature's own motion in time (the feature is set by the regulator, not by the dynamics)"
+    },
+    "verdict": "FAIL_REGULATOR_DEPENDENT",
+    "reason": "finest paired difference exceeds the feature's own motion in time (the feature is set by the regulator, not by the dynamics)"
+   },
+   "verdict": "FAIL_REGULATOR_DEPENDENT",
+   "outcome": "match"
+  },
+  {
+   "case": "S6",
+   "ppc_levels": [
+    8192,
+    4096,
+    2048,
+    1024,
+    512
+   ],
+   "n_seeds": 5,
+   "gate": {
+    "n_levels": 5,
+    "n_seeds": 5,
+    "raw": {
+     "D": {
+      "1": 0.8682349526521319,
+      "2": 0.83084178886893,
+      "3": 0.9964575378219527,
+      "4": 1.1167274107380551
+     },
+     "ratios": [
+      1.0450063589532579,
+      0.8337954778133105,
+      0.8923014947429158
+     ],
+     "shrink_slope": 0.13515935403333484,
+     "shrink_slope_lo90": 0.07348263764047416,
+     "motion": 24.796773765818692,
+     "finest_rel_diff": 0.035014028875359475,
+     "finest_rel_diff_ci": [
+      0.033163598966942716,
+      0.03734407325353948
+     ],
+     "reference_ok": null,
+     "verdict": "INCONCLUSIVE",
+     "reason": "shrinkage or tolerance not established within CI"
+    },
+    "aligned": {
+     "D": {
+      "1": 0.24591751995695588,
+      "2": 0.2489019798103515,
+      "3": 0.6129991731936131,
+      "4": 0.5995039675019258
+     },
+     "ratios": [
+      0.9880094973303563,
+      0.40603966643807676,
+      1.022510619484172
+     ],
+     "shrink_slope": 0.5157091763856338,
+     "shrink_slope_lo90": 0.38397510751058,
+     "motion": 15.36293336025977,
+     "finest_rel_diff": 0.016007198247249162,
+     "finest_rel_diff_ci": [
+      0.012903082009218341,
+      0.020159203361099748
+     ],
+     "reference_ok": null,
+     "verdict": "PASS",
+     "reason": "paired differences shrink and the finest is below tau x motion"
+    },
+    "verdict": "PASS_AFTER_ONSET_ALIGNMENT",
+    "reason": "raw trajectories depend on the regulator only through the onset time; aligned at onset they converge",
+    "onset_scaling": {
+     "preferred": "lnN",
+     "delta_aic": 44.15623258735053,
+     "models": {
+      "const": {
+       "coef": [
+        2.284820052352325
+       ],
+       "rss": 1.376270305113889,
+       "aic": -68.48746654948516
+      },
+      "lnN": {
+       "coef": [
+        0.4815650097920633,
+        0.236504282487246
+       ],
+       "rss": 0.03258073961016482,
+       "aic": -160.07274498946325
+      },
+      "N": {
+       "coef": [
+        2.037309113974573,
+        7.797093572887852e-05
+       ],
+       "rss": 0.19056066737255697,
+       "aic": -115.91651240211272
+      }
+     },
+     "ranking": [
+      "lnN",
+      "N",
+      "const"
+     ]
+    }
+   },
+   "fit": {
+    "alpha": -0.2140628814697264,
+    "beta": -0.47344951629638654,
+    "t0": 1.2219982802954,
+    "chi2_red": 1.687457454092798,
+    "overlap": 2.957570038262173,
+    "hessian": [
+     [
+      643.5421969727147,
+      -1247.6631038794064
+     ],
+     [
+      -1247.6631038794064,
+      2726.7610331079222
+     ]
+    ],
+    "cov": [
+     [
+      0.00063628707910702,
+      0.00029114099198204496
+     ],
+     [
+      0.00029114099198204496,
+      0.00015016995615753194
+     ]
+    ],
+    "alpha_err": 0.025224731497223513,
+    "beta_err": 0.012254385180723346,
+    "condition_number": 55.31483504772315,
+    "soft_direction": [
+     0.9057788034756199,
+     0.4237508220337447
+    ],
+    "powerlaw_index_p": 2.731659953325325,
+    "soft_vs_powerlaw_angle_deg": 4.965064613178985,
+    "boundary_hit": false,
+    "t_star": 1.0,
+    "eps_star": 1.0,
+    "valley_test": {
+     "dchi2_max": 2173.369452789298,
+     "n_points": 9,
+     "threshold": 101.94812998144066
+    },
+    "status": "IDENTIFIED"
+   },
+   "t0_true_finest": 1.1931471805599454,
+   "verdict": "PASS_AFTER_ONSET_ALIGNMENT+lnN+IDENTIFIED",
+   "outcome": "match"
+  }
+ ],
+ "S7": {
+  "case": "S7",
+  "ppc_levels": [
+   512,
+   2048,
+   8192
+  ],
+  "rows": [
+   {
+    "ppc": 512,
+    "t": 1.0,
+    "eta_min_true": 0.049787068367863944,
+    "eta_min": 0.055789883133873897,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9948011454070214,
+    "resolution_limited": true,
+    "eta_floor": 0.009279423160470078,
+    "found": true
+   },
+   {
+    "ppc": 512,
+    "t": 2.0,
+    "eta_min_true": 0.01831563888873418,
+    "eta_min": 0.02869341913213999,
+    "eta_max": 0.9365891582325548,
+    "plateau": 2.169346245630136,
+    "resolution_limited": true,
+    "eta_floor": 0.009586761338977205,
+    "found": true
+   },
+   {
+    "ppc": 512,
+    "t": 3.0,
+    "eta_min_true": 0.006737946999085467,
+    "eta_min": 0.02712813023321059,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.944771270367896,
+    "resolution_limited": true,
+    "eta_floor": 0.009699824736337055,
+    "found": true
+   },
+   {
+    "ppc": 512,
+    "t": 4.0,
+    "eta_min_true": 0.0024787521766663585,
+    "eta_min": 0.027202844615252495,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.8200852494016702,
+    "resolution_limited": true,
+    "eta_floor": 0.009741418435774743,
+    "found": true
+   },
+   {
+    "ppc": 512,
+    "t": 5.0,
+    "eta_min_true": 0.0009118819655545162,
+    "eta_min": 0.027053685221711626,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9449311167718462,
+    "resolution_limited": true,
+    "eta_floor": 0.00975671990268013,
+    "found": true
+   },
+   {
+    "ppc": 512,
+    "t": 6.0,
+    "eta_min_true": 0.00033546262790251185,
+    "eta_min": 0.027363933565613226,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9449311167718457,
+    "resolution_limited": true,
+    "eta_floor": 0.00976234899777439,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 1.0,
+    "eta_min_true": 0.049787068367863944,
+    "eta_min": 0.053577736067274395,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9698661310894336,
+    "resolution_limited": false,
+    "eta_floor": 0.0023198557901175196,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 2.0,
+    "eta_min_true": 0.01831563888873418,
+    "eta_min": 0.01694113555664837,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9199961024542578,
+    "resolution_limited": true,
+    "eta_floor": 0.0023966903347443012,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 3.0,
+    "eta_min_true": 0.006737946999085467,
+    "eta_min": 0.0067500668823088925,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.994801145407021,
+    "resolution_limited": true,
+    "eta_floor": 0.0024249561840842637,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 4.0,
+    "eta_min_true": 0.0024787521766663585,
+    "eta_min": 0.006158050098200698,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9449311167718462,
+    "resolution_limited": true,
+    "eta_floor": 0.0024353546089436857,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 5.0,
+    "eta_min_true": 0.0009118819655545162,
+    "eta_min": 0.006096787312739473,
+    "eta_max": 0.9365891582325548,
+    "plateau": 2.0945412026773726,
+    "resolution_limited": true,
+    "eta_floor": 0.0024391799756700327,
+    "found": true
+   },
+   {
+    "ppc": 2048,
+    "t": 6.0,
+    "eta_min_true": 0.00033546262790251185,
+    "eta_min": 0.006057453742438258,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9447712703678965,
+    "resolution_limited": true,
+    "eta_floor": 0.0024405872494435974,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 1.0,
+    "eta_min_true": 0.049787068367863944,
+    "eta_min": 0.04816209530533627,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9698661310894332,
+    "resolution_limited": false,
+    "eta_floor": 0.0005799639475293799,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 2.0,
+    "eta_min_true": 0.01831563888873418,
+    "eta_min": 0.017429861215957233,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9198341799490202,
+    "resolution_limited": false,
+    "eta_floor": 0.0005991725836860753,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 3.0,
+    "eta_min_true": 0.006737946999085467,
+    "eta_min": 0.007301487206708481,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9698661310894336,
+    "resolution_limited": false,
+    "eta_floor": 0.0006062390460210659,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 4.0,
+    "eta_min_true": 0.0024787521766663585,
+    "eta_min": 0.002758987511143727,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.994801145407021,
+    "resolution_limited": true,
+    "eta_floor": 0.0006088386522359214,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 5.0,
+    "eta_min_true": 0.0009118819655545162,
+    "eta_min": 0.0017996733903106771,
+    "eta_max": 0.9365891582325548,
+    "plateau": 1.9447712703678959,
+    "resolution_limited": true,
+    "eta_floor": 0.0006097949939175082,
+    "found": true
+   },
+   {
+    "ppc": 8192,
+    "t": 6.0,
+    "eta_min_true": 0.00033546262790251185,
+    "eta_min": 0.0017544793305605507,
+    "eta_max": 0.9365891582325548,
+    "plateau": 2.0072299332260437,
+    "resolution_limited": true,
+    "eta_floor": 0.0006101468123608994,
+    "found": true
+   }
+  ],
+  "verdict": "ETA_MIN_RECOVERED_OR_FLAGGED",
+  "recovered": 4,
+  "flagged": 14,
+  "false_resolved": 0,
+  "not_found": 0
+ },
+ "power_analysis": [
+  {
+   "sigma": 0.05,
+   "levels": 3,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.285,
+   "p_prefer_lnN_given_linearN": 0.0575
+  },
+  {
+   "sigma": 0.05,
+   "levels": 3,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.3825,
+   "p_prefer_lnN_given_linearN": 0.07
+  },
+  {
+   "sigma": 0.05,
+   "levels": 3,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.4775,
+   "p_prefer_lnN_given_linearN": 0.055
+  },
+  {
+   "sigma": 0.05,
+   "levels": 3,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.635,
+   "p_prefer_lnN_given_linearN": 0.0275
+  },
+  {
+   "sigma": 0.05,
+   "levels": 3,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.7175,
+   "p_prefer_lnN_given_linearN": 0.015
+  },
+  {
+   "sigma": 0.05,
+   "levels": 4,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.805,
+   "p_prefer_lnN_given_linearN": 0.0125
+  },
+  {
+   "sigma": 0.05,
+   "levels": 4,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.8775,
+   "p_prefer_lnN_given_linearN": 0.005
+  },
+  {
+   "sigma": 0.05,
+   "levels": 4,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.9525,
+   "p_prefer_lnN_given_linearN": 0.0025
+  },
+  {
+   "sigma": 0.05,
+   "levels": 4,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.99,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 4,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.9975,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 5,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.9975,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 5,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 1.0,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 5,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 1.0,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 5,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 1.0,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.05,
+   "levels": 5,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 1.0,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.1,
+   "levels": 3,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.0575,
+   "p_prefer_lnN_given_linearN": 0.03
+  },
+  {
+   "sigma": 0.1,
+   "levels": 3,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.0775,
+   "p_prefer_lnN_given_linearN": 0.03
+  },
+  {
+   "sigma": 0.1,
+   "levels": 3,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.14,
+   "p_prefer_lnN_given_linearN": 0.01
+  },
+  {
+   "sigma": 0.1,
+   "levels": 3,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.1225,
+   "p_prefer_lnN_given_linearN": 0.035
+  },
+  {
+   "sigma": 0.1,
+   "levels": 3,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.1725,
+   "p_prefer_lnN_given_linearN": 0.03
+  },
+  {
+   "sigma": 0.1,
+   "levels": 4,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.375,
+   "p_prefer_lnN_given_linearN": 0.0425
+  },
+  {
+   "sigma": 0.1,
+   "levels": 4,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.505,
+   "p_prefer_lnN_given_linearN": 0.03
+  },
+  {
+   "sigma": 0.1,
+   "levels": 4,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.51,
+   "p_prefer_lnN_given_linearN": 0.02
+  },
+  {
+   "sigma": 0.1,
+   "levels": 4,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.7375,
+   "p_prefer_lnN_given_linearN": 0.015
+  },
+  {
+   "sigma": 0.1,
+   "levels": 4,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.8475,
+   "p_prefer_lnN_given_linearN": 0.02
+  },
+  {
+   "sigma": 0.1,
+   "levels": 5,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.755,
+   "p_prefer_lnN_given_linearN": 0.0175
+  },
+  {
+   "sigma": 0.1,
+   "levels": 5,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.8825,
+   "p_prefer_lnN_given_linearN": 0.0125
+  },
+  {
+   "sigma": 0.1,
+   "levels": 5,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.915,
+   "p_prefer_lnN_given_linearN": 0.005
+  },
+  {
+   "sigma": 0.1,
+   "levels": 5,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.9675,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.1,
+   "levels": 5,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.9875,
+   "p_prefer_lnN_given_linearN": 0.0
+  },
+  {
+   "sigma": 0.2,
+   "levels": 3,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.015,
+   "p_prefer_lnN_given_linearN": 0.0075
+  },
+  {
+   "sigma": 0.2,
+   "levels": 3,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.0025,
+   "p_prefer_lnN_given_linearN": 0.0025
+  },
+  {
+   "sigma": 0.2,
+   "levels": 3,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.01,
+   "p_prefer_lnN_given_linearN": 0.0025
+  },
+  {
+   "sigma": 0.2,
+   "levels": 3,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.02,
+   "p_prefer_lnN_given_linearN": 0.0025
+  },
+  {
+   "sigma": 0.2,
+   "levels": 3,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.0175,
+   "p_prefer_lnN_given_linearN": 0.0025
+  },
+  {
+   "sigma": 0.2,
+   "levels": 4,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.0825,
+   "p_prefer_lnN_given_linearN": 0.0425
+  },
+  {
+   "sigma": 0.2,
+   "levels": 4,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.15,
+   "p_prefer_lnN_given_linearN": 0.0225
+  },
+  {
+   "sigma": 0.2,
+   "levels": 4,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.11,
+   "p_prefer_lnN_given_linearN": 0.025
+  },
+  {
+   "sigma": 0.2,
+   "levels": 4,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.23,
+   "p_prefer_lnN_given_linearN": 0.03
+  },
+  {
+   "sigma": 0.2,
+   "levels": 4,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.2975,
+   "p_prefer_lnN_given_linearN": 0.0275
+  },
+  {
+   "sigma": 0.2,
+   "levels": 5,
+   "seeds": 2,
+   "p_prefer_lnN_given_lnN": 0.255,
+   "p_prefer_lnN_given_linearN": 0.0425
+  },
+  {
+   "sigma": 0.2,
+   "levels": 5,
+   "seeds": 3,
+   "p_prefer_lnN_given_lnN": 0.3925,
+   "p_prefer_lnN_given_linearN": 0.045
+  },
+  {
+   "sigma": 0.2,
+   "levels": 5,
+   "seeds": 4,
+   "p_prefer_lnN_given_lnN": 0.485,
+   "p_prefer_lnN_given_linearN": 0.0225
+  },
+  {
+   "sigma": 0.2,
+   "levels": 5,
+   "seeds": 6,
+   "p_prefer_lnN_given_lnN": 0.68,
+   "p_prefer_lnN_given_linearN": 0.015
+  },
+  {
+   "sigma": 0.2,
+   "levels": 5,
+   "seeds": 8,
+   "p_prefer_lnN_given_lnN": 0.73,
+   "p_prefer_lnN_given_linearN": 0.025
+  }
+ ],
+ "example_bundle": {
+  "path": "results/t1_synthetic/bundles/S2_ppc512_seed0.npz",
+  "validated": true,
+  "n_arrays": 20
+ },
+ "wall_time_s": 152.1560776233673
+}

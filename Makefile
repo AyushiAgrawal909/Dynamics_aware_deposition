@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: verify tests code-tests bounded completion exact-width all checksums
+.PHONY: verify tests code-tests bounded completion exact-width all checksums nta-tests nta-suite
 
 verify:
 	$(PYTHON) reproduce.py verify
@@ -25,3 +25,9 @@ all:
 
 checksums:
 	$(PYTHON) tools/build_checksums.py
+
+nta-tests:
+	$(PYTHON) -m pytest experiments/nonthermal_attractor/tests
+
+nta-suite:
+	$(PYTHON) experiments/nonthermal_attractor/scripts/run_t1_synthetic_suite.py
