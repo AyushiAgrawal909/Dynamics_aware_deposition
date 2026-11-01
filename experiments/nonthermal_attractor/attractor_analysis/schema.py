@@ -76,7 +76,8 @@ REQUIRED_ARRAYS = {
 }
 
 OPTIONAL_ARRAYS = ("phase_space_x", "phase_space_v", "phase_space_w", "phase_space_times",
-                   "mode_amplitudes", "mode_indices")
+                   "mode_amplitudes", "mode_indices", "f_coarse_times", "f_coarse",
+                   "f_min", "outflow_mass", "clip_mass", "L2", "mass_outside_recon")
 
 
 class BundleError(ValueError):

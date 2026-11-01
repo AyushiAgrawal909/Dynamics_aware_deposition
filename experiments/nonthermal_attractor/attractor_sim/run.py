@@ -94,7 +94,8 @@ def build_vlasov(cfg, d, level):
     nv = int(round(2 * vc["v_max"] / dv))
     f = waterbag_beams_f(d["L"], d["nx"], vc["v_max"], nv, prep["v_b"], prep["dv_b"],
                          modes=d["modes"], amplitudes=d["amps"], phases=d["phases"])
-    return Vlasov1D1V(d["L"], d["nx"], vc["v_max"], nv, f), nv
+    # a config without x_scheme is a protocol-v1 config: keep its spectral x-shift
+    return Vlasov1D1V(d["L"], d["nx"], vc["v_max"], nv, f, x_scheme=vc.get("x_scheme", "spectral")), nv
 
 
 def run(cfg: dict, backend: str, level: int, seed: int, out: Path, t_end=None, max_steps=None,
@@ -124,8 +125,8 @@ def run(cfg: dict, backend: str, level: int, seed: int, out: Path, t_end=None, m
         record = lambda t, n: rec.record_pic(t, sim, phase=bool(phase_every and n % phase_every == 0))
     elif backend == "vlasov1d1v":
         sim, nv = build_vlasov(cfg, d, level)
-        meta.update(dv=sim.dv, v_max=sim.v_max, nv=nv)
-        record = lambda t, n: rec.record_vlasov(t, sim)
+        meta.update(dv=sim.dv, v_max=sim.v_max, nv=nv, x_scheme=sim.x_scheme)
+        record = lambda t, n: rec.record_vlasov(t, sim, phase=bool(phase_every and n % phase_every == 0))
     else:
         raise ValueError(backend)
     for n in range(n_steps + 1):
