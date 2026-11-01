@@ -57,8 +57,12 @@ vlasov_numerics:                 # DECISION RULE (method change, F4 and F5)
   saved_f: "coarse f on the reconstruction grid at 9 times, so rho(eta) can be recomputed"
   validation_before_production: "linear growth rate within 5% (V3), mass identity at round-off, clip mass < 1e-6, and the
     energy drift to t = 500 at the coarsest level, all reported in the PR that freezes v2"
-  known_limit: "the x-shift adds dissipation at fixed dx = 0.04, which the dv ladder does not refine; a dx-halving
-    check at the coarsest level is reported with the ladder"
+  grid: "Vlasov nx = 16384 (dx = 0.01, 4x the PIC grid) and dt = 0.1 (2x PIC); snapshots stay every 10 / omega_p.
+    The PCHIP x-shift loses energy during saturation (t < 200), then stays flat. Measured |dE|/K0 at the coarsest level:
+    nx 4096, dt 0.05: 6.4e-3 at t = 500; nx 8192, dt 0.1: 8.0e-4 at t = 500; nx 16384, dt 0.1: 5.1e-4 at t = 100.
+    The energy veto (0.1 f_tail, about 8e-4 at the pilot f_tail) is unchanged"
+  known_limit: "the x-shift dissipation is set by dx, which the dv ladder does not refine; a dx-halving check at the
+    coarsest level (nx 32768) is reported with the ladder"
 
 quality:                         # vetoes, per run, evaluated at t = t_end inclusive
   energy_factor: 0.1             # PIC: |dE|/K0 + control |dK|/K0 < 0.1 f_tail; Vlasov: |dE|/K0 < 0.1 f_tail (v1: PIC only)

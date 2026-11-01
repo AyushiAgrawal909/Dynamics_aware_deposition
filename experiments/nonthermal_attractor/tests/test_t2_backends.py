@@ -138,3 +138,19 @@ def test_runner_writes_valid_bundles(tmp_path):
     # moments of the histogram equal the direct budgets
     K_hist = arr["eps_bin_energy"].sum(axis=1) + arr["eps_overflow"][:, 1]
     assert np.allclose(K_hist, arr["kinetic_energy"], rtol=1e-12)
+
+
+def test_v2_vlasov_grid_override():
+    """Protocol v2 runs Vlasov on its own nx and dt; snapshots stay every 10 / omega_p."""
+    import yaml
+    from attractor_sim import run as R
+    here = Path(__file__).resolve().parents[1]
+    v1 = yaml.safe_load((here / "configs/t2_waterbag_dv020.yaml").read_text())
+    v2 = yaml.safe_load((here / "configs/t2_waterbag_dv020_v2.yaml").read_text())
+    assert R.vlasov_grid(v1, R.derived(v1)) == (v1["grid"]["nx"], v1["time"]["dt"])
+    nx, dt = R.vlasov_grid(v2, R.derived(v2))
+    assert (nx, dt) == (16384, 0.1)
+    assert nx % v2["reconstruction"]["nx_b"] == 0
+    snap = v2["diagnostics"]["every_steps"] * v2["time"]["dt"]
+    assert abs(round(snap / dt) * dt - snap) < 1e-12
+    assert v2["grid"] == v1["grid"] and v2["time"] == v1["time"] and v2["pic"] == v1["pic"]

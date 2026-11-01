@@ -1,6 +1,7 @@
 # T2 configuration, protocol v2 (protocol/T2_PROTOCOL_v2.yaml): identical to
 # configs/t2_waterbag_dv020.yaml (v1, which the PIC bundles were run with) except
-# the vlasov block (positivity-preserving x-shift, dv ladder dividing dv_b = 0.02)
+# the vlasov block (positivity-preserving x-shift, dv ladder dividing dv_b = 0.02,
+# its own nx = 16384 and dt = 0.1; PIC keeps grid.nx and time.dt)
 # and reconstruction.vlasov_rebin (Vlasov rho(eta) on the PIC cells exactly).
 preparation:
   v_b: 1.0
@@ -28,6 +29,8 @@ vlasov:
   v_max: 10.0                 # pilot (128 ppc): mass beyond |v| = 6.3 is 3.8e-6, none beyond 7.1 (1-particle floor 1.9e-6); 0.8 v_max = 8
   dv_finest: 0.00125          # 0.02/16; levels double dv: 0.00125, 0.0025, 0.005, 0.01, each dividing dv_b = 0.02
   levels: 4                   # (v1 used dv_b/128 = 0.0015625, which does not divide 0.02: review F5)
+  nx: 16384                   # 4x grid.nx (dx = 0.01): the PCHIP x-shift dissipates energy ~ dx^2 during saturation
+  dt: 0.1                     # 2x time.dt: fewer interpolations; V3 growth rate within 1.1% at dt = 0.1
   x_scheme: pchip             # v1 spectral x-shift + clipping gained 24-151% mass (review F4)
 bins:
   eps_lo: 0.05

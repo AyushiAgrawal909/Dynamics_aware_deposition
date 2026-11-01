@@ -87,9 +87,21 @@ def build_pic(cfg, d, level, seed, ppc0=None, control=False):
     return PIC1D1V(d["L"], d["nx"], x, v, w), N0 >> level
 
 
+def vlasov_grid(cfg, d):
+    """Vlasov x grid and time step.  Protocol v2 may set vlasov.nx and vlasov.dt
+    apart from the PIC grid (x-interpolation dissipation scales with dx and with
+    the number of steps); a config without them uses grid.nx and time.dt."""
+    vc = cfg["vlasov"]
+    nx = int(vc.get("nx", d["nx"]))
+    dt = float(vc.get("dt", cfg["time"]["dt"]))
+    return nx, dt
+
+
 def build_vlasov(cfg, d, level):
     prep = cfg["preparation"]
     vc = cfg["vlasov"]
+    nx, _ = vlasov_grid(cfg, d)
+    d = d | {"nx": nx, "dx": d["L"] / nx}
     dv = vc["dv_finest"] * 2**level
     nv = int(round(2 * vc["v_max"] / dv))
     f = waterbag_beams_f(d["L"], d["nx"], vc["v_max"], nv, prep["v_b"], prep["dv_b"],
@@ -102,11 +114,17 @@ def run(cfg: dict, backend: str, level: int, seed: int, out: Path, t_end=None, m
         control: bool = False) -> Path:
     d = derived(cfg)
     dt = float(cfg["time"]["dt"])
+    snap_dt = int(cfg["diagnostics"]["every_steps"]) * dt  # snapshot spacing in time, same for both backends
+    if backend == "vlasov1d1v":
+        nx_v, dt = vlasov_grid(cfg, d)
+        d = d | {"nx": nx_v, "dx": d["L"] / nx_v}
     t_end = float(t_end if t_end is not None else cfg["time"]["t_end"])
     n_steps = int(round(t_end / dt))
     if max_steps is not None:
         n_steps = min(n_steps, max_steps)
-    every = int(cfg["diagnostics"]["every_steps"])
+    every = int(round(snap_dt / dt))
+    if abs(every * dt - snap_dt) > 1e-9 * snap_dt:
+        raise ValueError(f"snapshot spacing {snap_dt} is not a multiple of dt = {dt}")
     rec = make_recorder(cfg, d["L"])
     n_phase = cfg["diagnostics"].get("n_phase", 0)
     phase_every = max(1, n_steps // max(n_phase, 1)) if n_phase else None
