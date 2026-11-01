@@ -26,8 +26,21 @@ Gate verdicts
     Paired differences do not shrink and exceed ``tau`` x motion, or the
     finest difference exceeds the feature's whole motion in time (the feature
     is set by the regulator).
+``STATIONARY_CONVERGED`` (protocol v2)
+    The feature does not drift over the window (fitted drift below
+    ``motion_floor``), the finest paired difference is below the absolute
+    tolerance ``abs_tol`` (seed-bootstrap upper bound), and the finest level
+    agrees with the reference within ``abs_tol``.  A converged equilibrium:
+    nothing moves, so there is nothing for T3 to scale, but it is not a
+    regulator effect.  (v1 normalised by the feature's own motion, which
+    makes any stationary feature non-PASS: review F3.)
 ``INCONCLUSIVE``
-    Too few levels or seeds, or confidence intervals compatible with both.
+    Too few levels or seeds, non-contiguous levels, or confidence intervals
+    compatible with both.
+
+FAIL results carry ``fail_kind``: ``"regulator"`` (the PIC ladder itself does
+not converge) or ``"reference"`` (it converges, but to a value the
+independent reference does not share).
 """
 
 from __future__ import annotations
@@ -40,6 +53,7 @@ import numpy as np
 PASS = "PASS"
 PASS_ALIGNED = "PASS_AFTER_ONSET_ALIGNMENT"
 FAIL = "FAIL_REGULATOR_DEPENDENT"
+STATIONARY = "STATIONARY_CONVERGED"
 INCONCLUSIVE = "INCONCLUSIVE"
 
 
@@ -73,11 +87,11 @@ def onset_time(times: np.ndarray, signal: np.ndarray, threshold: float) -> float
 
 
 def paired_differences(feature_by_level: Mapping[int, np.ndarray], window: np.ndarray) -> Dict[int, np.ndarray]:
-    """Per-seed RMS over the window of F_l - F_{l-1}, keyed by the coarser level l."""
+    """Per-seed RMS over the window of F_l minus the next finer retained level, keyed by the coarser level l."""
     out = {}
     levels = sorted(feature_by_level)
-    for l in levels[1:]:
-        d = np.asarray(feature_by_level[l])[:, window] - np.asarray(feature_by_level[l - 1])[:, window]
+    for lf, l in zip(levels[:-1], levels[1:]):
+        d = np.asarray(feature_by_level[l])[:, window] - np.asarray(feature_by_level[lf])[:, window]
         out[l] = np.sqrt(np.nanmean(d * d, axis=1))
     return out
 
@@ -95,7 +109,9 @@ def convergence_gate(times: np.ndarray, feature_by_level: Mapping[int, np.ndarra
                      onset_by_level: Optional[Mapping[int, np.ndarray]] = None,
                      regulator_by_level: Optional[Mapping[int, float]] = None,
                      min_levels: int = 3, min_seeds: int = 3,
-                     shrink_slope: float = 0.25) -> dict:
+                     shrink_slope: float = 0.25,
+                     abs_tol: Optional[float] = None, motion_floor: Optional[float] = None,
+                     reference_onset: Optional[float] = None) -> dict:
     """Decide whether a feature trajectory converges as the regulator is removed.
 
     Parameters
@@ -113,6 +129,11 @@ def convergence_gate(times: np.ndarray, feature_by_level: Mapping[int, np.ndarra
         (pure nested Monte-Carlo noise gives 0.5; a non-vanishing
         regulator-dependent offset gives ~0).  The seed-bootstrap 5% quantile
         of the slope must also be positive.
+    abs_tol, motion_floor : protocol-v2 stationary branch (both in feature
+        units).  Without them the gate is the v1 gate.
+    reference_onset : onset time of the reference run.  The onset-aligned
+        retry shifts the reference by it; without it, the retry cannot pass a
+        feature whose raw comparison with the reference failed (review F2).
     """
     times = np.asarray(times, dtype=np.float64)
     levels = sorted(feature_by_level)
@@ -122,12 +143,20 @@ def convergence_gate(times: np.ndarray, feature_by_level: Mapping[int, np.ndarra
     if len(levels) < min_levels or n_seeds < min_seeds or win.sum() < 3:
         result.update(verdict=INCONCLUSIVE, reason="too few levels, seeds or window samples")
         return result
+    if levels != list(range(levels[0], levels[0] + len(levels))):
+        # the shrinkage slope is fitted against the level index, so every
+        # adjacent pair must be one factor of 2 apart (review F7)
+        result.update(verdict=INCONCLUSIVE, reason=f"levels {levels} are not contiguous")
+        return result
+    stat = dict(abs_tol=abs_tol, motion_floor=motion_floor)
 
-    raw = _gate_core(times, feature_by_level, win, tau, reference, reference_err, shrink_slope)
+    raw = _gate_core(times, feature_by_level, win, tau, reference, reference_err, shrink_slope, **stat)
     result["raw"] = raw
-    if raw["verdict"] == PASS or onset_by_level is None:
+    if raw["verdict"] in (PASS, STATIONARY) or onset_by_level is None:
         result["verdict"] = raw["verdict"]
         result["reason"] = raw["reason"]
+        if "fail_kind" in raw:
+            result["fail_kind"] = raw["fail_kind"]
     else:
         # retry with every run aligned at its own onset
         span = window[1] - window[0]
@@ -140,15 +169,30 @@ def convergence_gate(times: np.ndarray, feature_by_level: Mapping[int, np.ndarra
             F = np.asarray(feature_by_level[l])
             aligned[l] = np.vstack([_shift_to_onset(times, F[s], onset_by_level[l][s], grid)
                                     for s in range(n_seeds)])
-        al = _gate_core(grid, aligned, np.ones_like(grid, dtype=bool), tau, None, None, shrink_slope)
+        # the reference is aligned at its own onset; it is never dropped
+        ref_al = err_al = None
+        ref_blocked = False
+        if reference is not None:
+            if reference_onset is not None and np.isfinite(reference_onset):
+                ref_al = _shift_to_onset(times, np.asarray(reference, float), reference_onset, grid)
+                if reference_err is not None:
+                    err_al = _shift_to_onset(times, np.asarray(reference_err, float), reference_onset, grid)
+            else:
+                ref_blocked = True
+        al = _gate_core(grid, aligned, np.ones_like(grid, dtype=bool), tau, ref_al, err_al, shrink_slope, **stat)
         result["aligned"] = al
-        if al["verdict"] == PASS and np.all(np.isfinite(tons)):
+        if (al["verdict"] == PASS and np.all(np.isfinite(tons)) and not ref_blocked):
             result["verdict"] = PASS_ALIGNED
             result["reason"] = ("raw trajectories depend on the regulator only through the onset time; "
-                                "aligned at onset they converge")
+                                "aligned at onset (reference included) they converge")
         else:
             result["verdict"] = raw["verdict"]
             result["reason"] = raw["reason"]
+            if "fail_kind" in raw:
+                result["fail_kind"] = raw["fail_kind"]
+            if ref_blocked and al["verdict"] == PASS:
+                result["reason"] += ("; the aligned retry passed without a reference onset, "
+                                     "which cannot cure a reference disagreement")
 
     if onset_by_level is not None and regulator_by_level is not None:
         Ns, ts = [], []
@@ -160,7 +204,8 @@ def convergence_gate(times: np.ndarray, feature_by_level: Mapping[int, np.ndarra
     return result
 
 
-def _gate_core(times, feature_by_level, win, tau, reference, reference_err, shrink_slope) -> dict:
+def _gate_core(times, feature_by_level, win, tau, reference, reference_err, shrink_slope,
+               abs_tol=None, motion_floor=None) -> dict:
     levels = sorted(feature_by_level)
     pdiff = paired_differences(feature_by_level, win)
     D = {l: float(np.nanmean(pdiff[l])) for l in pdiff}
@@ -204,19 +249,61 @@ def _gate_core(times, feature_by_level, win, tau, reference, reference_err, shri
         out["reference_max_z"] = float(np.nanmax(z))
     out["reference_ok"] = ref_ok
 
+    if abs_tol is not None and motion_floor is not None:
+        tw = np.asarray(times, dtype=np.float64)[win][finite]
+        drift = float(abs(np.polyfit(tw, mean_traj[finite], 1)[0]) * (tw[-1] - tw[0]))
+        out["drift"] = drift
+        out["stationary"] = bool(drift < motion_floor)
+        if out["stationary"]:
+            return _stationary_verdict(out, finest, mean_traj, reference, reference_err, win,
+                                       lo[0], hi[0], ordered, shrinking, abs_tol)
+
     if shrinking and rel < tau:
         if ref_ok is False:
-            out.update(verdict=FAIL, reason="converged across levels but disagrees with the independent reference")
+            out.update(verdict=FAIL, fail_kind="reference",
+                       reason="converged across levels but disagrees with the independent reference")
         else:
             out.update(verdict=PASS, reason="paired differences shrink and the finest is below tau x motion")
     elif out["finest_rel_diff_ci"][0] >= 1.0:
-        out.update(verdict=FAIL, reason="finest paired difference exceeds the feature's own motion in time "
+        out.update(verdict=FAIL, fail_kind="regulator", reason="finest paired difference exceeds the feature's own motion in time "
                                        "(the feature is set by the regulator, not by the dynamics)")
     elif not shrinking and out["finest_rel_diff_ci"][0] >= tau:
-        out.update(verdict=FAIL, reason="paired differences do not shrink and exceed tau x motion "
+        out.update(verdict=FAIL, fail_kind="regulator", reason="paired differences do not shrink and exceed tau x motion "
                                        "(includes features that differ between levels but barely move in time)")
     else:
         out.update(verdict=INCONCLUSIVE, reason="shrinkage or tolerance not established within CI")
+    return out
+
+
+def _stationary_verdict(out, finest, mean_traj, reference, reference_err, win, d_lo, d_hi,
+                        ordered, shrinking, abs_tol) -> dict:
+    """Protocol-v2 branch for a feature that does not drift over the window:
+    convergence is judged against the absolute tolerance, not the motion."""
+    out["abs_tol"] = abs_tol
+    out["finest_diff_ci"] = [float(d_lo), float(d_hi)]
+    ref_ok = None
+    if reference is not None:
+        ref = np.asarray(reference, dtype=np.float64)[win]
+        err = (np.zeros_like(ref) if reference_err is None
+               else np.asarray(reference_err, dtype=np.float64)[win])
+        sd = np.nanstd(finest, axis=0, ddof=1) / np.sqrt(finest.shape[0])
+        z = np.abs(mean_traj - ref) / np.sqrt(sd**2 + err**2 + abs_tol**2)
+        ref_ok = bool(np.nanmax(z) < 3.0)
+        out["reference_max_z"] = float(np.nanmax(z))
+    out["reference_ok"] = ref_ok
+    within = d_hi < abs_tol and (shrinking or max(ordered) < abs_tol)
+    if within:
+        if ref_ok is False:
+            out.update(verdict=FAIL, fail_kind="reference",
+                       reason="stationary and converged across levels, but disagrees with the independent reference")
+        else:
+            out.update(verdict=STATIONARY,
+                       reason="stationary over the window; finest paired difference below the absolute tolerance")
+    elif d_lo >= abs_tol and not shrinking:
+        out.update(verdict=FAIL, fail_kind="regulator",
+                   reason="stationary, but the levels differ by more than the absolute tolerance and do not converge")
+    else:
+        out.update(verdict=INCONCLUSIVE, reason="stationary; convergence within the absolute tolerance not established")
     return out
 
 

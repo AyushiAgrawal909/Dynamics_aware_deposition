@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Apply the frozen T1 analysis to a directory of T2 bundles.
+"""Protocol-v1 T2 analysis (superseded by scripts/t2_analyze.py, protocol v2).
+
+Kept so the v1 decision can be reported next to the amended one.  The exact
+frozen v1 result comes from running this file at frozen_commit 594332a; at
+later revisions it picks up the convergence-gate fixes for review F2 and F7.
+
+Apply the frozen T1 analysis to a directory of T2 bundles.
 
     python3 experiments/nonthermal_attractor/scripts/t2_analyze.py CONFIG.yaml BUNDLE_DIR --out results/... [--label SMOKE]
 
