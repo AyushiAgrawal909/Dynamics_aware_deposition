@@ -4,15 +4,25 @@ attractor_sim/vlasov1d1v.py
 
 1D1V semi-Lagrangian Vlasov-Poisson reference (Cheng-Knorr Strang splitting).
 
-* x-advection (half steps): exact spectral shift of each velocity column,
-  f_k(v) -> f_k(v) exp(-i k v dt/2).  Mass-conserving; not strictly
-  positivity-preserving at grid-scale filamentation (the minimum of f is
-  recorded so this can be monitored).
-* v-advection (full step): conservative and positivity-preserving
-  semi-Lagrangian update through the primitive F(v) = int f dv, interpolated
-  with monotone piecewise-cubic Hermite (Fritsch-Carlson) slopes.  Monotone
-  F gives non-negative cell averages; telescoping fluxes conserve mass
-  except for what leaves through +-v_max, which is accumulated and reported.
+* x-advection (half steps), ``x_scheme``:
+  ``"pchip"`` (default, protocol v2): the same conservative monotone
+  primitive update as in v, periodic in x.  Mass-conserving to round-off
+  and positivity-preserving, so f >= 0 enters the v-step.
+  ``"spectral"`` (protocol v1, kept to reproduce the v1 bundles): exact
+  shift f_k(v) -> f_k(v) exp(-i k v dt/2).  Not positivity-preserving: after
+  beam saturation each velocity column is sharp in x and the shift rings to
+  f_min ~ -0.3 f_max; the v-step then clips those cells to zero, which adds
+  mass (+24% to +72% by t = 40 on the T2 config).
+* v-advection (full step): conservative semi-Lagrangian update through the
+  primitive F(v) = int f dv, interpolated with monotone piecewise-cubic
+  Hermite (Fritsch-Carlson) slopes.  Monotone F gives non-negative cell
+  averages; telescoping fluxes conserve mass except for what leaves through
+  +-v_max.  Negative input cells (spectral x-shift only) make F
+  non-monotone; the resulting negative outputs are set to zero.
+* Budgets, kept separate (cumulative, in units of particle number):
+  ``outflow_mass`` = mass that left through +-v_max (boundary flux only);
+  ``clip_mass`` = mass added by setting negative cells to zero.  The mass
+  identity is number(t) = number(0) - outflow_mass + clip_mass.
 * Poisson: same spectral solve, background and normalisation as the PIC.
 
 The regulator is filamentation dissipation at the grid scale Delta v.  A
@@ -72,9 +82,12 @@ def _hermite(F, m, idx, theta, h):
 if HAVE_NUMBA:
     @numba.njit(parallel=True)
     def _advect_v_numba(f, shift, dv):
-        """Row-parallel conservative PCHIP-primitive shift; returns per-row outflow mass (x dv)."""
+        """Row-parallel conservative PCHIP-primitive shift.
+
+        Returns per-row boundary outflow and clipping gain (both x dv)."""
         nx, nv = f.shape
         out_mass = np.zeros(nx)
+        clip_mass = np.zeros(nx)
         for r in numba.prange(nx):
             F = np.empty(nv + 1)
             F[0] = 0.0
@@ -100,7 +113,8 @@ if HAVE_NUMBA:
             h11 = t * t * (t - 1)
             Fprev = 0.0
             total = F[nv]
-            new_total = 0.0
+            F_lo = 0.0
+            F_hi = 0.0
             for j in range(nv + 1):
                 s_ = j + sh
                 i = j + n
@@ -114,15 +128,54 @@ if HAVE_NUMBA:
                     if i1 > nv:
                         i1 = nv
                     Fn = h00 * F[i0] + h10 * dv * m[i0] + h01 * F[i1] + h11 * dv * m[i1]
+                if j == 0:
+                    F_lo = Fn
+                if j == nv:
+                    F_hi = Fn
                 if j > 0:
                     val = (Fn - Fprev) / dv
                     if val < 0.0:
+                        clip_mass[r] -= val * dv
                         val = 0.0
                     f[r, j - 1] = val
-                    new_total += val * dv
                 Fprev = Fn
-            out_mass[r] = total - new_total
-        return out_mass
+            out_mass[r] = total - (F_hi - F_lo)
+        return out_mass, clip_mass
+
+    @numba.njit(parallel=True)
+    def _advect_x_numba(f, c, dx):
+        """Column-parallel conservative PCHIP-primitive shift in periodic x by c[j] cells."""
+        nx, nv = f.shape
+        for j in numba.prange(nv):
+            col = f[:, j].copy()
+            F = np.empty(nx + 1)
+            F[0] = 0.0
+            for k in range(nx):
+                F[k + 1] = F[k] + col[k] * dx
+            M_col = F[nx]
+            m = np.empty(nx)
+            for k in range(nx):
+                a = col[(k - 1) % nx]
+                b = col[k]
+                m[k] = 2.0 * a * b / (a + b) if a * b > 0.0 else 0.0
+            sh = -c[j]
+            n = int(np.floor(sh))
+            t = sh - n
+            h00 = (1 + 2 * t) * (1 - t) ** 2
+            h10 = t * (1 - t) ** 2
+            h01 = t * t * (3 - 2 * t)
+            h11 = t * t * (t - 1)
+            Fprev = 0.0
+            for i in range(nx + 1):
+                k = i + n
+                q = k // nx
+                kk = k - q * nx
+                Fa = F[kk] + q * M_col
+                Fb = Fa + col[kk] * dx
+                Fn = h00 * Fa + h10 * dx * m[kk] + h01 * Fb + h11 * dx * m[(kk + 1) % nx]
+                if i > 0:
+                    f[i - 1, j] = (Fn - Fprev) / dx
+                Fprev = Fn
 
 
 @dataclass
@@ -138,7 +191,9 @@ class Vlasov1D1V:
     v: np.ndarray = field(init=False)
     k: np.ndarray = field(init=False)
     E: np.ndarray = field(init=False)
+    x_scheme: str = "pchip"
     outflow_mass: float = 0.0
+    clip_mass: float = 0.0
     outflow_energy: float = 0.0
     _phase_dt: float = field(init=False, default=np.nan)
     _phase: np.ndarray = field(init=False, default=None)
@@ -149,6 +204,8 @@ class Vlasov1D1V:
         self.v = -self.v_max + (np.arange(self.nv) + 0.5) * self.dv
         self.k = 2 * np.pi * np.fft.rfftfreq(self.nx, d=self.dx)
         self.f = np.ascontiguousarray(self.f, dtype=np.float64)
+        if self.x_scheme not in ("pchip", "spectral"):
+            raise ValueError(f"x_scheme {self.x_scheme!r}")
         self.E = np.zeros(self.nx)
         self.solve()
 
@@ -166,6 +223,13 @@ class Vlasov1D1V:
         self.E = np.fft.irfft(Ek, n=self.nx)
 
     def _advect_x(self, dt):
+        if self.x_scheme == "pchip":
+            c = self.v * dt / self.dx
+            if HAVE_NUMBA:
+                _advect_x_numba(self.f, c, self.dx)
+            else:
+                self.f = _advect_x_numpy(self.f, c, self.dx)
+            return
         if dt != self._phase_dt:
             self._phase = np.exp(-1j * np.outer(self.k, self.v) * dt)
             self._phase_dt = dt
@@ -177,8 +241,9 @@ class Vlasov1D1V:
         a = (Q / M) * self.E                      # acceleration per x row
         shift = a * dt                            # v displacement per row
         if HAVE_NUMBA:
-            lost = _advect_v_numba(self.f, shift, self.dv)
+            lost, clipped = _advect_v_numba(self.f, shift, self.dv)
             self.outflow_mass += float(lost.sum() * self.dx)
+            self.clip_mass += float(clipped.sum() * self.dx)
             return
         # primitive at cell faces v_{j-1/2}, j = 0..nv
         F = np.concatenate([np.zeros((self.nx, 1)), np.cumsum(self.f, axis=1) * self.dv], axis=1)
@@ -191,10 +256,9 @@ class Vlasov1D1V:
         Fn = np.where(s <= 0, 0.0, Fn)
         Fn = np.where(s >= self.nv, F[:, -1:], Fn)
         fnew = np.diff(Fn, axis=1) / self.dv
-        before = self.f.sum() * self.dv * self.dx
+        self.outflow_mass += float(np.sum(F[:, -1] - (Fn[:, -1] - Fn[:, 0])) * self.dx)
+        self.clip_mass += float(np.sum(np.maximum(-fnew, 0.0)) * self.dv * self.dx)
         self.f = np.maximum(fnew, 0.0)
-        after = self.f.sum() * self.dv * self.dx
-        self.outflow_mass += before - after
 
     def step(self, dt: float) -> None:
         """Strang: x(dt/2) -> Poisson -> v(dt) -> x(dt/2) -> Poisson."""
@@ -212,10 +276,33 @@ class Vlasov1D1V:
         return {"number": number, "total_charge": Q * number + self.n0 * self.L, "momentum": mom,
                 "kinetic_energy": kin, "field_energy": fe, "total_energy": kin + fe,
                 "f_min": float(self.f.min()), "outflow_mass": self.outflow_mass,
+                "clip_mass": self.clip_mass,
                 "L2": float(np.sum(self.f ** 2) * self.dv * self.dx)}
 
     def field_spectrum(self) -> np.ndarray:
         return np.abs(np.fft.rfft(self.E)) ** 2
+
+
+def _advect_x_numpy(f, c, dx):
+    """Reference (numpy) version of ``_advect_x_numba``."""
+    nx = f.shape[0]
+    F = np.concatenate([np.zeros((1, f.shape[1])), np.cumsum(f, axis=0) * dx], axis=0)
+    M_col = F[-1]
+    a, b = np.roll(f, 1, axis=0), f
+    with np.errstate(divide="ignore", invalid="ignore"):
+        m = np.where(a * b > 0, 2 * a * b / (a + b), 0.0)
+    s = np.arange(nx + 1)[:, None] - c[None, :]
+    n = np.floor(s).astype(np.int64)
+    t = s - n
+    q = n // nx
+    kk = n - q * nx
+    cols = np.arange(f.shape[1])[None, :]
+    Fa = F[kk, cols] + q * M_col[None, :]
+    Fb = Fa + f[kk, cols] * dx
+    ma, mb = m[kk, cols], m[(kk + 1) % nx, cols]
+    Fn = ((1 + 2 * t) * (1 - t) ** 2 * Fa + t * (1 - t) ** 2 * dx * ma
+          + t * t * (3 - 2 * t) * Fb + t * t * (t - 1) * dx * mb)
+    return np.ascontiguousarray(np.diff(Fn, axis=0) / dx)
 
 
 def waterbag_beams_f(L, nx, v_max, nv, v_b, dv_b, n0=1.0, modes=(), amplitudes=(), phases=()):

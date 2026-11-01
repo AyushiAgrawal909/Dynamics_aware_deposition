@@ -30,4 +30,4 @@ One production-length PIC run at the coarsest level, used only to close the prot
 
 Ewart et al. follow their tail to 3200/ω_pe, with beam widths of 2–50% of v_b and 20,000 ppc. Whether the early saturation here is physical or a 128-ppc effect is exactly what the nested ladder tests. It also means a T3 collapse fit on this window may come back STATIONARY.
 
-Energy drift |ΔE|/K stays below 1.3e-4 throughout. The tail energy fraction at the end of the window is 0.54.
+Energy drift |ΔE|/K stays below 1.3e-4 throughout. The tail energy fraction above eps_tail = 7.92 at the end of the window is 0.0080 (`pilot_check.json`), so the quality criterion 0.1 f_tail is 8e-4. (An earlier version of this note gave 0.54, a value for a lower threshold; corrected 2026-11-01.)
