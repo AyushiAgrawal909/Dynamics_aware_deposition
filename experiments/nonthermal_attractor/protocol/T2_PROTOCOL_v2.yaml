@@ -1,0 +1,115 @@
+# T2 protocol, amendment v2.  STATUS: DRAFT (becomes FROZEN when Ayushi approves it).
+#
+# Amends protocol/T2_PROTOCOL.yaml (v1, frozen 2026-10-03 at 594332a), which stays
+# unchanged and is still reported: scripts/t2_analyze_v1.py at 594332a gives the v1 result.
+#
+# Written 2026-11-01, after the scan finished and BEFORE any T2 science output was read.
+# The only things read from the production bundles are file inventories, particle number
+# and total energy (to check the runs completed and conserve), and the Vlasov mass budget
+# that showed the clipping defect.  No eps_q, eta_min, onset or tail value
+# has been looked at.  The analysis code for v2 is applied only after this file is FROZEN.
+#
+# Why v2 exists: an external review (2026-10-24), verified in the project thread
+# "Evaluate repo review findings", found defects in the v1 gate and the Vlasov reference:
+#   F1  quality failures did not veto the outcome
+#   F2  the onset-aligned retry dropped the reference
+#   F3  a stationary converged feature could never PASS (motion-normalised tolerance)
+#   F4  the Vlasov solver gained 24-151% mass by clipping (all four production runs)
+#   F5  Vlasov and PIC used different rho(eta) reconstruction grids
+#   F6  the Vlasov ladder, outflow veto and protocol completeness were not enforced
+#   F7  a gap in the retained levels crashed the gate
+# Each change below is labelled IMPLEMENTATION (the code now does what v1 said) or
+# DECISION RULE (a new or changed rule).
+
+protocol_version: 2
+task: T2
+status: DRAFT
+dated: "2026-11-01"
+amends: protocol/T2_PROTOCOL.yaml
+frozen_commit: null            # set in the commit that freezes v2
+approved_by: null
+
+configs:
+  pic: configs/t2_waterbag_dv020.yaml       # v1 config, unchanged: the 52 PIC/control bundles stand
+  vlasov: configs/t2_waterbag_dv020_v2.yaml # new Vlasov numerics (below); PIC part identical to v1
+
+# Code revisions whose bundles the analysis accepts.  PIC science code at 43ca045 is
+# identical to 594332a (submission record).  Vlasov: only bundles from the v2 freeze.
+accepted_revisions:
+  pic: ["594332ad8cbfe6f7383fd7241842b7a7c1e90237", "43ca0454373a3b8e2653829cb1eb111f36a49a07"]
+  vlasov: []                     # filled with frozen_commit when v2 is frozen
+
+time:
+  t_end: 4800.0
+  snapshot_every: 10.0
+
+regulator_scan:
+  pic_levels: [0, 1, 2, 3, 4, 5, 6, 7]       # 16384 ... 128 ppc, nested
+  pic_seeds: [0, 1, 2, 3]
+  pic_conditional_seeds: [4, 5, 6, 7]         # only if onset_seed_rule triggers
+  control_seeds: [0, 1]                       # stable control at every PIC level
+  vlasov_levels: [0, 1, 2, 3]                 # dv = 0.00125 * 2**l
+
+vlasov_numerics:                 # DECISION RULE (method change, F4 and F5)
+  x_scheme: "pchip: conservative monotone primitive shift in periodic x (the v-step's scheme); replaces the spectral shift"
+  dv_ladder: "0.00125, 0.0025, 0.005, 0.01 (dv_b_rec / 16 ... / 2); v1 used dv_b/128 ... dv_b/16, which do not divide 0.02"
+  reconstruction: "f block-averaged exactly onto the PIC cells (nx_b = 256, nv_b = 800, |v| < 8); mass beyond 8 recorded"
+  saved_f: "coarse f on the reconstruction grid at 9 times, so rho(eta) can be recomputed"
+  validation_before_production: "linear growth rate within 5% (V3), mass identity at round-off, clip mass < 1e-6, and the
+    energy drift to t = 500 at the coarsest level, all reported in the PR that freezes v2"
+  known_limit: "the x-shift adds dissipation at fixed dx = 0.04, which the dv ladder does not refine; a dx-halving
+    check at the coarsest level is reported with the ladder"
+
+quality:                         # vetoes, per run, evaluated at t = t_end inclusive
+  energy_factor: 0.1             # PIC: |dE|/K0 + control |dK|/K0 < 0.1 f_tail; Vlasov: |dE|/K0 < 0.1 f_tail (v1: PIC only)
+  pic_momentum_rel: 1.0e-10      # max |p - p0| / sqrt(2 K0 N0); "round-off" in v1 (pilot: 1e-16)
+  pic_number_rel: 1.0e-12
+  vlasov_identity_rel: 1.0e-10   # number(t) - number(0) + outflow - clip, over N0 (IMPLEMENTATION: budgets now separate)
+  vlasov_clip_rel: 1.0e-6        # DECISION RULE: clipping gain counted like outflow
+  vlasov_outflow_rel: 1.0e-6     # v1 rule, now on the true boundary flux
+  vlasov_mass_rel: 1.0e-6        # total mass change; also rejects v1 bundles, which net clipping into outflow
+  usable_levels: "a PIC level is used only if every seed passes; levels contiguous from the finest; finest failing => INVALID_NUMERICS"
+
+analysis:
+  window: [500.0, 4800.0]
+  q: 0.01
+  eps_tail: 7.92
+  q_onset: 0.0003
+  tau: 0.1
+  shrink_slope: 0.25
+  min_levels: 3
+  min_seeds: 3
+  eta_min_max_limited_fraction: 0.05
+  onset_seed_rule_threshold: 0.1 # sigma(t_on, finest 4 seeds) / |b| > 0.1, b = fitted ln N onset coefficient
+                                 # (v1 said "in units of the S6 effect size"; v2 reads that as the plasma b)
+  features:                      # DECISION RULE (F3): stationary branch
+    eps_q:   {abs_tol_rel: 0.01, motion_floor_rel: 0.01}   # 1% of the finest-level window mean
+    eta_min: {abs_tol_rel: 0.10, motion_floor_rel: 0.10}
+  stationary_rule: >
+    A feature whose fitted drift over the window (finest-level mean) is below motion_floor is
+    STATIONARY_CONVERGED if the seed-bootstrap upper bound of the finest paired difference is below
+    abs_tol (and the differences shrink, or all are below abs_tol), and it agrees with the reference
+    within abs_tol (max |z| < 3, abs_tol in quadrature).  Levels that differ by more than abs_tol
+    without shrinking are FAIL_REGULATOR_DEPENDENT; anything else INCONCLUSIVE.  Moving features
+    keep the v1 tau x motion rule.
+  reference: >
+    IMPLEMENTATION (F6): the finest Vlasov level, admissible for a feature only if every Vlasov run
+    used passes quality and the ladder converges (RMS step D_1 < abs_tol and D_1 <= D_2); its
+    uncertainty is |F_0 - F_1| per snapshot.  The onset-aligned retry shifts the reference by the
+    Vlasov onset and never drops it (F2).  Vlasov onset vs 1/dv is fitted and reported.
+  levels: "retained levels must be contiguous, else INCONCLUSIVE (F7)"
+
+outcomes:                        # DECISION RULE (F1): prerequisites first
+  INVALID_INPUTS: "the campaign deviates from the declared matrix, configs, revisions or time grid"
+  INVALID_NUMERICS: "the finest PIC level fails the quality gate"
+  INCOMPLETE: "the conditional seed rule triggers and seeds 4-7 are absent"
+  GO_T3: "at least one resolved feature PASS or PASS_AFTER_ONSET_ALIGNMENT with an admissible reference"
+  STATIONARY_RESULT: "no PASS, at least one STATIONARY_CONVERGED with an admissible reference, no regulator FAIL: a converged stationary tail; T3 stops, the result is reported at that scope"
+  REGULATOR_RESULT: "every feature FAIL_REGULATOR_DEPENDENT on the PIC ladder"
+  REGULATOR_RESULT_EPS_Q_ONLY: "eps_q regulator FAIL and eta_min unresolved"
+  INCONCLUSIVE: "otherwise, including a PIC/Vlasov disagreement or an inadmissible reference; reasons listed"
+
+box_check: >
+  The L = 32-wavelength run (configs/t2_waterbag_dv020_L32.yaml, 1024 ppc, seed 0) is compared on eps_q
+  only (its rho(eta) x-bin is twice as wide), against the seed spread of level 4 in the 16-wavelength scan:
+  scripts/t2_box_check.py.  Reported next to the outcome, not part of it.
